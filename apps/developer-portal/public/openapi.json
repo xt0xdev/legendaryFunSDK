@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Legendary.fun integrator API",
+    "version": "0.1.0",
+    "description": "Existing DAP paths are unchanged. Additive /api/v1, Pump-shaped, and Meteora-shaped prefixes sit beside them. Quote/swap/tape return 501 until admitted. Not a production audit."
+  },
+  "servers": [
+    { "url": "https://legendary.fun", "description": "Live DAP (catalog/bootstrap/fx today)" },
+    { "url": "https://developer.legendary.fun", "description": "Public developer portal (CNAME)" },
+    { "url": "https://legendary.devbyclaw.com", "description": "Portal origin; developer.legendary.fun CNAMEs here" },
+    { "url": "http://127.0.0.1:8833", "description": "Local developer portal" }
+  ],
+  "tags": [
+    { "name": "Existing DAP", "description": "Current public paths. Do not change." },
+    { "name": "Native v1", "description": "Additive Legendary discovery" },
+    { "name": "Pump-shaped", "description": "Compatibility facade for Pump-style clients" },
+    { "name": "Meteora-shaped", "description": "Compatibility facade for DBC-style clients" }
+  ],
+  "paths": {
+    "/api/mainnet/trade/catalog": {
+      "get": {
+        "tags": ["Existing DAP"],
+        "summary": "Verified token catalog",
+        "operationId": "getCatalog",
+        "x-status": "live",
+        "responses": { "200": { "description": "Catalog JSON schema 1" } }
+      }
+    },
+    "/api/mainnet/trade/bootstrap": {
+      "get": {
+        "tags": ["Existing DAP"],
+        "summary": "Program identities (factory, genesis, CTO)",
+        "operationId": "getBootstrap",
+        "x-status": "live",
+        "responses": { "200": { "description": "Bootstrap JSON" } }
+      }
+    },
+    "/api/market/sol-usd": {
+      "get": {
+        "tags": ["Existing DAP"],
+        "summary": "SOL/USD display FX",
+        "operationId": "getSolUsd",
+        "x-status": "live",
+        "responses": { "200": { "description": "usdPerSol string" } }
+      }
+    },
+    "/api/v1/tokens": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "Partner token list mapped from catalog",
+        "operationId": "getTokens",
+        "x-status": "additive",
+        "responses": { "200": { "description": "launchpad=legendary token list" } }
+      }
+    },
+    "/api/v1/tokens/{mint}": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "One token",
+        "operationId": "getToken",
+        "x-status": "additive",
+        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Token" }, "404": { "description": "Unknown mint" } }
+      }
+    },
+    "/api/v1/tokens/{mint}/curve": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "Curve vs graduated",
+        "operationId": "getCurve",
+        "x-status": "additive",
+        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Curve flags" } }
+      }
+    },
+    "/api/v1/launchpad": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "Factory, tags, existing API list",
+        "operationId": "getLaunchpad",
+        "x-status": "additive",
+        "responses": { "200": { "description": "Launchpad constants" } }
+      }
+    },
+    "/api/v1/sol-usd": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "Same FX as /api/market/sol-usd",
+        "operationId": "getV1SolUsd",
+        "x-status": "additive",
+        "responses": { "200": { "description": "FX" } }
+      }
+    },
+    "/api/v1/quote": {
+      "get": {
+        "tags": ["Native v1"],
+        "summary": "Hosted quote (not admitted)",
+        "operationId": "getQuote",
+        "x-status": "planned-501",
+        "responses": { "501": { "description": "NOT_ADMITTED" } }
+      }
+    },
+    "/api/compat/pump/v3/coins/latest": {
+      "get": {
+        "tags": ["Pump-shaped"],
+        "summary": "Pump-style latest coins from catalog",
+        "operationId": "pumpLatest",
+        "x-status": "additive",
+        "responses": { "200": { "description": "{ data, meta }" } }
+      }
+    },
+    "/api/compat/pump/v3/coins/{mint}": {
+      "get": {
+        "tags": ["Pump-shaped"],
+        "summary": "Pump-style coin by mint",
+        "operationId": "pumpCoin",
+        "x-status": "additive",
+        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Coin" }, "404": { "description": "Unknown" } }
+      }
+    },
+    "/api/compat/pump/v3/sol-price": {
+      "get": {
+        "tags": ["Pump-shaped"],
+        "summary": "Pump-style SOL price",
+        "operationId": "pumpSol",
+        "x-status": "additive",
+        "responses": { "200": { "description": "sol_price" } }
+      }
+    },
+    "/api/compat/pump/v3/trades/latest": {
+      "get": {
+        "tags": ["Pump-shaped"],
+        "summary": "Trade tape (not admitted)",
+        "operationId": "pumpTrades",
+        "x-status": "planned-501",
+        "responses": { "501": { "description": "NOT_ADMITTED" } }
+      }
+    },
+    "/api/compat/meteora/v1/pools": {
+      "get": {
+        "tags": ["Meteora-shaped"],
+        "summary": "DBC-style pool list from catalog",
+        "operationId": "meteoraPools",
+        "x-status": "additive",
+        "responses": { "200": { "description": "pools[]" } }
+      }
+    },
+    "/api/compat/meteora/v1/pools/{mint}": {
+      "get": {
+        "tags": ["Meteora-shaped"],
+        "summary": "One pool",
+        "operationId": "meteoraPool",
+        "x-status": "additive",
+        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Pool" } }
+      }
+    },
+    "/api/compat/meteora/v1/quote": {
+      "get": {
+        "tags": ["Meteora-shaped"],
+        "summary": "swapQuote2 (not admitted)",
+        "operationId": "meteoraQuote",
+        "x-status": "planned-501",
+        "responses": { "501": { "description": "NOT_ADMITTED" } }
+      }
+    },
+    "/api/compat/meteora/v1/swap2": {
+      "post": {
+        "tags": ["Meteora-shaped"],
+        "summary": "swap2 unsigned tx (not admitted)",
+        "operationId": "meteoraSwap2",
+        "x-status": "planned-501",
+        "responses": { "501": { "description": "NOT_ADMITTED" } }
+      }
+    }
+  }
+}

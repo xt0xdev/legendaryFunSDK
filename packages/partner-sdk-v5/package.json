@@ -1,0 +1,16 @@
+{
+  "name": "@legendary-fun/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Legendary.fun integrator SDK: discovery, Pump/Meteora-shaped clients, v5 trade payload encoding. Unsigned only.",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "network": "solana:mainnet",
+  "scope": "server-admitted-atomic-v5",
+  "asOfMs": 1794682505746,
+  "expiresAtMs": 1794682520746,
+  "tokens": [
+    {
+      "schema": 1,
+      "network": "solana:mainnet",
+      "phase": "graduated",
+      "venue": "raydium-cpmm",
+      "mint": "GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND",
+      "launch": "GER4y1nqT62bjXTr4VrcaLtpjc1ukMGA1gVhC9FAoCAg",
+      "pool": "czewDLamSPb89EqxWU37M1ddK7kGeAcDwVWKHAkmwtM",
+      "decimals": 6,
+      "supplyBaseUnits": "100000000000000000",
+      "genesisSupplyBaseUnits": "100000000000000000",
+      "observedAtMs": 1794682505746,
+      "revision": "67",
+      "policyVersion": "1",
+      "shield": "off",
+      "price": {
+        "numerator": "232071924172000000",
+        "denominator": "10417402726096617000000000",
+        "unit": "SOL-per-token",
+        "beforeFees": true
+      },
+      "poolOpenTime": "1794649697",
+      "signingAllowed": false,
+      "quoteAvailable": false,
+      "capabilities": { "buy": false, "sell": false, "create": false }
+    }
+  ]
+}
