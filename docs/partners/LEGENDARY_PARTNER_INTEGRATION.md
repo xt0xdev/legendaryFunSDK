@@ -401,4 +401,4 @@ const signed = await wallet.signTransaction(tx);
 
 ## 11. developer.legendary.fun
 
-The integrator site is `apps/developer-portal` (Next.js, port **8833**). Hosts: `developer.legendary.fun` CNAMEs to `legendary.devbyclaw.com`. One page: three integration paths, `@legendary-fun/sdk` snippets, full path table, OpenAPI/Swagger try-it, and the partner PDF. It does not replace legendary.fun and does not enable signing.
+The integrator site is `apps/developer-portal` (Next.js, port **8833**). Hosts: `developer.legendary.fun` CNAMEs to `legendary.devbyclaw.com`. Public source: https://github.com/xt0xdev/legendaryFunSDK (`@legendary-fun/sdk` is **not on npm** yet). One page: three integration paths, SDK snippets, full path table, OpenAPI/Swagger try-it, and the partner PDF. It does not replace legendary.fun and does not enable signing.

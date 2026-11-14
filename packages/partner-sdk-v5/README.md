@@ -8,7 +8,8 @@ Integrator kit for Legendary.fun. Three surfaces, one program:
 
 Does not wrap `/api/devnet/trade` cookies. Does not sign. Graduated tokens trade on Raydium CPMM / Jupiter.
 
-Not published to npm. Not a separate runtime from this folder. Intended name `@legendary-fun/sdk` is private until a publish is authorized.
+Public source: https://github.com/xt0xdev/legendaryFunSDK  
+Not on npm. Intended name `@legendary-fun/sdk` stays `"private": true` until a publish is authorized.
 
 ```js
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';

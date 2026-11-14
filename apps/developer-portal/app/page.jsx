@@ -1,6 +1,6 @@
 import Explorer from '../components/Explorer.jsx';
 
-const SDK = `// Local kit in this Legendary repo — not on npm, not a separate GitHub repo.
+const SDK = `// https://github.com/xt0xdev/legendaryFunSDK  — public source, not on npm
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
 const lg = createLegendarySdk({ origin: 'https://legendary.devbyclaw.com' });
@@ -55,6 +55,7 @@ export default function Page() {
           <a href="#explorer">Explorer</a>
         </nav>
         <div className="top-actions">
+          <a className="btn ghost" href="https://github.com/xt0xdev/legendaryFunSDK">GitHub</a>
           <a className="btn ghost" href="https://legendary.fun">legendary.fun</a>
           <a className="btn" href="/LEGENDARY_PARTNER_INTEGRATION.pdf">PDF</a>
         </div>
@@ -101,9 +102,9 @@ export default function Page() {
 
         <h2 className="sec" id="sdk">SDK</h2>
         <p className="note">
-          Source folder in this Legendary repo: <code>packages/partner-sdk-v5</code>.
-          Intended npm name <code>@legendary-fun/sdk</code> is <strong>not published</strong> and is not a public GitHub repo.
-          Copy the folder. No cookies, keys, or v4 bytes.
+          Public source: <a href="https://github.com/xt0xdev/legendaryFunSDK">github.com/xt0xdev/legendaryFunSDK</a>.
+          Folder <code>packages/partner-sdk-v5</code>. Intended npm name <code>@legendary-fun/sdk</code> is <strong>not on npm</strong>.
+          No cookies, keys, or v4 bytes.
           <code>quote()</code>, Pump <code>buy()</code>, and Meteora <code>swap2()</code> throw <code>NOT_ADMITTED</code>.
         </p>
         <pre>{SDK}</pre>
@@ -157,6 +158,7 @@ export default function Page() {
         <div className="foot-row">
           <Brand href="https://legendary.fun" />
           <nav className="docs" aria-label="Kit documents">
+            <a href="https://github.com/xt0xdev/legendaryFunSDK">GitHub</a>
             <a href="/LEGENDARY_PARTNER_INTEGRATION.pdf">Partner PDF</a>
             <a href="/openapi.json">OpenAPI</a>
             <a href="https://legendary.fun">Launchpad</a>
