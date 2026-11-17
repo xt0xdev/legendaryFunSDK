@@ -2,7 +2,7 @@
 
 One-page Next.js integrator portal. Serves the partner PDF, OpenAPI/Swagger explorer, SDK snippets, and the three integration paths (native, Pump-shaped, Meteora-shaped). Existing DAP catalog GET, factory discovery POST, catalog quote POST, bootstrap, and fx are proxied from `https://legendary.fun`. Additive `/api/v1`, `/api/compat/pump/v3`, and `/api/compat/meteora/v1` are served locally and overlay the factory list.
 
-Wallet create and graduation claims stay on legendary.fun. Integer quote and candles are on. Hosted swap, create, claims, Pump buy/sell, and empty tape are 404 DISABLED.
+This page documents working discovery, quote, and candle routes. Trading stays on the legendary.fun token page.
 
 Public hosts (both accepted):
 

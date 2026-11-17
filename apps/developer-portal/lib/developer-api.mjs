@@ -15,6 +15,7 @@ const EXISTING_POST = Object.freeze([
   '/api/mainnet/trade/discovery',
   '/api/mainnet/trade/catalog',
 ]);
+const CANDLES_SWAP = /^\/api\/mainnet\/trade\/candles-swap\/([1-9A-HJ-NP-Za-km-z]{32,44})\/(1m|5m|15m|1h|4h|24h|7d)$/;
 const SITE_LANE_PREFIXES = Object.freeze([
   '/api/mainnet/create',
   '/api/devnet/create',
@@ -64,6 +65,7 @@ function cachedPorts() {
       quoteCache.set(key, { at: Date.now(), value });
       return value;
     },
+    readCandles: (mint, interval, signal) => live.readCandles(mint, interval, signal),
   };
 }
 
@@ -150,6 +152,13 @@ export async function handleDeveloperApi(request) {
   if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) return corsOptions();
   if (SITE_LANE_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(`${prefix}/`))) {
     return siteLane();
+  }
+  if (CANDLES_SWAP.test(url.pathname) && request.method === 'GET') {
+    return passthrough(url.pathname, {
+      method: 'GET',
+      headers: { accept: 'application/json' },
+      signal,
+    });
   }
   if (EXISTING_GET.includes(url.pathname) && request.method === 'GET') {
     return passthrough(url.pathname, {

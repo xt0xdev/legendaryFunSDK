@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
-const DEFAULT_MINT = 'GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND';
+const DEFAULT_MINT = '422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND';
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 
 function statusClass(status) {
@@ -13,9 +13,7 @@ function statusClass(status) {
 
 function statusLabel(status) {
   if (status === 'live') return 'Live DAP';
-  if (status === 'additive') return 'Additive';
-  if (status === 'site-lane') return 'Site lane · off';
-  return 'Off';
+  return 'Working';
 }
 
 export default function Explorer() {
@@ -47,6 +45,9 @@ export default function Explorer() {
     for (const [path, methods] of Object.entries(spec.paths)) {
       for (const [method, op] of Object.entries(methods)) {
         if (typeof op !== 'object' || Array.isArray(op)) continue;
+        const status = op['x-status'] || 'additive';
+        if (status !== 'live' && status !== 'additive') continue;
+        if (/\/(swap|create|claim|trades|stream|prepare)\b/.test(path)) continue;
         out.push({
           id: `${method.toUpperCase()} ${path}`,
           method: method.toUpperCase(),
@@ -78,7 +79,7 @@ export default function Explorer() {
       if (!current.path.startsWith('/api/')) throw new Error('PATH');
       const value = mint.trim();
       if (current.path.includes('{mint}') && !MINT_RE.test(value)) throw new Error('MINT');
-      const path = current.path.replaceAll('{mint}', value);
+      const path = current.path.replaceAll('{mint}', value).replaceAll('{interval}', '1m');
       const init = {
         method: current.method,
         headers: { accept: 'application/json' },
@@ -149,7 +150,7 @@ export default function Explorer() {
             <pre>{typeof result.body === 'string' ? result.body : JSON.stringify(result.body, null, 2)}</pre>
           </>
         ) : (
-          <p className="note">Hits this portal. Catalog/discovery/quotes/candles read https://legendary.fun. Hosted swap, create, and claims are off here.</p>
+          <p className="note">Hits this portal. Catalog, discovery, quotes, and candles read https://legendary.fun.</p>
         )}
       </div>
     </div>

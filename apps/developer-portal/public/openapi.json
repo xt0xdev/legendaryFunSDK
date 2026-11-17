@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Legendary.fun integrator API",
-    "version": "0.2.0",
-    "description": "Live DAP on legendary.fun plus additive /api/v1, Pump-shaped, and Meteora-shaped prefixes. Existing catalog/bootstrap/fx stay unchanged. Integer quote and candles-swap overlays are on. Hosted swap, create, claims, Pump buy/sell, and empty tape routes are omitted (404 DISABLED). Site trading is the legendary.fun token page. Not a production audit."
+    "version": "0.3.0",
+    "description": "Working discovery, quote, and candle routes. Live DAP on legendary.fun plus additive /api/v1, Pump-shaped, and Meteora-shaped prefixes on this portal. Existing catalog/bootstrap/fx stay unchanged. Trading is the legendary.fun token page. Not a production audit."
   },
   "servers": [
     {
@@ -39,10 +39,6 @@
     {
       "name": "Meteora-shaped",
       "description": "Compatibility facade overlaying the factory list"
-    },
-    {
-      "name": "Site lane",
-      "description": "Same-origin wallet create/claims. Partner DAP returns 501."
     }
   ],
   "paths": {
@@ -105,6 +101,49 @@
         "responses": {
           "200": {
             "description": "Bootstrap JSON"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/candles-swap/{mint}/{interval}": {
+      "get": {
+        "tags": [
+          "Existing DAP"
+        ],
+        "summary": "Live OHLCV used by the token page",
+        "description": "Schema swap-movement-v1. Intervals: 1m, 5m, 15m, 1h, 4h, 24h, 7d.",
+        "operationId": "getCandlesSwap",
+        "x-status": "live",
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "interval",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1m",
+                "5m",
+                "15m",
+                "1h",
+                "4h",
+                "24h",
+                "7d"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OHLCV candles"
           }
         }
       }
@@ -231,7 +270,7 @@
         "tags": [
           "Native v1"
         ],
-        "summary": "Factory, tags, existing APIs, site-lane map",
+        "summary": "Factory, tags, and live reads",
         "operationId": "getLaunchpad",
         "x-status": "additive",
         "responses": {
@@ -252,22 +291,6 @@
         "responses": {
           "200": {
             "description": "FX"
-          }
-        }
-      }
-    },
-    "/api/v1/stream": {
-      "get": {
-        "tags": [
-          "Native v1"
-        ],
-        "summary": "Market websocket URL",
-        "description": "Returns wss://api.legendary.fun/api/mainnet/market/stream. Partner DAP does not terminate the socket.",
-        "operationId": "getV1Stream",
-        "x-status": "additive",
-        "responses": {
-          "200": {
-            "description": "Websocket descriptor"
           }
         }
       }
@@ -308,17 +331,34 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1m",
+                "5m",
+                "15m",
+                "1h",
+                "4h",
+                "24h",
+                "7d"
+              ],
+              "default": "1m"
+            }
           }
         ],
+        "description": "Maps GET /api/mainnet/trade/candles-swap/{mint}/{interval} on legendary.fun.",
         "responses": {
           "200": {
             "description": "Live swap-movement candles"
           },
           "404": {
-            "description": "DISABLED if candles port is missing"
+            "description": "Unknown mint or interval"
           }
-        },
-        "description": "Maps GET /api/mainnet/trade/candles-swap/{mint}/{interval} on legendary.fun."
+        }
       }
     },
     "/api/v1/idl": {
@@ -399,6 +439,48 @@
           },
           "404": {
             "description": "Unknown"
+          }
+        }
+      }
+    },
+    "/api/compat/pump/v3/candlesticks/{mint}/{interval}": {
+      "get": {
+        "tags": [
+          "Pump-shaped"
+        ],
+        "summary": "OHLCV overlay of live candles-swap",
+        "operationId": "pumpCandlesticks",
+        "x-status": "additive",
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "interval",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1m",
+                "5m",
+                "15m",
+                "1h",
+                "4h",
+                "24h",
+                "7d"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Live swap-movement candles"
           }
         }
       }

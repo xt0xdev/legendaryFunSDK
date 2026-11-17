@@ -2,7 +2,7 @@
 
 Public source for the **SDK**, **developer portal**, and **additive partner API**.
 
-This is **not** the Legendary.fun DAP. Hosted swap, create, claims, Pump buy/sell, and empty tape return `404 DISABLED`. Integer quote and candles stay on. Existing catalog/bootstrap/fx on `https://legendary.fun` are unchanged. Site trading stays same-origin on the token page.
+This is **not** the Legendary.fun DAP. The portal documents working discovery, quote, and candle routes. Existing catalog/bootstrap/fx on `https://legendary.fun` are unchanged. Site trading stays same-origin on the token page.
 
 **Not on npm.** `@legendary-fun/sdk` is the intended name of `packages/partner-sdk-v5` and is `"private": true` until a publish is authorized.
 
