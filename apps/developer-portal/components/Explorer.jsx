@@ -14,7 +14,8 @@ function statusClass(status) {
 function statusLabel(status) {
   if (status === 'live') return 'Live DAP';
   if (status === 'additive') return 'Additive';
-  return '501 until admitted';
+  if (status === 'site-lane') return 'Site lane · off';
+  return 'Off';
 }
 
 export default function Explorer() {
@@ -22,6 +23,7 @@ export default function Explorer() {
   const [error, setError] = useState('');
   const [selected, setSelected] = useState('');
   const [mint, setMint] = useState(DEFAULT_MINT);
+  const [body, setBody] = useState('');
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -44,6 +46,7 @@ export default function Explorer() {
     const out = [];
     for (const [path, methods] of Object.entries(spec.paths)) {
       for (const [method, op] of Object.entries(methods)) {
+        if (typeof op !== 'object' || Array.isArray(op)) continue;
         out.push({
           id: `${method.toUpperCase()} ${path}`,
           method: method.toUpperCase(),
@@ -53,6 +56,7 @@ export default function Explorer() {
           status: op['x-status'] || 'additive',
           tags: op.tags || [],
           operationId: op.operationId,
+          tryBody: typeof op['x-try-body'] === 'string' ? op['x-try-body'] : '',
         });
       }
     }
@@ -60,6 +64,11 @@ export default function Explorer() {
   }, [spec]);
 
   const current = operations.find((op) => op.id === selected) || operations[0];
+
+  useEffect(() => {
+    if (current?.tryBody) setBody(current.tryBody);
+    else setBody('');
+  }, [current?.id, current?.tryBody]);
 
   async function run() {
     if (!current) return;
@@ -70,13 +79,18 @@ export default function Explorer() {
       const value = mint.trim();
       if (current.path.includes('{mint}') && !MINT_RE.test(value)) throw new Error('MINT');
       const path = current.path.replaceAll('{mint}', value);
-      const response = await fetch(path, {
+      const init = {
         method: current.method,
-        headers: { accept: 'application/json', 'content-type': 'application/json' },
-      });
+        headers: { accept: 'application/json' },
+      };
+      if (current.method !== 'GET' && current.method !== 'OPTIONS') {
+        init.headers['content-type'] = 'application/json';
+        if (body.trim()) init.body = body;
+      }
+      const response = await fetch(path, init);
       const type = response.headers.get('content-type') || '';
-      const body = type.includes('json') ? await response.json() : await response.text();
-      setResult({ status: response.status, body });
+      const payload = type.includes('json') ? await response.json() : await response.text();
+      setResult({ status: response.status, body: payload });
     } catch (err) {
       setResult({ status: 0, body: { error: String(err) } });
     } finally {
@@ -112,11 +126,18 @@ export default function Explorer() {
           {current.tags.join(' · ')}
         </p>
         <h3 style={{ marginTop: 0 }}>{current.summary}</h3>
+        {current.description ? <p className="note">{current.description}</p> : null}
         <p className="mono" style={{ fontSize: '0.85rem' }}>{current.method} {current.path}</p>
         {current.path.includes('{mint}') ? (
           <label>
             mint
             <input value={mint} onChange={(e) => setMint(e.target.value)} autoComplete="off" spellCheck="false" />
+          </label>
+        ) : null}
+        {current.tryBody || current.method === 'POST' ? (
+          <label>
+            JSON body
+            <textarea value={body} onChange={(e) => setBody(e.target.value)} spellCheck="false" rows={6} />
           </label>
         ) : null}
         <button type="button" className="btn" onClick={run} disabled={busy}>
@@ -128,7 +149,7 @@ export default function Explorer() {
             <pre>{typeof result.body === 'string' ? result.body : JSON.stringify(result.body, null, 2)}</pre>
           </>
         ) : (
-          <p className="note">Hits this portal. Existing DAP paths proxy https://legendary.fun. Quote/swap/tape stay 501.</p>
+          <p className="note">Hits this portal. Catalog/discovery/quotes/candles read https://legendary.fun. Hosted swap, create, and claims are off here.</p>
         )}
       </div>
     </div>

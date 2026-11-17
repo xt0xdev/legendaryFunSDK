@@ -2,10 +2,14 @@ import { CLUSTER, FACTORY, GENESIS, PATHS, TAGS } from './constants.mjs';
 import { createDiscovery } from './discovery.mjs';
 import { encodeTrade } from './encode-trade.mjs';
 import { meteoraAdapter, nativeAdapter, pumpAdapter } from './adapters.mjs';
+import { quoteTrade } from './quote.mjs';
+import { buildUnsignedTrade } from './accounts.mjs';
 
 export * from './constants.mjs';
 export { encodeTrade } from './encode-trade.mjs';
 export { createDiscovery, DiscoveryError } from './discovery.mjs';
+export { quoteTrade, QuoteError } from './quote.mjs';
+export { buildUnsignedTrade, TRADE_ROLES } from './accounts.mjs';
 
 export function createLegendarySdk(options = {}) {
   const discovery = createDiscovery(options);
@@ -20,6 +24,8 @@ export function createLegendarySdk(options = {}) {
     pump: pumpAdapter(discovery),
     meteora: meteoraAdapter(discovery),
     encodeTrade,
+    quoteTrade,
+    buildUnsignedTrade,
   });
 }
 

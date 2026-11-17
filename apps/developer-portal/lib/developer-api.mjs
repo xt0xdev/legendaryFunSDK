@@ -1,61 +1,78 @@
-/** Local developer.legendary.fun API: live catalog/bootstrap/fx plus additive partner prefixes. */
+/** Local developer.legendary.fun API: live catalog/discovery/quotes plus additive partner prefixes. */
 import { createPartnerPublicApi } from '../../../packages/partner-public-api/router.mjs';
+import { createLiveLegendaryPorts } from '../../../packages/partner-public-api/live.mjs';
+import { SITE_LANE_MESSAGE } from '../../../packages/partner-public-api/project.mjs';
 
 const LIVE = 'https://legendary.fun';
 const MAX = 256_000;
-const EXISTING = Object.freeze([
+const DISCOVERY_MAX = 131_072;
+const EXISTING_GET = Object.freeze([
   '/api/mainnet/trade/catalog',
   '/api/mainnet/trade/bootstrap',
   '/api/market/sol-usd',
 ]);
+const EXISTING_POST = Object.freeze([
+  '/api/mainnet/trade/discovery',
+  '/api/mainnet/trade/catalog',
+]);
+const SITE_LANE_PREFIXES = Object.freeze([
+  '/api/mainnet/create',
+  '/api/devnet/create',
+  '/api/mainnet/graduation-claims',
+  '/api/devnet/graduation-claims',
+  '/api/devnet/rewards',
+  '/api/devnet/holder-rewards',
+  '/api/devnet/trade',
+]);
 
-async function readLiveJson(path, signal) {
-  const url = new URL(path, LIVE);
-  if (url.protocol !== 'https:' || url.hostname !== 'legendary.fun' || url.username || url.password) {
-    throw new Error('ORIGIN');
-  }
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: { accept: 'application/json' },
-    redirect: 'error',
-    credentials: 'omit',
-    cache: 'no-store',
-    signal,
-  });
-  const type = response.headers.get('content-type')?.split(';')[0].trim();
-  if (!response.ok || type !== 'application/json' || !response.body) throw new Error('UPSTREAM');
-  const reader = response.body.getReader();
-  const parts = [];
-  let size = 0;
-  try {
-    for (;;) {
-      const next = await reader.read();
-      if (next.done) break;
-      size += next.value.length;
-      if (size > MAX) throw new Error('SIZE');
-      parts.push(next.value);
-    }
-  } finally {
-    reader.releaseLock();
-  }
-  const bytes = new Uint8Array(size);
-  let at = 0;
-  for (const part of parts) {
-    bytes.set(part, at);
-    at += part.length;
-  }
-  return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+let liveQueue = Promise.resolve();
+const discoveryCache = new Map();
+const quoteCache = new Map();
+const DISCOVERY_TTL_MS = 30_000;
+const QUOTE_TTL_MS = 45_000;
+
+function enqueue(task) {
+  const run = liveQueue.then(() => task(), () => task());
+  liveQueue = run.then(() => undefined, () => undefined);
+  return run;
+}
+
+function cachedPorts() {
+  const live = createLiveLegendaryPorts();
+  return {
+    readCatalog: (signal) => live.readCatalog(signal),
+    readFx: (signal) => live.readFx(signal),
+    async readDiscovery(query, signal) {
+      const key = JSON.stringify({
+        q: query.query || '',
+        l: query.limit === 20 ? 20 : 50,
+        c: query.cursor || null,
+      });
+      const now = Date.now();
+      const hit = discoveryCache.get(key);
+      if (hit && now - hit.at < DISCOVERY_TTL_MS) return hit.value;
+      const value = await enqueue(() => live.readDiscovery(query, signal));
+      discoveryCache.set(key, { at: Date.now(), value });
+      return value;
+    },
+    async readQuotes(mints, signal) {
+      const key = JSON.stringify([...(mints || [])].sort());
+      const now = Date.now();
+      const hit = quoteCache.get(key);
+      if (hit && now - hit.at < QUOTE_TTL_MS) return hit.value;
+      const value = await enqueue(() => live.readQuotes(mints, signal));
+      quoteCache.set(key, { at: Date.now(), value });
+      return value;
+    },
+  };
 }
 
 function partnerApi() {
-  return createPartnerPublicApi({
-    readCatalog: (signal) => readLiveJson('/api/mainnet/trade/catalog', signal),
-    readFx: (signal) => readLiveJson('/api/market/sol-usd', signal),
-  });
+  return createPartnerPublicApi(cachedPorts());
 }
 
 function passthroughHeaders(upstream) {
-  const headers = new Headers({
+  return new Headers({
     'content-type': upstream.headers.get('content-type') || 'application/json; charset=utf-8',
     'cache-control': 'public, max-age=0, must-revalidate',
     'access-control-allow-origin': '*',
@@ -65,59 +82,108 @@ function passthroughHeaders(upstream) {
     'x-robots-tag': 'noindex, nofollow',
     'x-legendary-upstream': 'legendary.fun',
   });
-  return headers;
+}
+
+function liveUrl(path) {
+  const url = new URL(path, LIVE);
+  if (url.protocol !== 'https:' || url.hostname !== 'legendary.fun' || url.username || url.password) {
+    return null;
+  }
+  return url;
+}
+
+function corsOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'GET, POST, OPTIONS',
+      'access-control-allow-headers': 'accept, content-type',
+    },
+  });
+}
+
+function siteLane() {
+  return Response.json(
+    { schema: 1, error: { code: 'DISABLED', message: SITE_LANE_MESSAGE, retryable: false } },
+    { status: 404, headers: { 'x-content-type-options': 'nosniff' } },
+  );
+}
+
+async function passthrough(path, { method, headers, body, signal, max = MAX }) {
+  const target = liveUrl(path);
+  if (!target) {
+    return Response.json(
+      { schema: 1, error: { code: 'ORIGIN', message: 'Live DAP origin is pinned.' } },
+      { status: 500, headers: { 'x-content-type-options': 'nosniff' } },
+    );
+  }
+  const upstream = await fetch(target, {
+    method,
+    headers,
+    body,
+    redirect: 'error',
+    credentials: 'omit',
+    cache: 'no-store',
+    signal,
+  });
+  const type = upstream.headers.get('content-type')?.split(';')[0].trim();
+  if (type !== 'application/json') {
+    return Response.json(
+      { schema: 1, error: { code: 'UPSTREAM', message: 'Live DAP did not return JSON.' } },
+      { status: 502, headers: { 'x-content-type-options': 'nosniff' } },
+    );
+  }
+  const bytes = await upstream.arrayBuffer();
+  if (bytes.byteLength > max) {
+    return Response.json(
+      { schema: 1, error: { code: 'SIZE', message: 'Upstream payload too large.' } },
+      { status: 502, headers: { 'x-content-type-options': 'nosniff' } },
+    );
+  }
+  return new Response(bytes, { status: upstream.status, headers: passthroughHeaders(upstream) });
 }
 
 export async function handleDeveloperApi(request) {
   const url = new URL(request.url);
   const signal = AbortSignal.any([request.signal, AbortSignal.timeout(15_000)]);
-  if (request.method === 'OPTIONS' && (EXISTING.includes(url.pathname) || url.pathname.startsWith('/api/'))) {
-    return new Response(null, {
-      status: 204,
-      headers: {
-        'access-control-allow-origin': '*',
-        'access-control-allow-methods': 'GET, POST, OPTIONS',
-        'access-control-allow-headers': 'accept, content-type',
-      },
-    });
+  if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) return corsOptions();
+  if (SITE_LANE_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(`${prefix}/`))) {
+    return siteLane();
   }
-  if (EXISTING.includes(url.pathname)) {
-    if (request.method !== 'GET') {
-      return Response.json(
-        { schema: 1, error: { code: 'METHOD', message: 'Existing DAP paths are GET-only here.' } },
-        { status: 405, headers: { 'x-content-type-options': 'nosniff' } },
-      );
-    }
-    const liveUrl = new URL(url.pathname, LIVE);
-    if (liveUrl.protocol !== 'https:' || liveUrl.hostname !== 'legendary.fun' || liveUrl.username || liveUrl.password) {
-      return Response.json(
-        { schema: 1, error: { code: 'ORIGIN', message: 'Live DAP origin is pinned.' } },
-        { status: 500, headers: { 'x-content-type-options': 'nosniff' } },
-      );
-    }
-    const upstream = await fetch(liveUrl, {
+  if (EXISTING_GET.includes(url.pathname) && request.method === 'GET') {
+    return passthrough(url.pathname, {
       method: 'GET',
       headers: { accept: 'application/json' },
-      redirect: 'error',
-      credentials: 'omit',
-      cache: 'no-store',
       signal,
     });
-    const type = upstream.headers.get('content-type')?.split(';')[0].trim();
-    if (type !== 'application/json') {
+  }
+  if (EXISTING_POST.includes(url.pathname) && request.method === 'POST') {
+    const raw = await request.arrayBuffer();
+    const max = url.pathname.endsWith('/discovery') ? DISCOVERY_MAX : MAX;
+    if (raw.byteLength > 16_384) {
       return Response.json(
-        { schema: 1, error: { code: 'UPSTREAM', message: 'Live DAP did not return JSON.' } },
-        { status: 502, headers: { 'x-content-type-options': 'nosniff' } },
+        { schema: 1, error: { code: 'SIZE', message: 'Request body too large.' } },
+        { status: 413, headers: { 'x-content-type-options': 'nosniff' } },
       );
     }
-    const body = await upstream.arrayBuffer();
-    if (body.byteLength > MAX) {
-      return Response.json(
-        { schema: 1, error: { code: 'SIZE', message: 'Upstream payload too large.' } },
-        { status: 502, headers: { 'x-content-type-options': 'nosniff' } },
-      );
-    }
-    return new Response(body, { status: upstream.status, headers: passthroughHeaders(upstream) });
+    return enqueue(() => passthrough(url.pathname, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        origin: LIVE,
+      },
+      body: raw,
+      signal,
+      max,
+    }));
+  }
+  if (EXISTING_GET.includes(url.pathname) || EXISTING_POST.includes(url.pathname)) {
+    return Response.json(
+      { schema: 1, error: { code: 'METHOD', message: 'GET catalog/bootstrap/fx; POST discovery and catalog quotes.' } },
+      { status: 405, headers: { 'x-content-type-options': 'nosniff' } },
+    );
   }
   const response = await partnerApi().fetch(new Request(request, { signal }));
   if (response) return response;

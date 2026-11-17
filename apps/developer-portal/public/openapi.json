@@ -2,177 +2,477 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Legendary.fun integrator API",
-    "version": "0.1.0",
-    "description": "Existing DAP paths are unchanged. Additive /api/v1, Pump-shaped, and Meteora-shaped prefixes sit beside them. Quote/swap/tape return 501 until admitted. Not a production audit."
+    "version": "0.2.0",
+    "description": "Live DAP on legendary.fun plus additive /api/v1, Pump-shaped, and Meteora-shaped prefixes. Existing catalog/bootstrap/fx stay unchanged. Integer quote and candles-swap overlays are on. Hosted swap, create, claims, Pump buy/sell, and empty tape routes are omitted (404 DISABLED). Site trading is the legendary.fun token page. Not a production audit."
   },
   "servers": [
-    { "url": "https://legendary.fun", "description": "Live DAP (catalog/bootstrap/fx today)" },
-    { "url": "https://developer.legendary.fun", "description": "Public developer portal (CNAME)" },
-    { "url": "https://legendary.devbyclaw.com", "description": "Portal origin; developer.legendary.fun CNAMEs here" },
-    { "url": "http://127.0.0.1:8833", "description": "Local developer portal" }
+    {
+      "url": "https://legendary.fun",
+      "description": "Main site (intended partner origin)"
+    },
+    {
+      "url": "https://developer.legendary.fun",
+      "description": "Public developer portal (CNAME)"
+    },
+    {
+      "url": "https://legendary.devbyclaw.com",
+      "description": "Portal origin; developer.legendary.fun CNAMEs here"
+    },
+    {
+      "url": "http://127.0.0.1:8833",
+      "description": "Local developer portal"
+    }
   ],
   "tags": [
-    { "name": "Existing DAP", "description": "Current public paths. Do not change." },
-    { "name": "Native v1", "description": "Additive Legendary discovery" },
-    { "name": "Pump-shaped", "description": "Compatibility facade for Pump-style clients" },
-    { "name": "Meteora-shaped", "description": "Compatibility facade for DBC-style clients" }
+    {
+      "name": "Existing DAP",
+      "description": "Current public paths on legendary.fun. Do not change."
+    },
+    {
+      "name": "Native v1",
+      "description": "Additive Legendary discovery over factory launches + quotes"
+    },
+    {
+      "name": "Pump-shaped",
+      "description": "Compatibility facade overlaying the factory list"
+    },
+    {
+      "name": "Meteora-shaped",
+      "description": "Compatibility facade overlaying the factory list"
+    },
+    {
+      "name": "Site lane",
+      "description": "Same-origin wallet create/claims. Partner DAP returns 501."
+    }
   ],
   "paths": {
     "/api/mainnet/trade/catalog": {
       "get": {
-        "tags": ["Existing DAP"],
-        "summary": "Verified token catalog",
+        "tags": [
+          "Existing DAP"
+        ],
+        "summary": "Admitted token catalog",
+        "description": "Schema 1, scope server-admitted-atomic-v5. Currently the verified/admitted set (LGND). Unchanged.",
         "operationId": "getCatalog",
         "x-status": "live",
-        "responses": { "200": { "description": "Catalog JSON schema 1" } }
+        "responses": {
+          "200": {
+            "description": "Catalog JSON schema 1"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Existing DAP"
+        ],
+        "summary": "Market quotes by mint",
+        "description": "Schema 2, scope server-admitted-markets-v1. Body { mints, version: 3 }. This is the token-page market-cap source. Requires Origin https://legendary.fun on the live site; this portal adds it.",
+        "operationId": "postCatalogQuotes",
+        "x-status": "live",
+        "x-try-body": "{\n  \"mints\": [\"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\"],\n  \"version\": 3\n}",
+        "responses": {
+          "200": {
+            "description": "Quoted tokens"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/discovery": {
+      "post": {
+        "tags": [
+          "Existing DAP"
+        ],
+        "summary": "Factory launch discovery",
+        "description": "The Discover list the website uses. Schema 1, scope factory-launch-discovery-v1. Body { query, limit: 20|50, cursor }. Includes curve tokens such as LMEOW.",
+        "operationId": "postDiscovery",
+        "x-status": "live",
+        "x-try-body": "{\n  \"query\": \"\",\n  \"limit\": 50,\n  \"cursor\": null\n}",
+        "responses": {
+          "200": {
+            "description": "Factory launches"
+          }
+        }
       }
     },
     "/api/mainnet/trade/bootstrap": {
       "get": {
-        "tags": ["Existing DAP"],
+        "tags": [
+          "Existing DAP"
+        ],
         "summary": "Program identities (factory, genesis, CTO)",
         "operationId": "getBootstrap",
         "x-status": "live",
-        "responses": { "200": { "description": "Bootstrap JSON" } }
+        "responses": {
+          "200": {
+            "description": "Bootstrap JSON"
+          }
+        }
       }
     },
     "/api/market/sol-usd": {
       "get": {
-        "tags": ["Existing DAP"],
+        "tags": [
+          "Existing DAP"
+        ],
         "summary": "SOL/USD display FX",
         "operationId": "getSolUsd",
         "x-status": "live",
-        "responses": { "200": { "description": "usdPerSol string" } }
+        "responses": {
+          "200": {
+            "description": "usdPerSol string"
+          }
+        }
       }
     },
     "/api/v1/tokens": {
       "get": {
-        "tags": ["Native v1"],
-        "summary": "Partner token list mapped from catalog",
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Partner token list (factory launches + quotes)",
+        "description": "Merges POST discovery names with POST catalog quotes. Falls back to GET catalog if discovery is unavailable.",
         "operationId": "getTokens",
         "x-status": "additive",
-        "responses": { "200": { "description": "launchpad=legendary token list" } }
+        "responses": {
+          "200": {
+            "description": "launchpad=legendary token list"
+          }
+        }
       }
     },
     "/api/v1/tokens/{mint}": {
       "get": {
-        "tags": ["Native v1"],
+        "tags": [
+          "Native v1"
+        ],
         "summary": "One token",
         "operationId": "getToken",
         "x-status": "additive",
-        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
-        "responses": { "200": { "description": "Token" }, "404": { "description": "Unknown mint" } }
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token"
+          },
+          "404": {
+            "description": "Unknown mint"
+          }
+        }
       }
     },
     "/api/v1/tokens/{mint}/curve": {
       "get": {
-        "tags": ["Native v1"],
+        "tags": [
+          "Native v1"
+        ],
         "summary": "Curve vs graduated",
         "operationId": "getCurve",
         "x-status": "additive",
-        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
-        "responses": { "200": { "description": "Curve flags" } }
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Curve flags"
+          }
+        }
+      }
+    },
+    "/api/v1/discovery": {
+      "post": {
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Partner-shaped factory discovery",
+        "description": "Same factory list as the site Discover page, projected with launchpad=legendary and displayFdvUsd when quotes exist.",
+        "operationId": "postV1Discovery",
+        "x-status": "additive",
+        "x-try-body": "{\n  \"query\": \"\",\n  \"limit\": 50,\n  \"cursor\": null\n}",
+        "responses": {
+          "200": {
+            "description": "Discovery page"
+          }
+        }
+      }
+    },
+    "/api/v1/markets": {
+      "post": {
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Partner-shaped mint quotes",
+        "operationId": "postV1Markets",
+        "x-status": "additive",
+        "x-try-body": "{\n  \"mints\": [\"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\"],\n  \"version\": 3\n}",
+        "responses": {
+          "200": {
+            "description": "Quoted tokens"
+          }
+        }
       }
     },
     "/api/v1/launchpad": {
       "get": {
-        "tags": ["Native v1"],
-        "summary": "Factory, tags, existing API list",
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Factory, tags, existing APIs, site-lane map",
         "operationId": "getLaunchpad",
         "x-status": "additive",
-        "responses": { "200": { "description": "Launchpad constants" } }
+        "responses": {
+          "200": {
+            "description": "Launchpad constants"
+          }
+        }
       }
     },
     "/api/v1/sol-usd": {
       "get": {
-        "tags": ["Native v1"],
+        "tags": [
+          "Native v1"
+        ],
         "summary": "Same FX as /api/market/sol-usd",
         "operationId": "getV1SolUsd",
         "x-status": "additive",
-        "responses": { "200": { "description": "FX" } }
+        "responses": {
+          "200": {
+            "description": "FX"
+          }
+        }
+      }
+    },
+    "/api/v1/stream": {
+      "get": {
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Market websocket URL",
+        "description": "Returns wss://api.legendary.fun/api/mainnet/market/stream. Partner DAP does not terminate the socket.",
+        "operationId": "getV1Stream",
+        "x-status": "additive",
+        "responses": {
+          "200": {
+            "description": "Websocket descriptor"
+          }
+        }
       }
     },
     "/api/v1/quote": {
+      "post": {
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "Integer curve quote",
+        "description": "bigint buy/sell from live catalog curve state. Graduated mints return 409 PHASE. Not a hosted execute.",
+        "operationId": "postQuote",
+        "x-status": "additive",
+        "x-try-body": "{\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\",\n  \"side\": \"buy\",\n  \"amount\": \"1000000000\",\n  \"slippageBps\": \"100\"\n}",
+        "responses": {
+          "200": {
+            "description": "Integer quote"
+          },
+          "409": {
+            "description": "PHASE or STATE"
+          }
+        }
+      }
+    },
+    "/api/v1/tokens/{mint}/candles": {
       "get": {
-        "tags": ["Native v1"],
-        "summary": "Hosted quote (not admitted)",
-        "operationId": "getQuote",
-        "x-status": "planned-501",
-        "responses": { "501": { "description": "NOT_ADMITTED" } }
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "OHLCV from live candles-swap",
+        "operationId": "getCandles",
+        "x-status": "additive",
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Live swap-movement candles"
+          },
+          "404": {
+            "description": "DISABLED if candles port is missing"
+          }
+        },
+        "description": "Maps GET /api/mainnet/trade/candles-swap/{mint}/{interval} on legendary.fun."
+      }
+    },
+    "/api/v1/idl": {
+      "get": {
+        "tags": [
+          "Native v1"
+        ],
+        "summary": "v5 factory IDL-equivalent",
+        "operationId": "getIdl",
+        "x-status": "additive",
+        "responses": {
+          "200": {
+            "description": "Tags, sizes, account counts"
+          }
+        }
       }
     },
     "/api/compat/pump/v3/coins/latest": {
       "get": {
-        "tags": ["Pump-shaped"],
-        "summary": "Pump-style latest coins from catalog",
+        "tags": [
+          "Pump-shaped"
+        ],
+        "summary": "Pump-style latest coins from factory list",
         "operationId": "pumpLatest",
         "x-status": "additive",
-        "responses": { "200": { "description": "{ data, meta }" } }
+        "responses": {
+          "200": {
+            "description": "{ data, meta }"
+          }
+        }
+      }
+    },
+    "/api/compat/pump/v3/coins/search": {
+      "get": {
+        "tags": [
+          "Pump-shaped"
+        ],
+        "summary": "Pump-style coin search overlay",
+        "operationId": "pumpSearch",
+        "x-status": "additive",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ data, meta }"
+          }
+        }
       }
     },
     "/api/compat/pump/v3/coins/{mint}": {
       "get": {
-        "tags": ["Pump-shaped"],
+        "tags": [
+          "Pump-shaped"
+        ],
         "summary": "Pump-style coin by mint",
         "operationId": "pumpCoin",
         "x-status": "additive",
-        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
-        "responses": { "200": { "description": "Coin" }, "404": { "description": "Unknown" } }
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Coin"
+          },
+          "404": {
+            "description": "Unknown"
+          }
+        }
       }
     },
     "/api/compat/pump/v3/sol-price": {
       "get": {
-        "tags": ["Pump-shaped"],
+        "tags": [
+          "Pump-shaped"
+        ],
         "summary": "Pump-style SOL price",
         "operationId": "pumpSol",
         "x-status": "additive",
-        "responses": { "200": { "description": "sol_price" } }
-      }
-    },
-    "/api/compat/pump/v3/trades/latest": {
-      "get": {
-        "tags": ["Pump-shaped"],
-        "summary": "Trade tape (not admitted)",
-        "operationId": "pumpTrades",
-        "x-status": "planned-501",
-        "responses": { "501": { "description": "NOT_ADMITTED" } }
+        "responses": {
+          "200": {
+            "description": "sol_price"
+          }
+        }
       }
     },
     "/api/compat/meteora/v1/pools": {
       "get": {
-        "tags": ["Meteora-shaped"],
-        "summary": "DBC-style pool list from catalog",
+        "tags": [
+          "Meteora-shaped"
+        ],
+        "summary": "DBC-style pool list from factory list",
         "operationId": "meteoraPools",
         "x-status": "additive",
-        "responses": { "200": { "description": "pools[]" } }
+        "responses": {
+          "200": {
+            "description": "pools[]"
+          }
+        }
       }
     },
     "/api/compat/meteora/v1/pools/{mint}": {
       "get": {
-        "tags": ["Meteora-shaped"],
+        "tags": [
+          "Meteora-shaped"
+        ],
         "summary": "One pool",
         "operationId": "meteoraPool",
         "x-status": "additive",
-        "parameters": [{ "name": "mint", "in": "path", "required": true, "schema": { "type": "string" } }],
-        "responses": { "200": { "description": "Pool" } }
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pool"
+          }
+        }
       }
     },
     "/api/compat/meteora/v1/quote": {
-      "get": {
-        "tags": ["Meteora-shaped"],
-        "summary": "swapQuote2 (not admitted)",
-        "operationId": "meteoraQuote",
-        "x-status": "planned-501",
-        "responses": { "501": { "description": "NOT_ADMITTED" } }
-      }
-    },
-    "/api/compat/meteora/v1/swap2": {
       "post": {
-        "tags": ["Meteora-shaped"],
-        "summary": "swap2 unsigned tx (not admitted)",
-        "operationId": "meteoraSwap2",
-        "x-status": "planned-501",
-        "responses": { "501": { "description": "NOT_ADMITTED" } }
+        "tags": [
+          "Meteora-shaped"
+        ],
+        "summary": "swapQuote2 overlay",
+        "description": "Same integer Legendary quote. swapBaseForQuote true maps to sell.",
+        "operationId": "meteoraQuote",
+        "x-status": "additive",
+        "x-try-body": "{\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\",\n  \"amount\": \"1000000000\",\n  \"swapBaseForQuote\": false\n}",
+        "responses": {
+          "200": {
+            "description": "Integer quote"
+          }
+        }
       }
     }
   }

@@ -3,7 +3,7 @@ import './globals.css';
 export const metadata = {
   metadataBase: new URL('https://developer.legendary.fun'),
   title: 'Developers — LEGENDARY',
-  description: 'Integrator kit for Legendary.fun: native, Pump-shaped, and Meteora-shaped APIs. Existing DAP paths unchanged.',
+  description: 'Integrator kit for Legendary.fun: factory discovery, mint quotes, native/Pump/Meteora APIs. Existing DAP GET paths unchanged.',
   icons: { icon: '/lmeow-logo-v4.jpg' },
 };
 

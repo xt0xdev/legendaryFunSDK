@@ -260,7 +260,7 @@ table.ref .mono { font-size: 12px; }
 .op-body { padding: 18px 18px 20px; min-width: 0; }
 .op-body h3 { margin: 8px 0 6px; font-size: 1.15rem; }
 .op-body label { display: block; color: var(--muted); font-size: 12px; font-weight: 700; }
-.op-body input {
+.op-body input, .op-body textarea {
   width: 100%;
   min-height: 42px;
   margin: 6px 0 14px;
@@ -269,6 +269,12 @@ table.ref .mono { font-size: 12px; }
   border-radius: 10px;
   background: var(--input);
   color: var(--ink);
+  font: 13px/1.45 var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+}
+.op-body textarea {
+  min-height: 132px;
+  padding: 10px 12px;
+  resize: vertical;
 }
 .callout {
   padding: 18px 20px;

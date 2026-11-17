@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [12 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R] /Count 9 >>
+<< /Type /Pages /Kids [14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R] /Count 11 >>
 endobj
 3 0 obj
 << /Length 1960 >>
@@ -60,7 +60,7 @@ BT /F1 8.00 Tf 1 0 0 1 54.00 40.00 Tm (Machine-readable plan: docs/partners/part
 endstream
 endobj
 4 0 obj
-<< /Length 9113 >>
+<< /Length 9312 >>
 stream
 0.8 w
 0 g
@@ -258,10 +258,13 @@ BT /F1 10.00 Tf 1 0 0 1 54.00 108.60 Tm (and Jupiter do not auto-detect unknown 
 0.120 0.140 0.180 rg
 BT /F1 10.00 Tf 1 0 0 1 54.00 95.20 Tm (create auto-detect.) Tj ET
 0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 77.80 Tm (Adding extra DAP paths \(/api/v1/tokens, /api/v1/launchpad, Pump-shaped /api/compat/pump/v3/coins/latest\) is) Tj ET
+0.120 0.140 0.180 rg
 endstream
 endobj
 5 0 obj
-<< /Length 8642 >>
+<< /Length 8626 >>
 stream
 0.8 w
 0 g
@@ -281,187 +284,179 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 3) Tj ET
 0.4 w
 54.00 40 m 558.00 40 l S
 0.8 w
-0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 718.00 Tm (2. Live site API \(observed 2026-11-14\)) Tj ET
-0.760 0.620 0.280 rg
-54.00 712.00 220.00 2.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (how we become *listable*: those endpoints publish factory ID, instruction tags, mints, phase, and Raydium pool without) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 714.60 Tm (changing the existing catalog. Auto-detect still requires contacting Jupiter, GMGN, Axiom, Fomo, and similar to add) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 701.20 Tm (launchpad=legendary / DexType.Legendary and point their crawlers at those URLs; once listed, they can pick up) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 687.80 Tm (new Legendary coins the same way they pick up Pump or Meteora launches. Graduated tokens already appear in) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 674.40 Tm (Jupiter as Raydium CPMM; the new paths are what let them recognize the curve stage as us.) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 688.00 Tm (2.1 Public reads that work) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 670.00 Tm (GET https://legendary.fun/api/mainnet/trade/catalog) Tj ET
-0.120 0.140 0.180 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 637.00 Tm (2. Live site API \(observed 2026-11-14\)) Tj ET
 0.760 0.620 0.280 rg
-56.00 654.60 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 652.60 Tm (Unauthenticated JSON. Schema 1, network: solana:mainnet, scope: server-admitted-atomic-v5.) Tj ET
-0.760 0.620 0.280 rg
-56.00 641.60 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 639.60 Tm (One token on that day: GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND \(Legendary / LGND\).) Tj ET
-0.760 0.620 0.280 rg
-56.00 628.60 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 626.60 Tm (phase: graduated, venue: raydium-cpmm, pool czewDLamSPb89EqxWU37M1ddK7kGeAcDwVWKHAkmwtM.) Tj ET
-0.760 0.620 0.280 rg
-56.00 615.60 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 613.60 Tm (Integer rationals for price \(SOL-per-token, beforeFees: true\), vault reserves, Raydium fee millionths,) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 600.60 Tm (locked-LP migration fields.) Tj ET
-0.760 0.620 0.280 rg
-56.00 589.60 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 587.60 Tm (Admission flags on that row: signingAllowed: false, quoteAvailable: false, capabilities: { buy: false, sell: false,) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 574.60 Tm (create: false }.) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 557.60 Tm (GET https://legendary.fun/api/mainnet/trade/bootstrap) Tj ET
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 542.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 540.20 Tm (enabled: true means the site bootstrap is up, not that public trading is admitted.) Tj ET
-0.760 0.620 0.280 rg
-56.00 529.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 527.20 Tm (Mainnet genesis 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d.) Tj ET
-0.760 0.620 0.280 rg
-56.00 516.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 514.20 Tm (Factory Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i \(sha256 pinned in the payload\).) Tj ET
-0.760 0.620 0.280 rg
-56.00 503.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 501.20 Tm (CTO program 7EgadoHa1THHf9cyKsh4QUrBGsfYW5FHSApSAHLSBbeN.) Tj ET
-0.760 0.620 0.280 rg
-56.00 490.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 488.20 Tm (Token program + ATA program listed. Providers labeled helius-mainnet / quicknode-mainnet.) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 471.20 Tm (GET https://legendary.fun/api/market/sol-usd) Tj ET
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 455.80 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 453.80 Tm (Coinbase SOL-USD with expiry. Fine for display FDV. Not an oracle for on-chain amounts.) Tj ET
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 430.80 Tm (2.2 Additive partner routes \(do not change existing APIs\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 412.80 Tm (Implemented in-repo as a parallel handler \(packages/partner-public-api, Netlify paths /api/v1/* and) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 399.40 Tm (/api/compat/pump/v3/*\). It only reads /api/mainnet/trade/catalog and /api/market/sol-usd. Catalog, bootstrap, and) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 386.00 Tm (/api/devnet/trade are unchanged.) Tj ET
+54.00 631.00 220.00 2.2 re f
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-54.00 348.60 504.00 18.00 re f
+BT /F2 11.00 Tf 1 0 0 1 54.00 607.00 Tm (2.1 Public reads that work) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 589.00 Tm (GET https://legendary.fun/api/mainnet/trade/catalog) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 573.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 571.60 Tm (Unauthenticated JSON. Schema 1, network: solana:mainnet, scope: server-admitted-atomic-v5.) Tj ET
+0.760 0.620 0.280 rg
+56.00 560.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 558.60 Tm (Admitted/verified set only \(LGND on 2026-11-16\). This is not the Discover list.) Tj ET
+0.760 0.620 0.280 rg
+56.00 547.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 545.60 Tm (phase: graduated, venue: raydium-cpmm, pool czewDLamSPb89EqxWU37M1ddK7kGeAcDwVWKHAkmwtM.) Tj ET
+0.760 0.620 0.280 rg
+56.00 534.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 532.60 Tm (Integer rationals for price \(SOL-per-token, beforeFees: true\), vault reserves, Raydium fee millionths,) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 519.60 Tm (locked-LP migration fields.) Tj ET
+0.760 0.620 0.280 rg
+56.00 508.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 506.60 Tm (Admission flags on that row: signingAllowed: false, quoteAvailable: false, capabilities: { buy: false, sell: false,) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 493.60 Tm (create: false }.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 476.60 Tm (POST https://legendary.fun/api/mainnet/trade/discovery { query, limit: 20|50, cursor }) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 461.20 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 459.20 Tm (Schema 1, scope: factory-launch-discovery-v1. This is the website Discover list \(curve tokens such as LMEOW) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 446.20 Tm (plus LGND\).) Tj ET
+0.760 0.620 0.280 rg
+56.00 435.20 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 433.20 Tm (Live origin check: send Origin: https://legendary.fun.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 416.20 Tm (POST https://legendary.fun/api/mainnet/trade/catalog { mints, version: 3 }) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 400.80 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 398.80 Tm (Schema 2, scope: server-admitted-markets-v1. Token-page market quotes / FDV. Same Origin header.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 381.80 Tm (GET https://legendary.fun/api/mainnet/trade/bootstrap) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 366.40 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 364.40 Tm (enabled: true means the site bootstrap is up, not that public trading is admitted.) Tj ET
+0.760 0.620 0.280 rg
+56.00 353.40 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 351.40 Tm (Mainnet genesis 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d.) Tj ET
+0.760 0.620 0.280 rg
+56.00 340.40 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 338.40 Tm (Factory Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i \(sha256 pinned in the payload\).) Tj ET
+0.760 0.620 0.280 rg
+56.00 327.40 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 325.40 Tm (CTO program 7EgadoHa1THHf9cyKsh4QUrBGsfYW5FHSApSAHLSBbeN.) Tj ET
+0.760 0.620 0.280 rg
+56.00 314.40 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 312.40 Tm (Token program + ATA program listed. Providers labeled helius-mainnet / quicknode-mainnet.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 295.40 Tm (GET https://legendary.fun/api/market/sol-usd) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 280.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 278.00 Tm (Coinbase SOL-USD with expiry. Fine for display FDV. Not an oracle for on-chain amounts.) Tj ET
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 255.00 Tm (2.2 Additive partner routes \(do not change existing APIs\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 237.00 Tm (Implemented in-repo as a parallel handler \(packages/partner-public-api, Netlify paths /api/v1/*,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 223.60 Tm (/api/compat/pump/v3/*, /api/compat/meteora/v1/*\). It reads factory discovery + mint quotes when those ports are) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 210.20 Tm (wired, otherwise the admitted catalog. Catalog GET, bootstrap, and /api/devnet/trade are unchanged.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+54.00 172.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 348.60 504.00 18.00 re S
+54.00 172.80 504.00 18.00 re S
 1.000 1.000 1.000 rg
-BT /F2 8.00 Tf 1 0 0 1 59.00 355.60 Tm (New path) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 200.12 355.60 Tm (Maps from) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 381.56 355.60 Tm (Notes) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 59.00 179.80 Tm (New path) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 200.12 179.80 Tm (Maps from) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 381.56 179.80 Tm (Notes) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 330.60 504.00 18.00 re f
+54.00 154.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 330.60 504.00 18.00 re S
+54.00 154.80 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 337.60 Tm (GET /api/v1/tokens) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 337.60 Tm (catalog) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 337.60 Tm (Legendary-shaped list, CORS *) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 161.80 Tm (GET /api/v1/tokens) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 161.80 Tm (discovery + quotes) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 161.80 Tm (Legendary-shaped factory list, CORS *) Tj ET
 0.120 0.140 0.180 rg
 0.970 0.970 0.980 rg
-54.00 312.60 504.00 18.00 re f
+54.00 136.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 312.60 504.00 18.00 re S
+54.00 136.80 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 319.60 Tm (GET /api/v1/tokens/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 319.60 Tm (catalog row) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 319.60 Tm (Honest capabilities.factoryBuy=false today) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 143.80 Tm (POST /api/v1/discovery) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 143.80 Tm (Discover POST) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 143.80 Tm (Partner-shaped page with names and display FDV) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 294.60 504.00 18.00 re f
+54.00 118.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 294.60 504.00 18.00 re S
+54.00 118.80 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 301.60 Tm (GET /api/v1/tokens/{mint}/curve) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 301.60 Tm (catalog row) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 301.60 Tm (graduated / onFactoryCurve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 125.80 Tm (POST /api/v1/markets) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 125.80 Tm (catalog quote POST) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 125.80 Tm (Partner-shaped mint quotes) Tj ET
 0.120 0.140 0.180 rg
 0.970 0.970 0.980 rg
-54.00 276.60 504.00 18.00 re f
+54.00 100.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 276.60 504.00 18.00 re S
+54.00 100.80 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 283.60 Tm (GET /api/v1/launchpad) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 283.60 Tm (constants) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 283.60 Tm (Factory, tags, existing API list) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 107.80 Tm (GET /api/v1/tokens/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 107.80 Tm (quote or catalog row) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 107.80 Tm (Honest capabilities.factoryBuy=false today) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 248.60 504.00 28.00 re f
+54.00 82.80 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 248.60 504.00 28.00 re S
+54.00 82.80 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 265.60 Tm (GET) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 59.00 255.60 Tm (/api/compat/pump/v3/coins/latest) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 265.60 Tm (catalog) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 265.60 Tm (Discovery-only Pump field names) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 220.60 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 220.60 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 237.60 Tm (GET /api/v1/quote or Pump) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 59.00 227.60 Tm (trades/candles) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 237.60 Tm (-) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 381.56 237.60 Tm (501 NOT_ADMITTED, never a fake tx) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 206.60 Tm (Live origin still 404s /prepare and /candles on the old prefix, by design. These new paths are not admitted on) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 193.20 Tm (legendary.fun until this function is deployed there.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 169.80 Tm (2.3 Website trade API that exists in-repo \(devnet, not a partner API\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 151.80 Tm (scripts/trade-api/service.mjs implements /api/devnet/trade/*:) Tj ET
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 136.40 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 134.40 Tm (Cookie session \(Host-legendary-devnet-trade\), CSRF, same-origin, origin-key, IP header.) Tj ET
-0.760 0.620 0.280 rg
-56.00 123.40 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 121.40 Tm (Wallet allowlist or public-devnet admission.) Tj ET
-0.760 0.620 0.280 rg
-56.00 110.40 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 108.40 Tm (POST /prepare -> unsigned tx attempt, then simulate/submit with exact-wire checks.) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 91.40 Tm (This is the first-party website lane. It is the wrong shape for Axiom/GMGN/Jupiter \(they will not complete a SIWS) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 78.00 Tm (cookie dance per swap\). Do not reopen it as "the partner API." If a hosted builder is wanted, add a new /v1/quote +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 89.80 Tm (GET /api/v1/tokens/{mint}/curve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 89.80 Tm (quote or catalog row) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 89.80 Tm (graduated / onFactoryCurve) Tj ET
 0.120 0.140 0.180 rg
 endstream
 endobj
 6 0 obj
-<< /Length 7455 >>
+<< /Length 9766 >>
 stream
 0.8 w
 0 g
@@ -481,166 +476,228 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 4) Tj ET
 0.4 w
 54.00 40 m 558.00 40 l S
 0.8 w
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (/v1/swap that returns unsigned bytes and never holds keys.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 690.60 Tm (3. Program buy/sell \(what actually moves funds\)) Tj ET
-0.760 0.620 0.280 rg
-54.00 684.60 220.00 2.2 re f
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 666.60 Tm (Live factory: Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 649.20 Tm (Instruction tags \(ASCII, 8 bytes\), from compat/launch-creation-v5:) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-54.00 611.80 504.00 18.00 re f
+0.970 0.970 0.980 rg
+54.00 712.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 611.80 504.00 18.00 re S
-1.000 1.000 1.000 rg
-BT /F2 8.00 Tf 1 0 0 1 59.00 618.80 Tm (Tag) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 200.12 618.80 Tm (Meaning) Tj ET
+54.00 712.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 719.00 Tm (GET /api/v1/launchpad) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 719.00 Tm (constants) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 719.00 Tm (Factory, tags, existing API list, site-lane map) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 593.80 504.00 18.00 re f
+54.00 694.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 593.80 504.00 18.00 re S
+54.00 694.00 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 600.80 Tm (LGCNEW05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 600.80 Tm (Create launch + mint + metadata) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 701.00 Tm (GET /api/v1/stream) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 701.00 Tm (site websocket URL) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 701.00 Tm (Does not terminate the socket) Tj ET
 0.120 0.140 0.180 rg
 0.970 0.970 0.980 rg
-54.00 575.80 504.00 18.00 re f
+54.00 666.00 504.00 28.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 575.80 504.00 18.00 re S
+54.00 666.00 504.00 28.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 582.80 Tm (LGCBUY05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 582.80 Tm (Curve buy) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 683.00 Tm (GET) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 673.00 Tm (/api/compat/pump/v3/coins/latest) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 683.00 Tm (factory list) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 683.00 Tm (Discovery-only Pump field names) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 557.80 504.00 18.00 re f
+54.00 648.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 557.80 504.00 18.00 re S
+54.00 648.00 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 564.80 Tm (LGCSEL05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 564.80 Tm (Curve sell) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 655.00 Tm (GET /api/compat/meteora/v1/pools) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 655.00 Tm (factory list) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 655.00 Tm (DBC-shaped discovery; factory in config) Tj ET
 0.120 0.140 0.180 rg
 0.970 0.970 0.980 rg
-54.00 539.80 504.00 18.00 re f
+54.00 630.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 539.80 504.00 18.00 re S
+54.00 630.00 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 546.80 Tm (LGGRAD05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 546.80 Tm (Graduate to Raydium CPMM + lock) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 637.00 Tm (POST /api/v1/quote) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 637.00 Tm (live mint quote + integer curve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 637.00 Tm (admitted:false; never a fake fill) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 521.80 504.00 18.00 re f
+54.00 602.00 504.00 28.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 521.80 504.00 18.00 re S
+54.00 602.00 504.00 28.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 528.80 Tm (LGCTRV05 / LGLIFE05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 200.12 528.80 Tm (Launch account magic / lifecycle) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 619.00 Tm (POST /api/v1/swap) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 619.00 Tm (unsigned 52-byte v5 template) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 619.00 Tm (executable:false; remaining PDAs null until) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 609.00 Tm (admitted) Tj ET
 0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 574.00 504.00 28.00 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 507.80 Tm (Trade instruction is 52 bytes: 48 bytes of integers \(revision, policy version, amount, minimum out, expiry slot\) plus) Tj ET
+0.860 0.870 0.890 RG
+54.00 574.00 504.00 28.00 re S
 0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 591.00 Tm (GET /api/v1/tokens/{mint}/trades or) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 581.00 Tm (Pump trades/candles) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 591.00 Tm (schema only) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 591.00 Tm (indexed:false, empty arrays) Tj ET
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 494.40 Tm (two u16 Shield absence-proof indices. 27 accounts. Creation is 42 accounts with a variable metadata commitment.) Tj ET
+1.000 1.000 1.000 rg
+54.00 556.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 556.00 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 477.00 Tm (Buy \(spec, BUILD_SPECIFICATION 6.3\):) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 563.00 Tm (POST /api/compat/meteora/v1/swap2) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 563.00 Tm (Legendary unsigned template) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 563.00 Tm (Overlay, not DBC bytes) Tj ET
 0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 461.60 3.2 3.2 re f
+0.970 0.970 0.980 rg
+54.00 538.00 504.00 18.00 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 459.60 Tm (amount = max gross SOL in \(lamports\).) Tj ET
-0.760 0.620 0.280 rg
-56.00 448.60 3.2 3.2 re f
+0.860 0.870 0.890 RG
+54.00 538.00 504.00 18.00 re S
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 446.60 Tm (2% fee off gross; only net SOL enters the virtual-reserve constant-product curve.) Tj ET
-0.760 0.620 0.280 rg
-56.00 435.60 3.2 3.2 re f
+BT /F1 8.00 Tf 1 0 0 1 59.00 545.00 Tm (GET /api/v1/idl) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 545.00 Tm (v5 tags and account counts) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 545.00 Tm (IDL-equivalent, not Anchor-generated) Tj ET
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 433.60 Tm (Signed minimumOut is absolute. Quote expiry is a slot.) Tj ET
-0.760 0.620 0.280 rg
-56.00 422.60 3.2 3.2 re f
+1.000 1.000 1.000 rg
+54.00 510.00 504.00 28.00 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 420.60 Tm (Final buy may cap at remaining graduation fill \(120 SOL real reserve, 20B migration inventory\). Fees only on) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 407.60 Tm (accepted input.) Tj ET
+0.860 0.870 0.890 RG
+54.00 510.00 504.00 28.00 re S
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 390.60 Tm (Sell \(spec, 6.4\):) Tj ET
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 375.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 373.20 Tm (amount = exact base tokens in.) Tj ET
-0.760 0.620 0.280 rg
-56.00 362.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 360.20 Tm (Fee taken from gross SOL out; seller receives net.) Tj ET
-0.760 0.620 0.280 rg
-56.00 349.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 347.20 Tm (Existing holders can always sell; a later registry listing cannot trap a balance.) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 330.20 Tm (Graduation: 120 SOL + 20B tokens into Raydium CPMM, full LP lock \(Burn & Earn\). After that, the venue is Raydium,) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 316.80 Tm (not the factory.) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 527.00 Tm (POST /api/v1/create or) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 517.00 Tm (/api/v1/rewards/claim) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 527.00 Tm (-) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 527.00 Tm (501 SITE_LANE; live create/claims stay on) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 517.00 Tm (legendary.fun cookies) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 299.40 Tm (Local tools/curve-snipe can quote and compile a v4 LGCBUY04 trade over RPC. Telegram decode helpers) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 496.00 Tm (Local integrator portal: Next.js on port 8833 \(apps/developer-portal\). Public hosts: developer.legendary.fun) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 286.00 Tm (understand v5 LGCBUY05 / LGCNEW05. Neither is a supported partner SDK. The published v4 instruction client) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 482.60 Tm (\(CNAME\) and legendary.devbyclaw.com \(origin\). It proxies the three existing DAP reads from legendary.fun, serves) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 272.60 Tm (\(packages/launch-instruction-client-v4\) must not be used against the live v5 factory.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 235.20 Tm (4. How the named venues integrate launchpads today) Tj ET
-0.760 0.620 0.280 rg
-54.00 229.20 220.00 2.2 re f
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 205.20 Tm (Jupiter \(and wallets that only call Jupiter\)) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 469.20 Tm (the additive prefixes, OpenAPI/Swagger, the SDK snippets, and the partner PDF. Live origin still 404s /prepare) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 187.20 Tm (Jupiter Swap v2 \(/swap/v2/order + /execute\) routes markets on an allowlist. Instant routing currently includes) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 455.80 Tm (and /candles on the old prefix, by design. These new paths are not admitted on legendary.fun until this function is) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 173.80 Tm (Pump.fun, Pump AMM, Meteora DBC / DAMM / DLMM, Raydium \(incl. LaunchLab and CPMM\), Moonshot, and others.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 160.40 Tm (Legendary factory is not on that list.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 143.00 Tm (Observed: a 0.1 SOL quote for the live LGND mint already returns a Jupiter route labeled Raydium CP through pool) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 129.60 Tm (czewDLam.... Graduated Legendary tokens are therefore already plug-and-play for Jupiter/Phantom/Backpack as) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 116.20 Tm (Raydium. Curve-stage tokens will return no Metis route until Jupiter lists the factory \(or until some other router) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 102.80 Tm (implements it\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 442.40 Tm (deployed there.) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 79.40 Tm (GMGN) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 419.00 Tm (2.3 Website trade API that exists in-repo \(devnet, not a partner API\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 401.00 Tm (scripts/trade-api/service.mjs implements /api/devnet/trade/*:) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 385.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 383.60 Tm (Cookie session \(Host-legendary-devnet-trade\), CSRF, same-origin, origin-key, IP header.) Tj ET
+0.760 0.620 0.280 rg
+56.00 372.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 370.60 Tm (Wallet allowlist or public-devnet admission.) Tj ET
+0.760 0.620 0.280 rg
+56.00 359.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 357.60 Tm (POST /prepare -> unsigned tx attempt, then simulate/submit with exact-wire checks.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 340.60 Tm (This is the first-party website lane. It is the wrong shape for Axiom/GMGN/Jupiter \(they will not complete a SIWS) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 327.20 Tm (cookie dance per swap\). Do not reopen it as "the partner API." If a hosted builder is wanted, add a new /v1/quote +) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 313.80 Tm (/v1/swap that returns unsigned bytes and never holds keys.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 276.40 Tm (3. Program buy/sell \(what actually moves funds\)) Tj ET
+0.760 0.620 0.280 rg
+54.00 270.40 220.00 2.2 re f
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 252.40 Tm (Live factory: Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 235.00 Tm (Instruction tags \(ASCII, 8 bytes\), from compat/launch-creation-v5:) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+54.00 197.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 197.60 504.00 18.00 re S
+1.000 1.000 1.000 rg
+BT /F2 8.00 Tf 1 0 0 1 59.00 204.60 Tm (Tag) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 200.12 204.60 Tm (Meaning) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 179.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 179.60 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 186.60 Tm (LGCNEW05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 186.60 Tm (Create launch + mint + metadata) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 161.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 161.60 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 168.60 Tm (LGCBUY05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 168.60 Tm (Curve buy) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 143.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 143.60 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 150.60 Tm (LGCSEL05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 150.60 Tm (Curve sell) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 125.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 125.60 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 132.60 Tm (LGGRAD05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 132.60 Tm (Graduate to Raydium CPMM + lock) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 107.60 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 107.60 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 114.60 Tm (LGCTRV05 / LGLIFE05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 114.60 Tm (Launch account magic / lifecycle) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 93.60 Tm (Trade instruction is 52 bytes: 48 bytes of integers \(revision, policy version, amount, minimum out, expiry slot\) plus) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 80.20 Tm (two u16 Shield absence-proof indices. 27 accounts. Creation is 42 accounts with a variable metadata commitment.) Tj ET
 0.120 0.140 0.180 rg
 endstream
 endobj
 7 0 obj
-<< /Length 7088 >>
+<< /Length 7437 >>
 stream
 0.8 w
 0 g
@@ -661,132 +718,139 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 5) Tj ET
 54.00 40 m 558.00 40 l S
 0.8 w
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (Official Agent/OpenAPI is their own execution and research layer. Trenches take launchpad-platform enums) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 714.60 Tm (\(Pump.fun, letsbonk, ...\). They classify by program ID + decoded create/trade events, then optionally swap through) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 701.20 Tm (their backend. They will not list Legendary until: \(1\) a decoder for LGCNEW05/LGCBUY05, \(2\) a Pulse-shaped) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 687.80 Tm (feed or their own RPC ingest, \(3\) an execution path \(our SDK or their builder\).) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 664.40 Tm (Axiom / Fomo / Photon) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 646.40 Tm (These are terminals. Public APIs, where they exist, are their order APIs, not launchpad APIs. Under the hood they) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 633.00 Tm (keep a DexType enum \(see also community SDKs such as sol-trade-sdk: PumpFun, PumpSwap, Bonk, Meteora DAMM) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 619.60 Tm (v2, Raydium, ...\). Adding Legendary is a plugin: program ID, discriminators, account map, quote function, SWQoS) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 606.20 Tm (submit. Fomo.family-style social APIs are unrelated.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 582.80 Tm (Pump.fun "API") Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 564.80 Tm (Two different things are routinely confused:) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 547.40 Tm (1. On-chain SDK / IDL - @pump-fun/pump-sdk \(curve\) and PumpSwap \(buy_v2 / sell_v2, 17 accounts,) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 534.40 Tm (base_amount_out + max_quote_amount_in\). This is what bots actually trade through.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 521.40 Tm (2. Frontend REST - frontend-api-v3.pump.fun with hundreds of endpoints \(coins, trades, livestreams, replies,) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 508.40 Tm (bookmarks, jito tip\). Unofficial mirrors document /coins/latest, /coins/{mint}, /trades/all/{mint},) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 495.40 Tm (/candlesticks/{mint}. This is a website backend, not a standard Solana interface.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 478.40 Tm (Meteora DBC has no official launch REST. Integrators use @meteora-ag/dynamic-bonding-curve-sdk: swapQuote2) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 465.00 Tm (then swap2 \(swapBaseForQuote, SwapMode.ExactIn|PartialFill|ExactOut\). Raydium LaunchLab is the same pattern:) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 451.60 Tm (Curve.buyExactIn + launchpad.buyToken.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 434.20 Tm (Legendary is closer to "custom curve + Raydium graduation" than to Pump's frontend. Copying 400 Pump REST) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 420.80 Tm (routes would be the wrong gap to fill.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 383.40 Tm (5. Compatibility-layer options \(ranked\)) Tj ET
-0.760 0.620 0.280 rg
-54.00 377.40 220.00 2.2 re f
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 353.40 Tm (Option A - Native partner stack \(do this\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 335.40 Tm (Ship what those SDKs actually are:) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (Buy \(spec, BUILD_SPECIFICATION 6.3\):) Tj ET
 0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-56.00 320.00 3.2 3.2 re f
+56.00 712.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 318.00 Tm (IDL-equivalent JSON for factory v5.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 710.60 Tm (amount = max gross SOL in \(lamports\).) Tj ET
 0.760 0.620 0.280 rg
-56.00 307.00 3.2 3.2 re f
+56.00 699.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 305.00 Tm (Integer quote + unsigned instruction builder.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 697.60 Tm (2% fee off gross; only net SOL enters the virtual-reserve constant-product curve.) Tj ET
 0.760 0.620 0.280 rg
-56.00 294.00 3.2 3.2 re f
+56.00 686.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 292.00 Tm (Public discovery + trade tape + candles + log-subscribe recipe.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 684.60 Tm (Signed minimumOut is absolute. Quote expiry is a slot.) Tj ET
 0.760 0.620 0.280 rg
-56.00 281.00 3.2 3.2 re f
+56.00 673.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 279.00 Tm (Optional hosted /v1/quote + /v1/swap \(unsigned tx, taker = user wallet\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 671.60 Tm (Final buy may cap at remaining graduation fill \(120 SOL real reserve, 20B migration inventory\). Fees only on) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 658.60 Tm (accepted input.) Tj ET
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 262.00 Tm (Gap IDs: GAP-IDL, GAP-SDK-QUOTE-BUILD, GAP-DISCOVERY-API, GAP-TRADE-TAPE-CANDLES-WS,) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 641.60 Tm (Sell \(spec, 6.4\):) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 626.20 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 624.20 Tm (amount = exact base tokens in.) Tj ET
+0.760 0.620 0.280 rg
+56.00 613.20 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 611.20 Tm (Fee taken from gross SOL out; seller receives net.) Tj ET
+0.760 0.620 0.280 rg
+56.00 600.20 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 598.20 Tm (Existing holders can always sell; a later registry listing cannot trap a balance.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 581.20 Tm (Graduation: 120 SOL + 20B tokens into Raydium CPMM, full LP lock \(Burn & Earn\). After that, the venue is Raydium,) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 248.60 Tm (GAP-PARTNER-EXECUTION-API, GAP-TERMINAL-PLUGIN.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 567.80 Tm (not the factory.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 550.40 Tm (Local tools/curve-snipe can quote and compile a v4 LGCBUY04 trade over RPC. Telegram decode helpers) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 537.00 Tm (understand v5 LGCBUY05 / LGCNEW05. Neither is a supported partner SDK. The published v4 instruction client) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 523.60 Tm (\(packages/launch-instruction-client-v4\) must not be used against the live v5 factory.) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 225.20 Tm (Option B - Jupiter listing \(do this for auto-route\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 207.20 Tm (Implement a Metis AMM adapter \(quote + account metas + swap ix\) and apply for instant routing of factory Fkeuw75....) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 193.80 Tm (Keep graduated flow on Raydium CPMM.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 176.40 Tm (Gap ID: GAP-JUPITER-LISTING. This is the only path that makes Phantom/Backpack "auto-detect" curve tokens.) Tj ET
+BT /F2 13.00 Tf 1 0 0 1 54.00 486.20 Tm (4. How the named venues integrate launchpads today) Tj ET
+0.760 0.620 0.280 rg
+54.00 480.20 220.00 2.2 re f
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 153.00 Tm (Option C - Meteora / LaunchLab-shaped wrappers \(small\)) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 456.20 Tm (Jupiter \(and wallets that only call Jupiter\)) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 135.00 Tm (client.pool.swapQuote2\({ swapBaseForQuote: false, amountIn, slippageBps }\) -> Legendary quoteBuy. Same for) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 438.20 Tm (Jupiter Swap v2 \(/swap/v2/order + /execute\) routes markets on an allowlist. Instant routing currently includes) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 121.60 Tm (buyToken. Document exact-out / partial-fill as unsupported unless the program gains them.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 424.80 Tm (Pump.fun, Pump AMM, Meteora DBC / DAMM / DLMM, Raydium \(incl. LaunchLab and CPMM\), Moonshot, and others.) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 104.20 Tm (Gap ID: GAP-METEORA-RAYDIUM-SHAPED-SDK.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 411.40 Tm (Legendary factory is not on that list.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 394.00 Tm (Observed: a 0.1 SOL quote for the live LGND mint already returns a Jupiter route labeled Raydium CP through pool) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 380.60 Tm (czewDLam.... Graduated Legendary tokens are therefore already plug-and-play for Jupiter/Phantom/Backpack as) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 367.20 Tm (Raydium. Curve-stage tokens will return no Metis route until Jupiter lists the factory \(or until some other router) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 353.80 Tm (implements it\).) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 80.80 Tm (Option D - Pump REST facade \(discovery only\)) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 330.40 Tm (GMGN) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 312.40 Tm (Official Agent/OpenAPI is their own execution and research layer. Trenches take launchpad-platform enums) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 299.00 Tm (\(Pump.fun, letsbonk, ...\). They classify by program ID + decoded create/trade events, then optionally swap through) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 285.60 Tm (their backend. They will not list Legendary until: \(1\) a decoder for LGCNEW05/LGCBUY05, \(2\) a Pulse-shaped) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 272.20 Tm (feed or their own RPC ingest, \(3\) an execution path \(our SDK or their builder\).) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 248.80 Tm (Axiom / Fomo / Photon) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 230.80 Tm (These are terminals. Public APIs, where they exist, are their order APIs, not launchpad APIs. Under the hood they) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 217.40 Tm (keep a DexType enum \(see also community SDKs such as sol-trade-sdk: PumpFun, PumpSwap, Bonk, Meteora DAMM) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 204.00 Tm (v2, Raydium, ...\). Adding Legendary is a plugin: program ID, discriminators, account map, quote function, SWQoS) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 190.60 Tm (submit. Fomo.family-style social APIs are unrelated.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 167.20 Tm (Pump.fun "API") Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 149.20 Tm (Two different things are routinely confused:) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 131.80 Tm (1. On-chain SDK / IDL - @pump-fun/pump-sdk \(curve\) and PumpSwap \(buy_v2 / sell_v2, 17 accounts,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 118.80 Tm (base_amount_out + max_quote_amount_in\). This is what bots actually trade through.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 105.80 Tm (2. Frontend REST - frontend-api-v3.pump.fun with hundreds of endpoints \(coins, trades, livestreams, replies,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 92.80 Tm (bookmarks, jito tip\). Unofficial mirrors document /coins/latest, /coins/{mint}, /trades/all/{mint},) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 79.80 Tm (/candlesticks/{mint}. This is a website backend, not a standard Solana interface.) Tj ET
 0.120 0.140 0.180 rg
 endstream
 endobj
 8 0 obj
-<< /Length 11890 >>
+<< /Length 7088 >>
 stream
 0.8 w
 0 g
@@ -807,256 +871,141 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 6) Tj ET
 54.00 40 m 558.00 40 l S
 0.8 w
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (Implement six GETs under /compat/pump/v3. Map mint, name, symbol, usd_market_cap, complete \(graduated\), virtual) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (Meteora DBC has no official launch REST. Integrators use @meteora-ag/dynamic-bonding-curve-sdk: swapQuote2) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 714.60 Tm (reserves, created_timestamp. Return 501 for create-coin, livestream, social, and any POST that would imply Pump) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 714.60 Tm (then swap2 \(swapBaseForQuote, SwapMode.ExactIn|PartialFill|ExactOut\). Raydium LaunchLab is the same pattern:) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 701.20 Tm (instruction bytes.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 701.20 Tm (Curve.buyExactIn + launchpad.buyToken.) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 683.80 Tm (Gap ID: GAP-PUMP-SHAPED-FACADE. Useful only for UIs already hardcoded to Pump's coin list. It will not make) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 683.80 Tm (Legendary is closer to "custom curve + Raydium graduation" than to Pump's frontend. Copying 400 Pump REST) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 670.40 Tm (@pump-fun/pump-sdk send a successful curve buy.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 647.00 Tm (Option E - Byte-identical Pump program \(do not\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 629.00 Tm (Would require abandoning Shield proofs, CTO, 2% / 120 SOL / 20B economics, 27-account layout, and factory) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 615.60 Tm (identity. Forbidden by the security model. Also illegal as "auto-detect": it would be impersonation of another program.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 670.40 Tm (routes would be the wrong gap to fill.) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 578.20 Tm (6. Gap matrix \(what we have vs what they expect vs what to build\)) Tj ET
+BT /F2 13.00 Tf 1 0 0 1 54.00 633.00 Tm (5. Compatibility-layer options \(ranked\)) Tj ET
 0.760 0.620 0.280 rg
-54.00 572.20 220.00 2.2 re f
+54.00 627.00 220.00 2.2 re f
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-54.00 534.20 504.00 18.00 re f
+BT /F2 11.00 Tf 1 0 0 1 54.00 603.00 Tm (Option A - Native partner stack \(do this\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 585.00 Tm (Ship what those SDKs actually are:) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 569.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 567.60 Tm (IDL-equivalent JSON for factory v5.) Tj ET
+0.760 0.620 0.280 rg
+56.00 556.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 554.60 Tm (Integer quote + unsigned instruction builder.) Tj ET
+0.760 0.620 0.280 rg
+56.00 543.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 541.60 Tm (Public discovery + trade tape + candles + log-subscribe recipe.) Tj ET
+0.760 0.620 0.280 rg
+56.00 530.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 528.60 Tm (Optional hosted /v1/quote + /v1/swap \(unsigned tx, taker = user wallet\).) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 511.60 Tm (Gap IDs: GAP-IDL, GAP-SDK-QUOTE-BUILD, GAP-DISCOVERY-API, GAP-TRADE-TAPE-CANDLES-WS,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 498.20 Tm (GAP-PARTNER-EXECUTION-API, GAP-TERMINAL-PLUGIN.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 474.80 Tm (Option B - Jupiter listing \(do this for auto-route\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 456.80 Tm (Implement a Metis AMM adapter \(quote + account metas + swap ix\) and apply for instant routing of factory Fkeuw75....) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 443.40 Tm (Keep graduated flow on Raydium CPMM.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 426.00 Tm (Gap ID: GAP-JUPITER-LISTING. This is the only path that makes Phantom/Backpack "auto-detect" curve tokens.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 402.60 Tm (Option C - Meteora / LaunchLab-shaped wrappers \(small\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 384.60 Tm (client.pool.swapQuote2\({ swapBaseForQuote: false, amountIn, slippageBps }\) -> Legendary quoteBuy. Same for) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 371.20 Tm (buyToken. Document exact-out / partial-fill as unsupported unless the program gains them.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 353.80 Tm (Gap ID: GAP-METEORA-RAYDIUM-SHAPED-SDK.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 330.40 Tm (Option D - Pump REST facade \(discovery only\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 312.40 Tm (Implement six GETs under /compat/pump/v3. Map mint, name, symbol, usd_market_cap, complete \(graduated\), virtual) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 299.00 Tm (reserves, created_timestamp. Return 501 for create-coin, livestream, social, and any POST that would imply Pump) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 285.60 Tm (instruction bytes.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 268.20 Tm (Gap ID: GAP-PUMP-SHAPED-FACADE. Useful only for UIs already hardcoded to Pump's coin list. It will not make) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 254.80 Tm (@pump-fun/pump-sdk send a successful curve buy.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 231.40 Tm (Option E - Byte-identical Pump program \(do not\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 213.40 Tm (Would require abandoning Shield proofs, CTO, 2% / 120 SOL / 20B economics, 27-account layout, and factory) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 200.00 Tm (identity. Forbidden by the security model. Also illegal as "auto-detect": it would be impersonation of another program.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 162.60 Tm (6. Gap matrix \(what we have vs what they expect vs what to build\)) Tj ET
+0.760 0.620 0.280 rg
+54.00 156.60 220.00 2.2 re f
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+54.00 118.60 504.00 18.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 534.20 504.00 18.00 re S
+54.00 118.60 504.00 18.00 re S
 1.000 1.000 1.000 rg
-BT /F2 8.00 Tf 1 0 0 1 59.00 541.20 Tm (Expectation) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 159.80 541.20 Tm (They call) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 260.60 541.20 Tm (We have) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 361.40 541.20 Tm (Distance) Tj ET
-BT /F2 8.00 Tf 1 0 0 1 462.20 541.20 Tm (Build) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 496.20 504.00 38.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 496.20 504.00 38.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 523.20 Tm (List new coins) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 523.20 Tm (Pump /coins/latest, GMGN) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 513.20 Tm (trenches) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 523.20 Tm (Catalog \(1 graduated row;) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 513.20 Tm (no live firehose\)) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 523.20 Tm (Medium) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 523.20 Tm (Paginated public) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 513.20 Tm (/v1/tokens + create-event) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 503.20 Tm (stream) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 468.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 468.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 485.20 Tm (Coin by mint) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 485.20 Tm (/coins/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 485.20 Tm (Catalog row + Metaplex) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 475.20 Tm (on-chain) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 485.20 Tm (Small) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 485.20 Tm (Mint lookup +) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 475.20 Tm (name/ticker/uri) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 440.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 440.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 457.20 Tm (Bonding progress) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 457.20 Tm (Pump real_sol_reserves /) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 447.20 Tm (complete) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 457.20 Tm (Launch account R, S,) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 447.20 Tm (phase) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 457.20 Tm (Medium) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 457.20 Tm (Document layout +) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 447.20 Tm (/v1/tokens/{mint}/curve) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 402.20 504.00 38.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 402.20 504.00 38.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 429.20 Tm (Quote SOL->token) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 429.20 Tm (Pump SDK buy; Meteora) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 419.20 Tm (swapQuote2; LaunchLab) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 409.20 Tm (Curve.buyExactIn) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 429.20 Tm (Offline curve package; no) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 419.20 Tm (public quote API; site) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 409.20 Tm (quoteAvailable: false) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 429.20 Tm (Large) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 429.20 Tm (Partner SDK quote) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 419.20 Tm (\(bigint\)) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 364.20 504.00 38.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 364.20 504.00 38.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 391.20 Tm (Build buy/sell tx) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 391.20 Tm (Pump/Meteora/LaunchLab) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 381.20 Tm (SDK) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 391.20 Tm (v5 ABI in-repo; v4 local) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 381.20 Tm (compiler; website prepare) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 371.20 Tm (disabled) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 391.20 Tm (Large) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 391.20 Tm (v5 unsigned builder +) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 381.20 Tm (ATA + compute budget) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 336.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 336.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 353.20 Tm (Slippage) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 353.20 Tm (min_out /) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 343.20 Tm (minimumAmountOut) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 353.20 Tm (Spec has minimumOut +) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 343.20 Tm (expiry slot) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 353.20 Tm (Small once quote exists) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 353.20 Tm (Pass through signed limits) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 59.00 125.60 Tm (Expectation) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 159.80 125.60 Tm (They call) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 260.60 125.60 Tm (We have) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 361.40 125.60 Tm (Distance) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 462.20 125.60 Tm (Build) Tj ET
 0.120 0.140 0.180 rg
 1.000 1.000 1.000 rg
-54.00 298.20 504.00 38.00 re f
+54.00 80.60 504.00 38.00 re f
 0.120 0.140 0.180 rg
 0.860 0.870 0.890 RG
-54.00 298.20 504.00 38.00 re S
+54.00 80.60 504.00 38.00 re S
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 325.20 Tm (Shield / denylist) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 325.20 Tm (Pump has none of this form) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 325.20 Tm (Curve-only Shield +) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 315.20 Tm (absence indices on buy) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 325.20 Tm (Legendary-specific) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 325.20 Tm (SDK must fail closed;) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 315.20 Tm (terminals must not strip) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 305.20 Tm (proofs) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 270.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 270.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 287.20 Tm (Trade tape) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 287.20 Tm (/trades/all/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 287.20 Tm (Specified, not deployed;) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 277.20 Tm (candles 404) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 287.20 Tm (Large) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 287.20 Tm (REST + WS per) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 277.20 Tm (BUILD_SPEC 11) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 242.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 242.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 259.20 Tm (Charts) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 259.20 Tm (/candlesticks/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 259.20 Tm (Specified 1m candles, not) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 249.20 Tm (live) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 259.20 Tm (Large) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 259.20 Tm (Same as tape) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 214.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 214.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 231.20 Tm (Graduated swap) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 231.20 Tm (Jupiter / Raydium CPMM /) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 221.20 Tm (PumpSwap) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 231.20 Tm (Already Raydium CPMM;) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 221.20 Tm (Jupiter routes LGND) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 231.20 Tm (None for aggregators) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 231.20 Tm (Keep pool id in catalog) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 186.20 504.00 28.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 186.20 504.00 28.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 203.20 Tm (Instant Jupiter curve) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 59.00 193.20 Tm (routing) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 203.20 Tm (Allowlisted DEX) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 203.20 Tm (Not listed) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 203.20 Tm (Large + external) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 203.20 Tm (Metis adapter + listing) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 193.20 Tm (request) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 148.20 504.00 38.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 148.20 504.00 38.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 175.20 Tm (Integrator share fee) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 175.20 Tm (LaunchLab) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 165.20 Tm (share_fee_rate; some) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 155.20 Tm (Pump remaining accounts) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 175.20 Tm (Not in LGCBUY05) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 175.20 Tm (Product decision) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 175.20 Tm (GAP-REFERRAL-SHARE) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 165.20 Tm (-FEE) Tj ET
-0.120 0.140 0.180 rg
-1.000 1.000 1.000 rg
-54.00 100.20 504.00 48.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 100.20 504.00 48.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 137.20 Tm (Create-from-terminal) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 137.20 Tm (Pump create_v2 + first) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 127.20 Tm (buy) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 137.20 Tm (Website) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 127.20 Tm (capabilities.create: false;) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 117.20 Tm (v5 create is 42 accounts) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 107.20 Tm (+ metadata CID) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 137.20 Tm (Out of band) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 137.20 Tm (Not required for buy/sell) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 127.20 Tm (terminals) Tj ET
-0.120 0.140 0.180 rg
-0.970 0.970 0.980 rg
-54.00 82.20 504.00 18.00 re f
-0.120 0.140 0.180 rg
-0.860 0.870 0.890 RG
-54.00 82.20 504.00 18.00 re S
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 59.00 89.20 Tm (Cookie SIWS trade API) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 159.80 89.20 Tm (Nobody expects this) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 260.60 89.20 Tm (Devnet website lane) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 361.40 89.20 Tm (Wrong shape) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 462.20 89.20 Tm (Do not reuse) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 107.60 Tm (List new coins) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 107.60 Tm (Pump /coins/latest, GMGN) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 97.60 Tm (trenches) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 107.60 Tm (Catalog \(1 graduated row;) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 97.60 Tm (no live firehose\)) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 107.60 Tm (Medium) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 107.60 Tm (Paginated public) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 97.60 Tm (/v1/tokens + create-event) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 87.60 Tm (stream) Tj ET
 0.120 0.140 0.180 rg
 endstream
 endobj
 9 0 obj
-<< /Length 5945 >>
+<< /Length 10715 >>
 stream
 0.8 w
 0 g
@@ -1076,112 +1025,231 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 7) Tj ET
 0.4 w
 54.00 40 m 558.00 40 l S
 0.8 w
+0.970 0.970 0.980 rg
+54.00 702.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 702.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 719.00 Tm (Coin by mint) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 719.00 Tm (/coins/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 719.00 Tm (Catalog row + Metaplex) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 709.00 Tm (on-chain) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 719.00 Tm (Small) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 719.00 Tm (Mint lookup +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 709.00 Tm (name/ticker/uri) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 674.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 674.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 691.00 Tm (Bonding progress) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 691.00 Tm (Pump real_sol_reserves /) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 681.00 Tm (complete) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 691.00 Tm (Launch account R, S,) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 681.00 Tm (phase) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 691.00 Tm (Medium) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 691.00 Tm (Document layout +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 681.00 Tm (/v1/tokens/{mint}/curve) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 636.00 504.00 38.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 636.00 504.00 38.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 663.00 Tm (Quote SOL->token) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 663.00 Tm (Pump SDK buy; Meteora) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 653.00 Tm (swapQuote2; LaunchLab) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 643.00 Tm (Curve.buyExactIn) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 663.00 Tm (Offline curve package; no) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 653.00 Tm (public quote API; site) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 643.00 Tm (quoteAvailable: false) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 663.00 Tm (Large) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 663.00 Tm (Partner SDK quote) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 653.00 Tm (\(bigint\)) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 598.00 504.00 38.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 598.00 504.00 38.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 625.00 Tm (Build buy/sell tx) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 625.00 Tm (Pump/Meteora/LaunchLab) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 615.00 Tm (SDK) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 625.00 Tm (v5 ABI in-repo; v4 local) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 615.00 Tm (compiler; website prepare) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 605.00 Tm (disabled) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 625.00 Tm (Large) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 625.00 Tm (v5 unsigned builder +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 615.00 Tm (ATA + compute budget) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 570.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 570.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 587.00 Tm (Slippage) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 587.00 Tm (min_out /) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 577.00 Tm (minimumAmountOut) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 587.00 Tm (Spec has minimumOut +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 577.00 Tm (expiry slot) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 587.00 Tm (Small once quote exists) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 587.00 Tm (Pass through signed limits) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 532.00 504.00 38.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 532.00 504.00 38.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 559.00 Tm (Shield / denylist) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 559.00 Tm (Pump has none of this form) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 559.00 Tm (Curve-only Shield +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 549.00 Tm (absence indices on buy) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 559.00 Tm (Legendary-specific) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 559.00 Tm (SDK must fail closed;) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 549.00 Tm (terminals must not strip) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 539.00 Tm (proofs) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 504.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 504.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 521.00 Tm (Trade tape) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 521.00 Tm (/trades/all/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 521.00 Tm (Specified, not deployed;) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 511.00 Tm (candles 404) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 521.00 Tm (Large) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 521.00 Tm (REST + WS per) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 511.00 Tm (BUILD_SPEC 11) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 476.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 476.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 493.00 Tm (Charts) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 493.00 Tm (/candlesticks/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 493.00 Tm (Specified 1m candles, not) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 483.00 Tm (live) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 493.00 Tm (Large) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 493.00 Tm (Same as tape) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 448.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 448.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 465.00 Tm (Graduated swap) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 465.00 Tm (Jupiter / Raydium CPMM /) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 455.00 Tm (PumpSwap) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 465.00 Tm (Already Raydium CPMM;) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 455.00 Tm (Jupiter routes LGND) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 465.00 Tm (None for aggregators) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 465.00 Tm (Keep pool id in catalog) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 420.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 420.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 437.00 Tm (Instant Jupiter curve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 59.00 427.00 Tm (routing) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 437.00 Tm (Allowlisted DEX) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 437.00 Tm (Not listed) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 437.00 Tm (Large + external) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 437.00 Tm (Metis adapter + listing) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 427.00 Tm (request) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 382.00 504.00 38.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 382.00 504.00 38.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 409.00 Tm (Integrator share fee) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 409.00 Tm (LaunchLab) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 399.00 Tm (share_fee_rate; some) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 389.00 Tm (Pump remaining accounts) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 409.00 Tm (Not in LGCBUY05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 409.00 Tm (Product decision) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 409.00 Tm (GAP-REFERRAL-SHARE) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 399.00 Tm (-FEE) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 334.00 504.00 48.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 334.00 504.00 48.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 371.00 Tm (Create-from-terminal) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 371.00 Tm (Pump create_v2 + first) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 361.00 Tm (buy) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 371.00 Tm (Website) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 361.00 Tm (capabilities.create: false;) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 351.00 Tm (v5 create is 42 accounts) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 341.00 Tm (+ metadata CID) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 371.00 Tm (Out of band) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 371.00 Tm (Not required for buy/sell) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 361.00 Tm (terminals) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 316.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 316.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 323.00 Tm (Cookie SIWS trade API) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 159.80 323.00 Tm (Nobody expects this) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 260.60 323.00 Tm (Devnet website lane) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 361.40 323.00 Tm (Wrong shape) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 462.20 323.00 Tm (Do not reuse) Tj ET
+0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 718.00 Tm (7. Integration guide \(native path\)) Tj ET
+BT /F2 13.00 Tf 1 0 0 1 54.00 282.00 Tm (7. Integration guide \(native path\)) Tj ET
 0.760 0.620 0.280 rg
-54.00 712.00 220.00 2.2 re f
+54.00 276.00 220.00 2.2 re f
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 694.00 Tm (Give every partner this box and nothing that requires our cookies.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 258.00 Tm (Give every partner this box and nothing that requires our cookies.) Tj ET
 0.120 0.140 0.180 rg
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 670.60 Tm (7.1 Constants) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 234.60 Tm (7.1 Constants) Tj ET
 0.120 0.140 0.180 rg
 0.960 0.960 0.970 rg
-54.00 556.60 504.00 102.00 re f
+54.00 120.60 504.00 102.00 re f
 0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-54.00 556.60 3 102.00 re f
+54.00 120.60 3 102.00 re f
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 64.00 642.60 Tm (cluster        mainnet-beta) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 631.60 Tm (genesis        5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 620.60 Tm (factory        Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 609.60 Tm (cto            7EgadoHa1THHf9cyKsh4QUrBGsfYW5FHSApSAHLSBbeN) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 598.60 Tm (token program  TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 587.60 Tm (ata program    ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 576.60 Tm (quote mint     So11111111111111111111111111111111111111112) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 565.60 Tm (decimals       6) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 206.60 Tm (cluster        mainnet-beta) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 195.60 Tm (genesis        5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 184.60 Tm (factory        Fkeuw75FEAYUpudPNqFqMv2m2KzhSiLYArp1rd8baH1i) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 173.60 Tm (cto            7EgadoHa1THHf9cyKsh4QUrBGsfYW5FHSApSAHLSBbeN) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 162.60 Tm (token program  TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 151.60 Tm (ata program    ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 140.60 Tm (quote mint     So11111111111111111111111111111111111111112) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 129.60 Tm (decimals       6) Tj ET
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 532.60 Tm (7.2 Detect a Legendary launch) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 96.60 Tm (7.2 Detect a Legendary launch) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 514.60 Tm (1. transactionSubscribe / logsSubscribe on the factory.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 68.00 78.60 Tm (1. transactionSubscribe / logsSubscribe on the factory.) Tj ET
 0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 501.60 Tm (2. Instruction data prefix LGCNEW05 -> new mint at account index 2 \(create\).) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 488.60 Tm (3. LGCBUY05 -> buy; trader is account 0, mint is account 5 \(as used by the in-repo decoder\). Confirm with the) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 475.60 Tm (IDL once published - do not treat Telegram helper indices as the full 27-role map.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 462.60 Tm (4. LGGRAD05 / catalog phase=graduated -> stop using the factory; trade the Raydium CPMM pool from the) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 449.60 Tm (catalog.) Tj ET
-0.120 0.140 0.180 rg
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 426.60 Tm (7.3 Quote and swap \(target SDK shape\)) Tj ET
-0.120 0.140 0.180 rg
-0.960 0.960 0.970 rg
-54.00 312.60 504.00 102.00 re f
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-54.00 312.60 3 102.00 re f
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 64.00 398.60 Tm (const q = await legendary.quote\({) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 387.60 Tm (  mint, side: "buy", amount: 1_000_000_000n, slippageBps: 100, taker,) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 376.60 Tm (}\);) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 365.60 Tm (// q.grossIn, q.fees, q.net, q.minOut, q.expirySlot, q.revision, q.policyVersion) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 354.60 Tm () Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 343.60 Tm (const tx = await legendary.buildSwap\(q\); // unsigned VersionedTransaction) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 332.60 Tm (const signed = await wallet.signTransaction\(tx\);) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 321.60 Tm (await send\(signed\);) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 294.60 Tm (Rules the SDK must enforce:) Tj ET
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-56.00 279.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 277.20 Tm (Amounts are bigint lamports / base units. No number math on instruction fields.) Tj ET
-0.760 0.620 0.280 rg
-56.00 266.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 264.20 Tm (User signs minOut and expirySlot, not a UI estimate.) Tj ET
-0.760 0.620 0.280 rg
-56.00 253.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 251.20 Tm (If Shield is curve-only, buys include authenticated absence proofs; sells do not become blocked.) Tj ET
-0.760 0.620 0.280 rg
-56.00 240.20 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 238.20 Tm (After graduation, refuse factory swaps and return { venue: "raydium-cpmm", pool }.) Tj ET
-0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 215.20 Tm (7.4 Discovery \(additive /api/v1, existing catalog unchanged\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 197.20 Tm (In-repo now \(not live on legendary.fun until the new Netlify function is deployed\):) Tj ET
-0.120 0.140 0.180 rg
-0.960 0.960 0.970 rg
-54.00 83.80 504.00 102.00 re f
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-54.00 83.80 3 102.00 re f
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 64.00 169.80 Tm (GET /api/v1/tokens) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 158.80 Tm (GET /api/v1/tokens/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 147.80 Tm (GET /api/v1/tokens/{mint}/curve) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 136.80 Tm (GET /api/v1/launchpad) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 125.80 Tm (GET /api/v1/sol-usd) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 114.80 Tm (GET /api/compat/pump/v3/coins/latest) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 103.80 Tm (GET /api/compat/pump/v3/coins/{mint}) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 92.80 Tm (GET /api/compat/pump/v3/sol-price) Tj ET
 endstream
 endobj
 10 0 obj
-<< /Length 6481 >>
+<< /Length 6016 >>
 stream
 0.8 w
 0 g
@@ -1202,125 +1270,109 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 8) Tj ET
 54.00 40 m 558.00 40 l S
 0.8 w
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 728.00 Tm (Still not admitted \(return 501, do not invent\):) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 68.00 728.00 Tm (2. Instruction data prefix LGCNEW05 -> new mint at account index 2 \(create\).) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 715.00 Tm (3. LGCBUY05 -> buy; trader is account 0, mint is account 5 \(as used by the in-repo decoder\). Confirm with the) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 702.00 Tm (IDL once published - do not treat Telegram helper indices as the full 27-role map.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 689.00 Tm (4. LGGRAD05 / catalog phase=graduated -> stop using the factory; trade the Raydium CPMM pool from the) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 676.00 Tm (catalog.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 653.00 Tm (7.3 Quote and swap \(target SDK shape\)) Tj ET
 0.120 0.140 0.180 rg
 0.960 0.960 0.970 rg
-54.00 647.60 504.00 69.00 re f
+54.00 539.00 504.00 102.00 re f
 0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-54.00 647.60 3 69.00 re f
+54.00 539.00 3 102.00 re f
 0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 64.00 700.60 Tm (GET /api/v1/tokens/{mint}/trades) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 689.60 Tm (GET /api/v1/tokens/{mint}/candles) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 678.60 Tm (GET /api/v1/quote) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 667.60 Tm (POST /api/v1/swap) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 656.60 Tm (Pump /trades/* and /candlesticks/*) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 625.00 Tm (const q = await legendary.quote\({) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 614.00 Tm (  mint, side: "buy", amount: 1_000_000_000n, slippageBps: 100, taker,) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 603.00 Tm (}\);) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 592.00 Tm (// q.grossIn, q.fees, q.net, q.minOut, q.expirySlot, q.revision, q.policyVersion) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 581.00 Tm () Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 570.00 Tm (const tx = await legendary.buildSwap\(q\); // unsigned VersionedTransaction) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 559.00 Tm (const signed = await wallet.signTransaction\(tx\);) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 548.00 Tm (await send\(signed\);) Tj ET
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 629.60 Tm (Reuse catalog fields already present: mint, launch, pool, phase, venue, decimals, supply strings, price rational,) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 521.00 Tm (Rules the SDK must enforce:) Tj ET
 0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 505.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 616.20 Tm (poolReserves, fees, migration, shield. Do not change /api/mainnet/trade/catalog.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 503.60 Tm (Amounts are bigint lamports / base units. No number math on instruction fields.) Tj ET
+0.760 0.620 0.280 rg
+56.00 492.60 3.2 3.2 re f
 0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 490.60 Tm (User signs minOut and expirySlot, not a UI estimate.) Tj ET
+0.760 0.620 0.280 rg
+56.00 479.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 477.60 Tm (If Shield is curve-only, buys include authenticated absence proofs; sells do not become blocked.) Tj ET
+0.760 0.620 0.280 rg
+56.00 466.60 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 464.60 Tm (After graduation, refuse factory swaps and return { venue: "raydium-cpmm", pool }.) Tj ET
 0.080 0.130 0.240 rg
-BT /F2 11.00 Tf 1 0 0 1 54.00 592.80 Tm (7.5 What to tell each vendor) Tj ET
+BT /F2 11.00 Tf 1 0 0 1 54.00 441.60 Tm (7.4 Discovery \(additive /api/v1, existing catalog unchanged\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 423.60 Tm (In-repo now \(not live on legendary.fun until the new Netlify function is deployed\):) Tj ET
+0.120 0.140 0.180 rg
+0.960 0.960 0.970 rg
+54.00 244.20 504.00 168.00 re f
 0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-56.00 576.80 3.2 3.2 re f
+54.00 244.20 3 168.00 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 574.80 Tm (Jupiter: list the factory as an instant-routing DEX; keep CPMM for graduated. Until then, only graduated) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 561.80 Tm (Legendary tokens appear in Ultra/Swap.) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 396.20 Tm (GET /api/v1/tokens) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 385.20 Tm (GET /api/v1/tokens/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 374.20 Tm (GET /api/v1/tokens/{mint}/curve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 363.20 Tm (POST /api/v1/discovery) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 352.20 Tm (POST /api/v1/markets) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 341.20 Tm (GET /api/v1/launchpad) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 330.20 Tm (GET /api/v1/sol-usd) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 319.20 Tm (GET /api/v1/stream) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 308.20 Tm (GET /api/compat/pump/v3/coins/latest) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 297.20 Tm (GET /api/compat/pump/v3/coins/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 286.20 Tm (GET /api/compat/pump/v3/coins/search) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 275.20 Tm (GET /api/compat/pump/v3/sol-price) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 264.20 Tm (GET /api/compat/meteora/v1/pools) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 253.20 Tm (GET /api/compat/meteora/v1/pools/{mint}) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 226.20 Tm (Still not admitted \(return 501, do not invent\):) Tj ET
+0.120 0.140 0.180 rg
+0.960 0.960 0.970 rg
+54.00 112.80 504.00 102.00 re f
+0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-56.00 550.80 3.2 3.2 re f
+54.00 112.80 3 102.00 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 548.80 Tm (GMGN: add launchpad-platform=legendary; ingest factory logs or our /v1/tokens + trades; execute via our SDK) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 535.80 Tm (or their builder.) Tj ET
-0.760 0.620 0.280 rg
-56.00 524.80 3.2 3.2 re f
+BT /F1 8.00 Tf 1 0 0 1 64.00 198.80 Tm (GET /api/v1/tokens/{mint}/trades) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 187.80 Tm (GET /api/v1/tokens/{mint}/candles) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 176.80 Tm (GET /api/v1/quote) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 165.80 Tm (POST /api/v1/swap) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 154.80 Tm (POST /api/v1/create) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 143.80 Tm (POST /api/v1/rewards/claim) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 132.80 Tm (Pump /trades/* and /candlesticks/*) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 121.80 Tm (Meteora quote / swap2) Tj ET
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 522.80 Tm (Axiom / Fomo / Photon: add DexType.Legendary with the constants above; Pulse subscribe to create logs; do) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 509.80 Tm (not call /api/devnet/trade.) Tj ET
-0.760 0.620 0.280 rg
-56.00 498.80 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 496.80 Tm (Wallets \(Phantom et al.\): they will follow Jupiter. Curve support = Jupiter listing.) Tj ET
-0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 459.80 Tm (8. AI IDE build contract) Tj ET
-0.760 0.620 0.280 rg
-54.00 453.80 220.00 2.2 re f
+BT /F1 10.00 Tf 1 0 0 1 54.00 94.80 Tm (Reuse catalog fields already present: mint, launch, pool, phase, venue, decimals, supply strings, price rational,) Tj ET
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 435.80 Tm (Work the JSON fillOrder. Do not start Option D or E before P0 IDL + SDK + discovery.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 418.40 Tm (P0) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 401.00 Tm (1. GAP-IDL - docs/partners/idl/legendary-factory-v5.json) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 388.00 Tm (2. GAP-SDK-QUOTE-BUILD - packages/partner-sdk-v5 unsigned quote/build, v5 only, golden tests vs) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 375.00 Tm (packages/graduation-curve) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 362.00 Tm (3. GAP-DISCOVERY-API - additive /api/v1/tokens* is implemented in-repo \(packages/partner-public-api\);) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 349.00 Tm (remaining: OpenAPI file, phase filters, metadata/name, live deploy. Do not modify the existing catalog route.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 336.00 Tm (4. GAP-TRADE-TAPE-CANDLES-WS - trades + 1m candles + cursor WS as specified in BUILD_SPEC 11; failed) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 323.00 Tm (txs are not candles. New paths only; 501 until real tape exists.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 306.00 Tm (P1) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 288.60 Tm (5. GAP-TERMINAL-PLUGIN - decoder tests on a recorded mainnet tx; Pulse payload example) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 275.60 Tm (6. GAP-JUPITER-LISTING - Metis adapter + listing packet \(program id, sample quotes, account dumps\)) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 262.60 Tm (7. GAP-PARTNER-EXECUTION-API - optional hosted unsigned /v1/quote+/v1/swap; new auth model, not the) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 249.60 Tm (cookie API) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 232.60 Tm (P2) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 215.20 Tm (8. GAP-METEORA-RAYDIUM-SHAPED-SDK - aliases only) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 202.20 Tm (9. GAP-PUMP-SHAPED-FACADE - coins/latest, coins/{mint}, sol-price mapped in-repo; trades/candles/create) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 189.20 Tm (stay 501. Do not add Pump instruction compatibility.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 172.20 Tm (P3) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 68.00 154.80 Tm (10. GAP-REFERRAL-SHARE-FEE - product decision; default unsupported) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 137.80 Tm (Non-goals are in the JSON. Particularly: no private keys on the server, no floating-point quotes, no v4 bytes on v5,) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 124.40 Tm (no capability-flag flip as a substitute for admission.) Tj ET
-0.120 0.140 0.180 rg
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 107.00 Tm (Suggested checks after implementation \(record what was actually run\):) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 81.40 Tm (poolReserves, fees, migration, shield. Do not change /api/mainnet/trade/catalog.) Tj ET
 0.120 0.140 0.180 rg
 endstream
 endobj
 11 0 obj
-<< /Length 3122 >>
+<< /Length 6453 >>
 stream
 0.8 w
 0 g
@@ -1340,112 +1392,485 @@ BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 9) Tj ET
 0.4 w
 54.00 40 m 558.00 40 l S
 0.8 w
-0.960 0.960 0.970 rg
-54.00 676.00 504.00 58.00 re f
-0.120 0.140 0.180 rg
-0.760 0.620 0.280 rg
-54.00 676.00 3 58.00 re f
-0.120 0.140 0.180 rg
-BT /F1 8.00 Tf 1 0 0 1 64.00 718.00 Tm (node --test packages/partner-sdk-v5/tests/*.test.mjs) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 707.00 Tm (# decoder vs a pinned mainnet buy/create fixture) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 696.00 Tm (# OpenAPI examples against a local stub, then live catalog mapping) Tj ET
-BT /F1 8.00 Tf 1 0 0 1 64.00 685.00 Tm (# never hit /api/devnet/trade from the partner SDK) Tj ET
 0.080 0.130 0.240 rg
-BT /F2 13.00 Tf 1 0 0 1 54.00 638.00 Tm (9. Honest distance summary) Tj ET
-0.760 0.620 0.280 rg
-54.00 632.00 220.00 2.2 re f
+BT /F2 11.00 Tf 1 0 0 1 54.00 722.00 Tm (7.5 What to tell each vendor) Tj ET
 0.120 0.140 0.180 rg
 0.760 0.620 0.280 rg
-56.00 616.00 3.2 3.2 re f
+56.00 706.00 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 614.00 Tm (Graduated trading with Jupiter / Raydium aggregators: already working for the live token. Gap ~ documentation of) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 601.00 Tm (pool id.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 704.00 Tm (Jupiter: list the factory as an instant-routing DEX; keep CPMM for graduated. Until then, only graduated) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 691.00 Tm (Legendary tokens appear in Ultra/Swap.) Tj ET
 0.760 0.620 0.280 rg
-56.00 590.00 3.2 3.2 re f
+56.00 680.00 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 588.00 Tm (Discovery for Pulse/trenches: additive /api/v1/tokens maps the existing catalog without changing it. Still missing) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 575.00 Tm (live deploy, name/ticker, firehose, and tape.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 678.00 Tm (GMGN: add launchpad-platform=legendary; ingest factory logs or our /v1/tokens + trades; execute via our SDK) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 665.00 Tm (or their builder.) Tj ET
 0.760 0.620 0.280 rg
-56.00 564.00 3.2 3.2 re f
+56.00 654.00 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 562.00 Tm (Curve buy/sell from Fomo/Axiom/GMGN: program can do it; partners cannot, because there is no v5 IDL/SDK) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 549.00 Tm (and the website refuses quotes/signing. Gap ~ SDK + decoder, then each vendor's DexType.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 652.00 Tm (Axiom / Fomo / Photon: add DexType.Legendary with the constants above; Pulse subscribe to create logs; do) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 639.00 Tm (not call /api/devnet/trade.) Tj ET
 0.760 0.620 0.280 rg
-56.00 538.00 3.2 3.2 re f
+56.00 628.00 3.2 3.2 re f
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 536.00 Tm (True auto-detect \(type a mint in Phantom and buy on the curve\): Jupiter listing. Not an API clone.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 626.00 Tm (Wallets \(Phantom et al.\): they will follow Jupiter. Curve support = Jupiter listing.) Tj ET
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 589.00 Tm (8. AI IDE build contract) Tj ET
 0.760 0.620 0.280 rg
-56.00 525.00 3.2 3.2 re f
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 66.00 523.00 Tm (Identical Pump.fun HTTP + identical instructions: not a gap to close. Facade can clone a thin discovery subset;) Tj ET
-BT /F1 10.00 Tf 1 0 0 1 66.00 510.00 Tm (instructions must stay Legendary.) Tj ET
-0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 493.00 Tm (The shortest path to "they can trade us" is: publish IDL + v5 quote/build SDK, open discovery/tape, then Jupiter) Tj ET
+54.00 583.00 220.00 2.2 re f
 0.120 0.140 0.180 rg
 0.120 0.140 0.180 rg
-BT /F1 10.00 Tf 1 0 0 1 54.00 479.60 Tm (listing for the factory. Compatibility shims help copy-paste, they do not replace listing.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 54.00 565.00 Tm (Work the JSON fillOrder. Do not start Option D or E before P0 IDL + SDK + discovery.) Tj ET
 0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 547.60 Tm (P0) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 530.20 Tm (1. GAP-IDL - docs/partners/idl/legendary-factory-v5.json) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 517.20 Tm (2. GAP-SDK-QUOTE-BUILD - packages/partner-sdk-v5 unsigned quote/build, v5 only, golden tests vs) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 504.20 Tm (packages/graduation-curve) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 491.20 Tm (3. GAP-DISCOVERY-API - additive /api/v1/tokens* is implemented in-repo \(packages/partner-public-api\);) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 478.20 Tm (remaining: OpenAPI file, phase filters, metadata/name, live deploy. Do not modify the existing catalog route.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 465.20 Tm (4. GAP-TRADE-TAPE-CANDLES-WS - trades + 1m candles + cursor WS as specified in BUILD_SPEC 11; failed) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 452.20 Tm (txs are not candles. New paths only; 501 until real tape exists.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 435.20 Tm (P1) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 417.80 Tm (5. GAP-TERMINAL-PLUGIN - decoder tests on a recorded mainnet tx; Pulse payload example) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 404.80 Tm (6. GAP-JUPITER-LISTING - Metis adapter + listing packet \(program id, sample quotes, account dumps\)) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 391.80 Tm (7. GAP-PARTNER-EXECUTION-API - optional hosted unsigned /v1/quote+/v1/swap; new auth model, not the) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 378.80 Tm (cookie API) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 361.80 Tm (P2) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 344.40 Tm (8. GAP-METEORA-RAYDIUM-SHAPED-SDK - aliases only) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 331.40 Tm (9. GAP-PUMP-SHAPED-FACADE - coins/latest, coins/{mint}, sol-price mapped in-repo; trades/candles/create) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 318.40 Tm (stay 501. Do not add Pump instruction compatibility.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 301.40 Tm (P3) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 284.00 Tm (10. GAP-REFERRAL-SHARE-FEE - product decision; default unsupported) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 267.00 Tm (Non-goals are in the JSON. Particularly: no private keys on the server, no floating-point quotes, no v4 bytes on v5,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 253.60 Tm (no capability-flag flip as a substitute for admission.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 236.20 Tm (Suggested checks after implementation \(record what was actually run\):) Tj ET
+0.120 0.140 0.180 rg
+0.960 0.960 0.970 rg
+54.00 166.80 504.00 58.00 re f
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+54.00 166.80 3 58.00 re f
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 64.00 208.80 Tm (node --test packages/partner-sdk-v5/tests/*.test.mjs) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 197.80 Tm (# decoder vs a pinned mainnet buy/create fixture) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 186.80 Tm (# OpenAPI examples against a local stub, then live catalog mapping) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 175.80 Tm (# never hit /api/devnet/trade from the partner SDK) Tj ET
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 128.80 Tm (9. Honest distance summary) Tj ET
+0.760 0.620 0.280 rg
+54.00 122.80 220.00 2.2 re f
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 106.80 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 104.80 Tm (Graduated trading with Jupiter / Raydium aggregators: already working for the live token. Gap ~ documentation of) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 91.80 Tm (pool id.) Tj ET
 endstream
 endobj
 12 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 3 0 R >>
+<< /Length 8157 >>
+stream
+0.8 w
+0 g
+0.080 0.130 0.240 rg
+0 756 612 36 re f
+0.760 0.620 0.280 rg
+0 753 612 3 re f
+1.000 1.000 1.000 rg
+BT /F2 9.00 Tf 1 0 0 1 54.00 769.00 Tm (LEGENDARY.FUN) Tj ET
+BT /F1 9.00 Tf 1 0 0 1 390.00 769.00 Tm (Internal briefing  |  not an audit) Tj ET
+0.120 0.140 0.180 rg
+0.380 0.400 0.440 rg
+BT /F1 8.00 Tf 1 0 0 1 54.00 30.00 Tm (Legendary.fun partner integration  |  14 November 2026) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 10) Tj ET
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+0.4 w
+54.00 40 m 558.00 40 l S
+0.8 w
+0.760 0.620 0.280 rg
+56.00 730.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 728.00 Tm (Discovery for Pulse/trenches: additive /api/v1/tokens maps the existing catalog without changing it. Still missing) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 715.00 Tm (live deploy, name/ticker, firehose, and tape.) Tj ET
+0.760 0.620 0.280 rg
+56.00 704.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 702.00 Tm (Curve buy/sell from Fomo/Axiom/GMGN: program can do it; partners cannot, because there is no v5 IDL/SDK) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 689.00 Tm (and the website refuses quotes/signing. Gap ~ SDK + decoder, then each vendor's DexType.) Tj ET
+0.760 0.620 0.280 rg
+56.00 678.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 676.00 Tm (True auto-detect \(type a mint in Phantom and buy on the curve\): Jupiter listing. Not an API clone.) Tj ET
+0.760 0.620 0.280 rg
+56.00 665.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 663.00 Tm (Identical Pump.fun HTTP + identical instructions: not a gap to close. Facade can clone a thin discovery subset;) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 650.00 Tm (instructions must stay Legendary.) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 633.00 Tm (The shortest path to "they can trade us" is: publish IDL + v5 quote/build SDK, open discovery/tape, then Jupiter) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 619.60 Tm (listing for the factory. Compatibility shims help copy-paste, they do not replace listing.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 582.20 Tm (10. How to build the integrator SDK kit) Tj ET
+0.760 0.620 0.280 rg
+54.00 576.20 220.00 2.2 re f
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 558.20 Tm (Ship a native Legendary SDK, same shape as @pump-fun/pump-sdk / Meteora DBC: constants, decoder, integer quote,) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 544.80 Tm (unsigned buy/sell. Do not wrap /api/devnet/trade, tools/curve-snipe, or the v4 instruction client. Those are the) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 531.40 Tm (wrong ABI or the cookie website lane.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 508.00 Tm (What to put in the kit) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+54.00 470.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 470.00 504.00 18.00 re S
+1.000 1.000 1.000 rg
+BT /F2 8.00 Tf 1 0 0 1 59.00 477.00 Tm (Piece) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 200.12 477.00 Tm (Package / file) Tj ET
+BT /F2 8.00 Tf 1 0 0 1 381.56 477.00 Tm (Integrator use) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 442.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 442.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 459.00 Tm (Constants) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 459.00 Tm (factory, genesis, CTO, tags) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 449.00 Tm (LGCNEW05/LGCBUY05/LGCSEL05/LGGRAD05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 459.00 Tm (Hardcode DexType.Legendary) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 414.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 414.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 431.00 Tm (IDL-equivalent JSON) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 431.00 Tm (27 trade roles, 52-byte buy/sell, 1536-byte) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 421.00 Tm (launch LGCTRV05) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 431.00 Tm (Independent decoders, Jupiter adapter) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 396.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 396.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 403.00 Tm (PDA derive) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 403.00 Tm (v5 seeds \(not v4 life-v4 names\)) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 403.00 Tm (Account metas) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 378.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 378.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 385.00 Tm (Decode launch) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 385.00 Tm (Parse on-chain launch account) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 385.00 Tm (Phase, revision, Shield, reserves) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 360.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 360.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 367.00 Tm (Quote) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 367.00 Tm (Reuse packages/graduation-curve bigint math) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 367.00 Tm (Preview + minOut) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 332.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 332.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 349.00 Tm (Build ix) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 349.00 Tm (encodeTrade v5 \(52 bytes + absence u16s\) +) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 339.00 Tm (ATA + compute budget) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 349.00 Tm (Unsigned tx) Tj ET
+0.120 0.140 0.180 rg
+1.000 1.000 1.000 rg
+54.00 314.00 504.00 18.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 314.00 504.00 18.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 321.00 Tm (Discovery client) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 321.00 Tm (Optional GET /api/v1/tokens) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 321.00 Tm (Pulse/trenches, not execution) Tj ET
+0.120 0.140 0.180 rg
+0.970 0.970 0.980 rg
+54.00 286.00 504.00 28.00 re f
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+54.00 286.00 504.00 28.00 re S
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 59.00 303.00 Tm (Graduated handoff) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 303.00 Tm (If phase=graduated, return Raydium pool; refuse) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 200.12 293.00 Tm (factory swap) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 381.56 303.00 Tm (Jupiter/Raydium already routes LGND) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 272.00 Tm (Suggested layout:) Tj ET
+0.120 0.140 0.180 rg
+0.960 0.960 0.970 rg
+54.00 125.60 504.00 135.00 re f
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+54.00 125.60 3 135.00 re f
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 64.00 244.60 Tm (packages/partner-sdk-v5/) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 233.60 Tm (  src/constants.ts      // pinned mainnet identities) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 222.60 Tm (  src/idl.json          // GAP-IDL) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 211.60 Tm (  src/pda.ts            // derive launch, vaults, rights, trader ATA) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 200.60 Tm (  src/decode.ts         // launch account + ix tags) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 189.60 Tm (  src/quote.ts          // bigint buy/sell vs packages/graduation-curve) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 178.60 Tm (  src/build.ts          // unsigned VersionedTransaction, never a key) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 167.60 Tm (  src/discovery.ts      // optional catalog/v1 client) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 156.60 Tm (  src/index.ts          // quote\(\) + buildSwap\(\)) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 145.60 Tm (  tests/                // golden vectors + reject LGCBUY04) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 134.60 Tm (README.md               // 20-line quickstart, no cookie login) Tj ET
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 107.60 Tm (Public surface to document:) Tj ET
+0.120 0.140 0.180 rg
+endstream
 endobj
 13 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 4 0 R >>
+<< /Length 5404 >>
+stream
+0.8 w
+0 g
+0.080 0.130 0.240 rg
+0 756 612 36 re f
+0.760 0.620 0.280 rg
+0 753 612 3 re f
+1.000 1.000 1.000 rg
+BT /F2 9.00 Tf 1 0 0 1 54.00 769.00 Tm (LEGENDARY.FUN) Tj ET
+BT /F1 9.00 Tf 1 0 0 1 390.00 769.00 Tm (Internal briefing  |  not an audit) Tj ET
+0.120 0.140 0.180 rg
+0.380 0.400 0.440 rg
+BT /F1 8.00 Tf 1 0 0 1 54.00 30.00 Tm (Legendary.fun partner integration  |  14 November 2026) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 506.00 30.00 Tm (Page 11) Tj ET
+0.120 0.140 0.180 rg
+0.860 0.870 0.890 RG
+0.4 w
+54.00 40 m 558.00 40 l S
+0.8 w
+0.960 0.960 0.970 rg
+54.00 632.00 504.00 102.00 re f
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+54.00 632.00 3 102.00 re f
+0.120 0.140 0.180 rg
+BT /F1 8.00 Tf 1 0 0 1 64.00 718.00 Tm (import { Legendary } from "@legendary-fun/sdk";) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 707.00 Tm () Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 696.00 Tm (const lg = new Legendary\({ connection }\);) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 685.00 Tm (const token = await lg.load\(mint\);          // RPC launch account, or /api/v1/tokens/{mint}) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 674.00 Tm (if \(token.graduated\) return token.pool;     // caller uses Raydium / Jupiter) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 663.00 Tm (const q = await lg.quote\({ side: "buy", amount: 1_000_000_000n, slippageBps: 100, taker }\);) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 652.00 Tm (const tx = await lg.buildSwap\(q\);           // unsigned) Tj ET
+BT /F1 8.00 Tf 1 0 0 1 64.00 641.00 Tm (const signed = await wallet.signTransaction\(tx\);) Tj ET
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 608.00 Tm (Build order) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 590.00 Tm (1. IDL JSON from compat/launch-creation-v5/ABI.md - discriminators, account order, error codes. Tests: decode) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 577.00 Tm (a pinned mainnet LGCBUY05 and reject LGCBUY04.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 564.00 Tm (2. PDA + decode - v5 seeds and 1536-byte launch. Tests: derived launch matches catalog launch for LGND.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 551.00 Tm (3. Quote - call packages/graduation-curve; amounts are bigint; slippage becomes minOut; expiry is a slot. Tests:) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 538.00 Tm (golden buy/sell vs the curve package, final-fill cap at 120 SOL.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 525.00 Tm (4. Build - 52-byte ix, 27 metas, optional ATA, compute budget. Return unsigned bytes only. Shield-on buys fail) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 512.00 Tm (closed without proofs; sells stay allowed. After graduation, throw GRADUATED with the Raydium pool.) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 499.00 Tm (5. README + npm - pin factory/genesis; say cookie /api/devnet/trade is not this SDK; optional thin swapQuote2) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 486.00 Tm (aliases later \(GAP-METEORA-RAYDIUM-SHAPED-SDK\).) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 473.00 Tm (6. Give it out - GitHub + npm @legendary-fun/sdk, plus the partner PDF. Jupiter/GMGN/Axiom still need a listing) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 68.00 460.00 Tm (email with program ID and this package.) Tj ET
+0.120 0.140 0.180 rg
+0.080 0.130 0.240 rg
+BT /F2 11.00 Tf 1 0 0 1 54.00 437.00 Tm (Rules) Tj ET
+0.120 0.140 0.180 rg
+0.760 0.620 0.280 rg
+56.00 421.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 419.00 Tm (No private keys, RPC vendor secrets, or SIWS cookies in the kit.) Tj ET
+0.760 0.620 0.280 rg
+56.00 408.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 406.00 Tm (No number math on instruction fields.) Tj ET
+0.760 0.620 0.280 rg
+56.00 395.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 393.00 Tm (Do not claim Pump instruction compatibility.) Tj ET
+0.760 0.620 0.280 rg
+56.00 382.00 3.2 3.2 re f
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 66.00 380.00 Tm (Do not enable mainnet website capabilities.buy by shipping the SDK; the program already trades; the SDK only) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 66.00 367.00 Tm (builds the ix the wallet signs.) Tj ET
+0.080 0.130 0.240 rg
+BT /F2 13.00 Tf 1 0 0 1 54.00 330.00 Tm (11. developer.legendary.fun) Tj ET
+0.760 0.620 0.280 rg
+54.00 324.00 220.00 2.2 re f
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 306.00 Tm (The integrator site is apps/developer-portal \(Next.js, port 8833\). Hosts: developer.legendary.fun CNAMEs to) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 292.60 Tm (legendary.devbyclaw.com. Public source: https://github.com/xt0xdev/legendaryFunSDK \(@legendary-fun/sdk is not) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 279.20 Tm (on npm yet\). One page: three integration paths, SDK snippets, full path table, OpenAPI/Swagger try-it, and the) Tj ET
+0.120 0.140 0.180 rg
+0.120 0.140 0.180 rg
+BT /F1 10.00 Tf 1 0 0 1 54.00 265.80 Tm (partner PDF. It does not replace legendary.fun and does not enable signing.) Tj ET
+0.120 0.140 0.180 rg
+endstream
 endobj
 14 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 5 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 3 0 R >>
 endobj
 15 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 4 0 R >>
 endobj
 16 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 7 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 5 0 R >>
 endobj
 17 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 8 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 6 0 R >>
 endobj
 18 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 9 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 7 0 R >>
 endobj
 19 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 10 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 8 0 R >>
 endobj
 20 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 21 0 R /F2 22 0 R >> >> /Contents 11 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 9 0 R >>
 endobj
 21 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 10 0 R >>
 endobj
 22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 11 0 R >>
+endobj
+23 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 12 0 R >>
+endobj
+24 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 25 0 R /F2 26 0 R >> >> /Contents 13 0 R >>
+endobj
+25 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+26 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 xref
-0 23
+0 27
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
-0000000178 00000 n 
-0000002190 00000 n 
-0000011355 00000 n 
-0000020049 00000 n 
-0000027556 00000 n 
-0000034696 00000 n 
-0000046639 00000 n 
-0000052636 00000 n 
-0000059170 00000 n 
-0000062345 00000 n 
-0000062484 00000 n 
-0000062623 00000 n 
-0000062762 00000 n 
-0000062901 00000 n 
-0000063040 00000 n 
-0000063179 00000 n 
-0000063318 00000 n 
-0000063458 00000 n 
-0000063598 00000 n 
-0000063669 00000 n 
-trailer << /Size 23 /Root 1 0 R >>
+0000000193 00000 n 
+0000002205 00000 n 
+0000011569 00000 n 
+0000020247 00000 n 
+0000030065 00000 n 
+0000037554 00000 n 
+0000044694 00000 n 
+0000055462 00000 n 
+0000061531 00000 n 
+0000068037 00000 n 
+0000076247 00000 n 
+0000081704 00000 n 
+0000081843 00000 n 
+0000081982 00000 n 
+0000082121 00000 n 
+0000082260 00000 n 
+0000082399 00000 n 
+0000082538 00000 n 
+0000082677 00000 n 
+0000082817 00000 n 
+0000082957 00000 n 
+0000083097 00000 n 
+0000083237 00000 n 
+0000083308 00000 n 
+trailer << /Size 27 /Root 1 0 R >>
 startxref
-63745
+83384
 %%EOF

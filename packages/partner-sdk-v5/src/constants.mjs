@@ -17,12 +17,23 @@ export const TAGS = Object.freeze({
 export const LIVE_ORIGIN = 'https://legendary.fun';
 export const PORTAL_ORIGIN = 'https://developer.legendary.fun';
 export const PORTAL_ORIGIN_ALIAS = 'https://legendary.devbyclaw.com';
+export const MARKET_STREAM = 'wss://api.legendary.fun/api/mainnet/market/stream';
 export const PATHS = Object.freeze({
   catalog: '/api/mainnet/trade/catalog',
+  discovery: '/api/mainnet/trade/discovery',
   bootstrap: '/api/mainnet/trade/bootstrap',
   solUsd: '/api/market/sol-usd',
   nativeTokens: '/api/v1/tokens',
+  nativeDiscovery: '/api/v1/discovery',
+  nativeMarkets: '/api/v1/markets',
   nativeLaunchpad: '/api/v1/launchpad',
+  nativeStream: '/api/v1/stream',
+  nativeQuote: '/api/v1/quote',
+  nativeIdl: '/api/v1/idl',
+  nativeCandles: '/api/v1/tokens/{mint}/candles',
   pumpCoins: '/api/compat/pump/v3/coins/latest',
+  pumpSearch: '/api/compat/pump/v3/coins/search',
   meteoraPools: '/api/compat/meteora/v1/pools',
+  siteCreate: '/api/mainnet/create',
+  siteClaims: '/api/mainnet/graduation-claims',
 });

@@ -1,0 +1,65 @@
+{
+  "schema": 2,
+  "network": "solana:mainnet",
+  "scope": "server-admitted-markets-v1",
+  "asOfMs": 1794885227328,
+  "tokens": [
+    {
+      "schema": 2,
+      "network": "solana:mainnet",
+      "phase": "open",
+      "mint": "422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND",
+      "launch": "ALky3tPFzDSygZpDKfvoYZoByYX3yq262S17EhXuJ6wy",
+      "decimals": 6,
+      "supplyBaseUnits": "100000000000000000",
+      "genesisSupplyBaseUnits": "100000000000000000",
+      "observedAtMs": 1794885227328,
+      "revision": "1",
+      "policyVersion": "1",
+      "shield": "off",
+      "curveFeeBps": 200,
+      "graduatedFeeBps": 100,
+      "curveTreasuryShareBps": 5000,
+      "graduatedTreasuryShareBps": 5000,
+      "currentSlot": 1000,
+      "curveTokenBaseUnits": "32007656135398384",
+      "quoteState": {
+        "base": "59280383407898384",
+        "quote": "75283081194",
+        "treasuryFees": "382538563",
+        "communityFees": "382538560"
+      },
+      "price": {
+        "numerator": "75283081194000000",
+        "denominator": "59280383407898384000000000",
+        "unit": "SOL-per-token"
+      },
+      "reserveLamports": "31646717558",
+      "signingAllowed": false,
+      "quoteAvailable": false,
+      "capabilities": { "buy": false, "sell": false, "create": false }
+    },
+    {
+      "schema": 2,
+      "network": "solana:mainnet",
+      "phase": "graduated",
+      "venue": "raydium-cpmm",
+      "mint": "GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND",
+      "launch": "GER4y1nqT62bjXTr4VrcaLtpjc1ukMGA1gVhC9FAoCAg",
+      "pool": "czewDLamSPb89EqxWU37M1ddK7kGeAcDwVWKHAkmwtM",
+      "decimals": 6,
+      "supplyBaseUnits": "100000000000000000",
+      "genesisSupplyBaseUnits": "100000000000000000",
+      "observedAtMs": 1794885227328,
+      "price": {
+        "numerator": "232071924172000000",
+        "denominator": "10417402726096617000000000",
+        "unit": "SOL-per-token",
+        "beforeFees": true
+      },
+      "signingAllowed": false,
+      "quoteAvailable": false,
+      "capabilities": { "buy": false, "sell": false, "create": false }
+    }
+  ]
+}

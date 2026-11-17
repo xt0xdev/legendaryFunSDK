@@ -37,10 +37,19 @@ Adding extra DAP paths (`/api/v1/tokens`, `/api/v1/launchpad`, Pump-shaped `/api
 `GET https://legendary.fun/api/mainnet/trade/catalog`
 
 - Unauthenticated JSON. Schema 1, `network: solana:mainnet`, `scope: server-admitted-atomic-v5`.
-- One token on that day: `GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND` (Legendary / LGND).
+- Admitted/verified set only (LGND on 2026-11-16). This is **not** the Discover list.
 - `phase: graduated`, `venue: raydium-cpmm`, pool `czewDLamSPb89EqxWU37M1ddK7kGeAcDwVWKHAkmwtM`.
 - Integer rationals for price (`SOL-per-token`, `beforeFees: true`), vault reserves, Raydium fee millionths, locked-LP migration fields.
 - **Admission flags on that row:** `signingAllowed: false`, `quoteAvailable: false`, `capabilities: { buy: false, sell: false, create: false }`.
+
+`POST https://legendary.fun/api/mainnet/trade/discovery` `{ query, limit: 20|50, cursor }`
+
+- Schema 1, `scope: factory-launch-discovery-v1`. This is the website Discover list (curve tokens such as LMEOW plus LGND).
+- Live origin check: send `Origin: https://legendary.fun`.
+
+`POST https://legendary.fun/api/mainnet/trade/catalog` `{ mints, version: 3 }`
+
+- Schema 2, `scope: server-admitted-markets-v1`. Token-page market quotes / FDV. Same Origin header.
 
 `GET https://legendary.fun/api/mainnet/trade/bootstrap`
 
@@ -56,17 +65,25 @@ Adding extra DAP paths (`/api/v1/tokens`, `/api/v1/launchpad`, Pump-shaped `/api
 
 ### 2.2 Additive partner routes (do not change existing APIs)
 
-Implemented in-repo as a parallel handler (`packages/partner-public-api`, Netlify paths `/api/v1/*` and `/api/compat/pump/v3/*`). It only **reads** `/api/mainnet/trade/catalog` and `/api/market/sol-usd`. Catalog, bootstrap, and `/api/devnet/trade` are unchanged.
+Implemented in-repo as a parallel handler (`packages/partner-public-api`, Netlify paths `/api/v1/*`, `/api/compat/pump/v3/*`, `/api/compat/meteora/v1/*`). It reads factory discovery + mint quotes when those ports are wired, otherwise the admitted catalog. Catalog GET, bootstrap, and `/api/devnet/trade` are unchanged.
 
 | New path | Maps from | Notes |
 | --- | --- | --- |
-| `GET /api/v1/tokens` | catalog | Legendary-shaped list, CORS `*` |
-| `GET /api/v1/tokens/{mint}` | catalog row | Honest `capabilities.factoryBuy=false` today |
-| `GET /api/v1/tokens/{mint}/curve` | catalog row | `graduated` / `onFactoryCurve` |
-| `GET /api/v1/launchpad` | constants | Factory, tags, existing API list |
-| `GET /api/compat/pump/v3/coins/latest` | catalog | Discovery-only Pump field names |
-| `GET /api/compat/meteora/v1/pools` | catalog | DBC-shaped discovery; factory in `config` |
-| `GET /api/v1/quote` or Pump trades/candles or Meteora `swap2` | — | **501 NOT_ADMITTED**, never a fake tx |
+| `GET /api/v1/tokens` | discovery + quotes | Legendary-shaped factory list, CORS `*` |
+| `POST /api/v1/discovery` | Discover POST | Partner-shaped page with names and display FDV |
+| `POST /api/v1/markets` | catalog quote POST | Partner-shaped mint quotes |
+| `GET /api/v1/tokens/{mint}` | quote or catalog row | Honest `capabilities.factoryBuy=false` today |
+| `GET /api/v1/tokens/{mint}/curve` | quote or catalog row | `graduated` / `onFactoryCurve` |
+| `GET /api/v1/launchpad` | constants | Factory, tags, existing API list, site-lane map |
+| `GET /api/v1/stream` | site websocket URL | Does not terminate the socket |
+| `GET /api/compat/pump/v3/coins/latest` | factory list | Discovery-only Pump field names |
+| `GET /api/compat/meteora/v1/pools` | factory list | DBC-shaped discovery; factory in `config` |
+| `POST /api/v1/quote` | live mint quote + integer curve | `admitted:false`; never a fake fill |
+| `POST /api/v1/swap` | unsigned 52-byte v5 template | `executable:false`; remaining PDAs null until admitted |
+| `GET /api/v1/tokens/{mint}/trades` or Pump trades/candles | schema only | `indexed:false`, empty arrays |
+| `POST /api/compat/meteora/v1/swap2` | Legendary unsigned template | Overlay, not DBC bytes |
+| `GET /api/v1/idl` | v5 tags and account counts | IDL-equivalent, not Anchor-generated |
+| `POST /api/v1/create` or `/api/v1/rewards/claim` | — | **501 SITE_LANE**; live create/claims stay on legendary.fun cookies |
 
 Local integrator portal: Next.js on port **8833** (`apps/developer-portal`). Public hosts: `developer.legendary.fun` (CNAME) and `legendary.devbyclaw.com` (origin). It proxies the three existing DAP reads from legendary.fun, serves the additive prefixes, OpenAPI/Swagger, the SDK snippets, and the partner PDF. Live origin still 404s `/prepare` and `/candles` on the **old** prefix, by design. These new paths are not admitted on legendary.fun until this function is deployed there.
 
@@ -256,11 +273,17 @@ In-repo now (not live on legendary.fun until the new Netlify function is deploye
 GET /api/v1/tokens
 GET /api/v1/tokens/{mint}
 GET /api/v1/tokens/{mint}/curve
+POST /api/v1/discovery
+POST /api/v1/markets
 GET /api/v1/launchpad
 GET /api/v1/sol-usd
+GET /api/v1/stream
 GET /api/compat/pump/v3/coins/latest
 GET /api/compat/pump/v3/coins/{mint}
+GET /api/compat/pump/v3/coins/search
 GET /api/compat/pump/v3/sol-price
+GET /api/compat/meteora/v1/pools
+GET /api/compat/meteora/v1/pools/{mint}
 ```
 
 Still not admitted (return 501, do not invent):
@@ -270,7 +293,10 @@ GET /api/v1/tokens/{mint}/trades
 GET /api/v1/tokens/{mint}/candles
 GET /api/v1/quote
 POST /api/v1/swap
+POST /api/v1/create
+POST /api/v1/rewards/claim
 Pump /trades/* and /candlesticks/*
+Meteora quote / swap2
 ```
 
 Reuse catalog fields already present: mint, launch, pool, phase, venue, decimals, supply strings, price rational, poolReserves, fees, migration, shield. Do not change `/api/mainnet/trade/catalog`.

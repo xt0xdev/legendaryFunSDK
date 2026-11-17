@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "network": "solana:mainnet",
+  "scope": "factory-launch-discovery-v1",
+  "asOfMs": 1794885227328,
+  "query": "",
+  "limit": 50,
+  "page": 1,
+  "previousCursor": null,
+  "nextCursor": null,
+  "tokens": [
+    {
+      "mint": "422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND",
+      "launch": "ALky3tPFzDSygZpDKfvoYZoByYX3yq262S17EhXuJ6wy",
+      "creator": "34VX9K3TYE7BgJvMXe3EYnDNUHmLp5rWSLtRyT4SiW5C",
+      "metadata": { "name": "LMEOW", "symbol": "LMEOW" }
+    },
+    {
+      "mint": "GPiHbgbvWbZHKQiVf1v8AupAuST3mqSv3zb2SBJULGND",
+      "launch": "GER4y1nqT62bjXTr4VrcaLtpjc1ukMGA1gVhC9FAoCAg",
+      "creator": "eeYEUtZK8cmgetDZJgBUQ3aehYGtYn8Pww2zYtfrwER",
+      "metadata": { "name": "Legendary", "symbol": "LGND" }
+    }
+  ]
+}
