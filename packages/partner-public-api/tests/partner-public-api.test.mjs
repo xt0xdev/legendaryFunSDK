@@ -102,6 +102,10 @@ test('additive v1 routes list and look up catalog tokens', async () => {
   assert.ok(launchpad.body.existingApisUnchanged.includes('/api/mainnet/trade/catalog'));
   assert.ok(launchpad.body.existingApisUnchanged.includes('/api/mainnet/trade/discovery'));
   assert.equal(launchpad.body.siteLane.create, '/api/mainnet/create');
+  assert.equal(launchpad.body.keyedLane.create, '/api/v1/create');
+  assert.equal(launchpad.body.keyedLane.prepare, '/api/mainnet/trade/prepare');
+  assert.equal(launchpad.body.keyedLane.submit, '/api/mainnet/trade/submit');
+  assert.equal(launchpad.body.keyedLane.header, 'x-legendary-api-key');
 });
 
 test('quote, swap, tape, and Pump trade routes fail closed instead of faking execution', async () => {
@@ -118,14 +122,56 @@ test('quote, swap, tape, and Pump trade routes fail closed instead of faking exe
   assert.equal(miss.response, null);
 });
 
-test('create and claim are turned off on the partner prefix', async () => {
+test('create, claims, and rewards require an owner-issued API key', async () => {
   const create = await get('/api/v1/create', 'POST');
-  assert.equal(create.response.status, 404);
-  assert.equal(create.body.error.code, 'DISABLED');
+  assert.equal(create.response.status, 401);
+  assert.equal(create.body.error.code, 'API_KEY_REQUIRED');
+  assert.equal(Object.hasOwn(create.body, 'signature'), false);
   const claim = await get('/api/v1/rewards/claim', 'POST');
-  assert.equal(claim.body.error.code, 'DISABLED');
+  assert.equal(claim.response.status, 401);
+  assert.equal(claim.body.error.code, 'API_KEY_REQUIRED');
   const graduation = await get('/api/v1/graduation-claims');
-  assert.equal(graduation.body.error.code, 'DISABLED');
+  assert.equal(graduation.body.error.code, 'API_KEY_REQUIRED');
+  const pumpCreate = await get('/api/compat/pump/v3/coins/create', 'POST');
+  assert.equal(pumpCreate.body.error.code, 'API_KEY_REQUIRED');
+});
+
+test('a valid owner API key does not fake an onchain create or claim', async () => {
+  const key = 'owner-issued-test-key-aaaaaa';
+  async function keyed(path, { method = 'POST', body } = {}) {
+    const init = {
+      method,
+      headers: {
+        accept: 'application/json',
+        'x-legendary-api-key': key,
+      },
+    };
+    if (method !== 'GET') {
+      init.headers['content-type'] = 'application/json';
+      init.body = JSON.stringify(body || { wallet: '11111111111111111111111111111111' });
+    }
+    const response = await api({ ownerApiKeys: [key] }).fetch(new Request(`https://legendary.fun${path}`, init));
+    return { response, body: await response.json() };
+  }
+  const denied = await api({ ownerApiKeys: [key] }).fetch(new Request('https://legendary.fun/api/v1/create', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'x-legendary-api-key': 'not-the-owner-key-bbbbbbbb',
+    },
+    body: JSON.stringify({ wallet: '11111111111111111111111111111111' }),
+  }));
+  assert.equal(denied.status, 403);
+  assert.equal((await denied.json()).error.code, 'API_KEY');
+  const create = await keyed('/api/v1/create');
+  assert.equal(create.response.status, 501);
+  assert.equal(create.body.error.code, 'NOT_DEPLOYED');
+  assert.equal(Object.hasOwn(create.body, 'signature'), false);
+  const claim = await keyed('/api/v1/rewards/claim');
+  assert.equal(claim.body.error.code, 'NOT_DEPLOYED');
+  const rewards = await keyed('/api/v1/rewards', { method: 'GET', body: undefined });
+  assert.equal(rewards.body.error.code, 'NOT_DEPLOYED');
 });
 
 test('Pump discovery facade maps coins/latest from the same catalog', async () => {
@@ -247,8 +293,8 @@ test('factory discovery overlays Pump and Meteora with curve names and market ca
   const idl = await factoryGet('/api/v1/idl');
   assert.equal(idl.body.instructions[1].tag, 'LGCBUY05');
   const create = await factoryGet('/api/v1/create');
-  assert.equal(create.response.status, 404);
-  assert.equal(create.body.error.code, 'DISABLED');
+  assert.equal(create.response.status, 401);
+  assert.equal(create.body.error.code, 'API_KEY_REQUIRED');
 });
 
 test('live ports POST discovery and quotes with Origin pinned to legendary.fun', async () => {

@@ -28,11 +28,52 @@ test('three integration surfaces are present and execution is not admitted', asy
   assert.ok(sdk.pump.searchCoins);
   assert.ok(sdk.meteora.getPools);
   await assert.rejects(() => sdk.native.quote(), { code: 'AMOUNT' });
-  await assert.rejects(() => sdk.pump.buy(), { code: 'DISABLED' });
-  await assert.rejects(() => sdk.meteora.swap2(), { code: 'DISABLED' });
-  await assert.rejects(() => sdk.native.create(), { code: 'DISABLED' });
-  await assert.rejects(() => sdk.native.claimRewards(), { code: 'DISABLED' });
-  await assert.rejects(() => sdk.pump.createCoin(), { code: 'DISABLED' });
+  await assert.rejects(() => sdk.native.prepare(), { code: 'AMOUNT' });
+  await assert.rejects(() => sdk.pump.buy(), { code: 'AMOUNT' });
+  await assert.rejects(() => sdk.meteora.swap2(), { code: 'AMOUNT' });
+  await assert.rejects(() => sdk.native.create(), { code: 'AMOUNT' });
+  await assert.rejects(() => sdk.native.claimRewards(), { code: 'AMOUNT' });
+  await assert.rejects(() => sdk.pump.createCoin(), { code: 'AMOUNT' });
+  assert.equal(sdk.paths.prepare, '/api/mainnet/trade/prepare');
+  assert.equal(sdk.paths.submit, '/api/mainnet/trade/submit');
+  assert.equal(sdk.paths.nativeCreate, '/api/v1/create');
+  assert.equal(sdk.paths.nativeRewardsClaim, '/api/v1/rewards/claim');
+});
+
+test('create, claim, and prepare send the owner API key and do not invent a signature', async () => {
+  const seen = [];
+  const sdk = createLegendarySdk({
+    origin: 'https://legendary.fun',
+    apiKey: 'owner-issued-test-key-aaaaaa',
+    fetcher: async (url, init) => {
+      seen.push({ url: String(url), headers: init.headers });
+      return new Response(JSON.stringify({ schema: 1, error: { code: 'NOT_DEPLOYED' } }), {
+        status: 501,
+        headers: { 'content-type': 'application/json' },
+      });
+    },
+  });
+  await assert.rejects(
+    () => sdk.native.create({ wallet: '11111111111111111111111111111111', name: 'Demo', ticker: 'DEMO' }),
+    { code: 'NOT_DEPLOYED' },
+  );
+  await assert.rejects(
+    () => sdk.native.claimRewards({ wallet: '11111111111111111111111111111111' }),
+    { code: 'NOT_DEPLOYED' },
+  );
+  await assert.rejects(
+    () => sdk.native.prepare({
+      wallet: '11111111111111111111111111111111',
+      mint: '422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND',
+      amount: '1000000000',
+    }),
+    { code: 'NOT_DEPLOYED' },
+  );
+  assert.equal(seen[0].headers['x-legendary-api-key'], 'owner-issued-test-key-aaaaaa');
+  assert.equal(seen[0].url.endsWith('/api/v1/create'), true);
+  assert.equal(seen[1].url.endsWith('/api/v1/rewards/claim'), true);
+  assert.equal(seen[2].url.endsWith('/api/mainnet/trade/prepare'), true);
+  assert.equal(seen[2].headers['x-legendary-api-key'], 'owner-issued-test-key-aaaaaa');
 });
 
 test('integer buy quote returns output from genesis curve state', () => {

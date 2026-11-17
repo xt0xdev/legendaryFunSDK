@@ -2,6 +2,12 @@
 import { createPartnerPublicApi } from '../../../packages/partner-public-api/router.mjs';
 import { createLiveLegendaryPorts } from '../../../packages/partner-public-api/live.mjs';
 import { SITE_LANE_MESSAGE } from '../../../packages/partner-public-api/project.mjs';
+import {
+  KEYED_TRADE_PATHS,
+  inspectOwnerApiKey,
+  parseOwnerApiKeys,
+  presentedApiKey,
+} from '../../../packages/partner-public-api/api-key.mjs';
 
 const LIVE = 'https://legendary.fun';
 const MAX = 256_000;
@@ -9,13 +15,28 @@ const DISCOVERY_MAX = 131_072;
 const EXISTING_GET = Object.freeze([
   '/api/mainnet/trade/catalog',
   '/api/mainnet/trade/bootstrap',
+  '/api/mainnet/trade/market-ticket',
   '/api/market/sol-usd',
 ]);
 const EXISTING_POST = Object.freeze([
   '/api/mainnet/trade/discovery',
   '/api/mainnet/trade/catalog',
+  '/api/mainnet/trade/auth/challenge',
+  '/api/mainnet/trade/auth/verify',
+  '/api/mainnet/trade/auth/logout',
+  '/api/mainnet/trade/prepare',
+  '/api/mainnet/trade/graduated/prepare',
+  '/api/mainnet/trade/submit',
+  '/api/mainnet/trade/freshness',
+  '/api/mainnet/trade/simulate',
+  '/api/mainnet/trade/dispose',
+  '/api/mainnet/trade/identity',
+  '/api/mainnet/trade/recovery/genesis',
+  '/api/mainnet/trade/recovery/height',
+  '/api/mainnet/trade/recovery/confirmation',
 ]);
 const CANDLES_SWAP = /^\/api\/mainnet\/trade\/candles-swap\/([1-9A-HJ-NP-Za-km-z]{32,44})\/(1m|5m|15m|1h|4h|24h|7d)$/;
+const MARKET_METRICS = /^\/api\/mainnet\/trade\/market-metrics\/([1-9A-HJ-NP-Za-km-z]{32,44})$/;
 const SITE_LANE_PREFIXES = Object.freeze([
   '/api/mainnet/create',
   '/api/devnet/create',
@@ -79,7 +100,7 @@ function passthroughHeaders(upstream) {
     'cache-control': 'public, max-age=0, must-revalidate',
     'access-control-allow-origin': '*',
     'access-control-allow-methods': 'GET, POST, OPTIONS',
-    'access-control-allow-headers': 'accept, content-type',
+    'access-control-allow-headers': 'accept, content-type, x-legendary-csrf, x-legendary-api-key',
     'x-content-type-options': 'nosniff',
     'x-robots-tag': 'noindex, nofollow',
     'x-legendary-upstream': 'legendary.fun',
@@ -100,7 +121,7 @@ function corsOptions() {
     headers: {
       'access-control-allow-origin': '*',
       'access-control-allow-methods': 'GET, POST, OPTIONS',
-      'access-control-allow-headers': 'accept, content-type',
+      'access-control-allow-headers': 'accept, content-type, x-legendary-csrf, x-legendary-api-key',
     },
   });
 }
@@ -109,6 +130,19 @@ function siteLane() {
   return Response.json(
     { schema: 1, error: { code: 'DISABLED', message: SITE_LANE_MESSAGE, retryable: false } },
     { status: 404, headers: { 'x-content-type-options': 'nosniff' } },
+  );
+}
+
+function ownerApiKeys() {
+  return parseOwnerApiKeys(process.env.LEGENDARY_OWNER_API_KEYS);
+}
+
+function requireOwnerApiKey(request) {
+  const gate = inspectOwnerApiKey(presentedApiKey(request), ownerApiKeys());
+  if (gate.ok) return null;
+  return Response.json(
+    { schema: 1, error: { code: gate.code, message: gate.message, retryable: false } },
+    { status: gate.status, headers: { 'x-content-type-options': 'nosniff' } },
   );
 }
 
@@ -153,7 +187,7 @@ export async function handleDeveloperApi(request) {
   if (SITE_LANE_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(`${prefix}/`))) {
     return siteLane();
   }
-  if (CANDLES_SWAP.test(url.pathname) && request.method === 'GET') {
+  if ((CANDLES_SWAP.test(url.pathname) || MARKET_METRICS.test(url.pathname)) && request.method === 'GET') {
     return passthrough(url.pathname, {
       method: 'GET',
       headers: { accept: 'application/json' },
@@ -168,6 +202,10 @@ export async function handleDeveloperApi(request) {
     });
   }
   if (EXISTING_POST.includes(url.pathname) && request.method === 'POST') {
+    if (KEYED_TRADE_PATHS.includes(url.pathname)) {
+      const blocked = requireOwnerApiKey(request);
+      if (blocked) return blocked;
+    }
     const raw = await request.arrayBuffer();
     const max = url.pathname.endsWith('/discovery') ? DISCOVERY_MAX : MAX;
     if (raw.byteLength > 16_384) {
@@ -190,7 +228,7 @@ export async function handleDeveloperApi(request) {
   }
   if (EXISTING_GET.includes(url.pathname) || EXISTING_POST.includes(url.pathname)) {
     return Response.json(
-      { schema: 1, error: { code: 'METHOD', message: 'GET catalog/bootstrap/fx; POST discovery and catalog quotes.' } },
+      { schema: 1, error: { code: 'METHOD', message: 'GET catalog/bootstrap/fx/ticket; POST discovery, quotes, and trade prepare/submit.' } },
       { status: 405, headers: { 'x-content-type-options': 'nosniff' } },
     );
   }

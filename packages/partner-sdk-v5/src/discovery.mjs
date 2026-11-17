@@ -1,5 +1,5 @@
 /** Read-only discovery. Uses existing catalog paths and additive partner prefixes. */
-import { LIVE_ORIGIN, PATHS } from './constants.mjs';
+import { API_KEY_HEADER, LIVE_ORIGIN, PATHS } from './constants.mjs';
 
 export class DiscoveryError extends Error {
   constructor(code, status) {
@@ -14,9 +14,11 @@ export function createDiscovery({
   origin = LIVE_ORIGIN,
   fetcher = fetch,
   timeoutMs = 15_000,
+  apiKey = '',
 } = {}) {
   const base = new URL(origin);
   if (base.protocol !== 'https:' && base.protocol !== 'http:') throw new Error('ORIGIN');
+  const ownerKey = typeof apiKey === 'string' ? apiKey.trim() : '';
 
   async function send(path, { method = 'GET', payload } = {}) {
     const url = new URL(path, base);
@@ -26,6 +28,7 @@ export function createDiscovery({
       headers: {
         accept: 'application/json',
         ...(payload !== undefined ? { 'content-type': 'application/json' } : {}),
+        ...(ownerKey ? { [API_KEY_HEADER]: ownerKey } : {}),
       },
       body: payload !== undefined ? JSON.stringify(payload) : undefined,
       redirect: 'error',
@@ -57,6 +60,17 @@ export function createDiscovery({
     quote: (payload) => post(PATHS.nativeQuote, payload),
     idl: () => get(PATHS.nativeIdl),
     candles: (mint, interval = '1m') => get(`${PATHS.nativeTokens}/${mint}/candles?interval=${encodeURIComponent(interval || '1m')}`),
+    marketTicket: () => get(PATHS.marketTicket),
+    marketMetrics: (mint) => get(`${PATHS.marketMetrics}/${mint}`),
+    authChallenge: (payload) => post(PATHS.authChallenge, payload),
+    authVerify: (payload) => post(PATHS.authVerify, payload),
+    authLogout: (payload = {}) => post(PATHS.authLogout, payload),
+    prepare: (payload) => post(PATHS.prepare, payload),
+    graduatedPrepare: (payload) => post(PATHS.graduatedPrepare, payload),
+    submit: (payload) => post(PATHS.submit, payload),
+    freshness: (payload) => post(PATHS.freshness, payload),
+    simulate: (payload) => post(PATHS.simulate, payload),
+    dispose: (payload) => post(PATHS.dispose, payload),
     meteoraQuote: (payload) => post('/api/compat/meteora/v1/quote', payload),
     liveDiscover: ({ query = '', limit = 50, cursor = null } = {}) => post(PATHS.discovery, { query, limit, cursor }),
     pumpCoins: () => get(PATHS.pumpCoins),
@@ -65,5 +79,12 @@ export function createDiscovery({
     pumpCandles: (mint, interval = '1m') => get(`/api/compat/pump/v3/candlesticks/${mint}/${encodeURIComponent(interval || '1m')}`),
     meteoraPools: () => get(PATHS.meteoraPools),
     meteoraPool: (mint) => get(`/api/compat/meteora/v1/pools/${mint}`),
+    create: (payload) => post(PATHS.nativeCreate, payload),
+    rewards: () => get(PATHS.nativeRewards),
+    claimRewards: (payload) => post(PATHS.nativeRewardsClaim, payload),
+    graduationClaims: (payload) => (payload === undefined
+      ? get(PATHS.nativeGraduationClaims)
+      : post(PATHS.nativeGraduationClaims, payload)),
+    pumpCreate: (payload) => post(PATHS.pumpCreate, payload),
   });
 }

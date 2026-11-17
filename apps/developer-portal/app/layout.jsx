@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL('https://developer.legendary.fun'),
   title: 'Developers — LEGENDARY',
   description: 'Integrator kit for Legendary.fun: factory discovery, mint quotes, native/Pump/Meteora APIs. Existing DAP GET paths unchanged.',
-  icons: { icon: '/lmeow-logo-v4.jpg' },
+  icons: { icon: '/legendary-mark.jpg' },
 };
 
 export const viewport = {

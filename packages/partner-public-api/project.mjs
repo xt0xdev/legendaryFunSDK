@@ -6,7 +6,9 @@ export const PUMP_COMPAT_PREFIX = '/api/compat/pump/v3';
 export const METEORA_COMPAT_PREFIX = '/api/compat/meteora/v1';
 export const LAUNCHPAD = 'legendary';
 export const MARKET_STREAM = 'wss://api.legendary.fun/api/mainnet/market/stream';
-export const SITE_LANE_MESSAGE = 'Wallet create, graduation claims, and cookie sessions stay on legendary.fun same-origin. Partner DAP does not proxy them.';
+export const SITE_LANE_MESSAGE = 'Cookie create/claims on legendary.fun stay same-origin. Partner create, claims, and rewards use /api/v1 with an owner-issued API key.';
+export const KEYED_LANE_MESSAGE = 'Trades, claims, rewards, and token launch require header x-legendary-api-key issued by the legendary.fun site owner.';
+export const API_KEY_HEADER = 'x-legendary-api-key';
 export const DEFAULT_IDENTITY = Object.freeze({
   cluster: 'mainnet-beta',
   genesis: '5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d',
@@ -301,11 +303,14 @@ export function projectCreateContract() {
   return Object.freeze({
     schema: 1,
     launchpad: LAUNCHPAD,
-    partner: 'SITE_LANE',
+    partner: 'API_KEY',
     tag: 'LGCNEW05',
     accounts: 42,
+    partnerPath: '/api/v1/create',
     livePath: '/api/mainnet/create',
-    note: SITE_LANE_MESSAGE,
+    header: API_KEY_HEADER,
+    admitted: false,
+    note: KEYED_LANE_MESSAGE,
   });
 }
 
@@ -313,10 +318,15 @@ export function projectRewardsContract() {
   return Object.freeze({
     schema: 1,
     launchpad: LAUNCHPAD,
-    partner: 'SITE_LANE',
+    partner: 'API_KEY',
+    partnerPath: '/api/v1/rewards',
+    claimPath: '/api/v1/rewards/claim',
+    graduationClaimsPath: '/api/v1/graduation-claims',
     livePath: '/api/mainnet/graduation-claims',
     displayPath: '/api/devnet/rewards',
-    note: SITE_LANE_MESSAGE,
+    header: API_KEY_HEADER,
+    admitted: false,
+    note: KEYED_LANE_MESSAGE,
   });
 }
 
@@ -335,8 +345,9 @@ export function projectLaunchpad(identity = DEFAULT_IDENTITY) {
       '/api/mainnet/trade/discovery',
       '/api/mainnet/trade/bootstrap',
       '/api/mainnet/trade/candles-swap',
+      '/api/mainnet/trade/prepare',
+      '/api/mainnet/trade/submit',
       '/api/market/sol-usd',
-      '/api/devnet/trade',
     ]),
     siteLane: Object.freeze({
       create: '/api/mainnet/create',
@@ -345,6 +356,18 @@ export function projectLaunchpad(identity = DEFAULT_IDENTITY) {
       holderRewardsDisplay: '/api/devnet/holder-rewards',
       marketStream: MARKET_STREAM,
       note: SITE_LANE_MESSAGE,
+    }),
+    keyedLane: Object.freeze({
+      header: API_KEY_HEADER,
+      prepare: '/api/mainnet/trade/prepare',
+      submit: '/api/mainnet/trade/submit',
+      graduatedPrepare: '/api/mainnet/trade/graduated/prepare',
+      create: '/api/v1/create',
+      rewards: '/api/v1/rewards',
+      claim: '/api/v1/rewards/claim',
+      graduationClaims: '/api/v1/graduation-claims',
+      pumpCreate: '/api/compat/pump/v3/coins/create',
+      note: KEYED_LANE_MESSAGE,
     }),
   });
 }

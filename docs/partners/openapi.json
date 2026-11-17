@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Legendary.fun integrator API",
-    "version": "0.3.0",
-    "description": "Working discovery, quote, and candle routes. Live DAP on legendary.fun plus additive /api/v1, Pump-shaped, and Meteora-shaped prefixes on this portal. Existing catalog/bootstrap/fx stay unchanged. Trading is the legendary.fun token page. Not a production audit."
+    "version": "0.6.0",
+    "description": "Working discovery, quote, and candle routes on legendary.fun, plus additive /api/v1, Pump-shaped, and Meteora-shaped prefixes. Trades, token launch, claims, and rewards require header x-legendary-api-key issued by the site owner. Not a production audit."
   },
   "servers": [
     {
@@ -29,6 +29,10 @@
       "description": "Current public paths on legendary.fun. Do not change."
     },
     {
+      "name": "Trade",
+      "description": "Live legendary.fun buy/sell prepare/submit. Partner calls require x-legendary-api-key issued by the site owner."
+    },
+    {
       "name": "Native v1",
       "description": "Additive Legendary discovery over factory launches + quotes"
     },
@@ -39,6 +43,10 @@
     {
       "name": "Meteora-shaped",
       "description": "Compatibility facade overlaying the factory list"
+    },
+    {
+      "name": "Owner key",
+      "description": "Trades, token launch, claims, and rewards. Header x-legendary-api-key issued by the legendary.fun site owner. Missing key returns 401 API_KEY_REQUIRED. This is not an onchain fill."
     }
   ],
   "paths": {
@@ -79,7 +87,7 @@
           "Existing DAP"
         ],
         "summary": "Factory launch discovery",
-        "description": "The Discover list the website uses. Schema 1, scope factory-launch-discovery-v1. Body { query, limit: 20|50, cursor }. Includes curve tokens such as LMEOW.",
+        "description": "The Discover list the legendary.fun website uses. Schema 1, scope factory-launch-discovery-v1. Body { query, limit: 20|50, cursor }.",
         "operationId": "postDiscovery",
         "x-status": "live",
         "x-try-body": "{\n  \"query\": \"\",\n  \"limit\": 50,\n  \"cursor\": null\n}",
@@ -144,6 +152,237 @@
         "responses": {
           "200": {
             "description": "OHLCV candles"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/market-ticket": {
+      "get": {
+        "tags": [
+          "Trade"
+        ],
+        "summary": "Market websocket ticket",
+        "operationId": "getMarketTicket",
+        "x-status": "live",
+        "responses": {
+          "200": {
+            "description": "wss ticket"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/market-metrics/{mint}": {
+      "get": {
+        "tags": [
+          "Trade"
+        ],
+        "summary": "Holders and 24h volume for a mint",
+        "operationId": "getMarketMetrics",
+        "x-status": "live",
+        "parameters": [
+          {
+            "name": "mint",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metrics JSON"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/auth/challenge": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Sign-in challenge",
+        "description": "Requires x-legendary-api-key issued by the site owner. SIWS challenge for mainnet trading. Body { wallet, mint? }.",
+        "operationId": "postAuthChallenge",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\"\n}",
+        "responses": {
+          "200": {
+            "description": "Challenge message"
+          },
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "400": {
+            "description": "INVALID_REQUEST"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/auth/verify": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Complete sign-in",
+        "description": "Requires x-legendary-api-key issued by the site owner.",
+        "operationId": "postAuthVerify",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"challengeId\": \"\",\n  \"signatureBase64\": \"\"\n}",
+        "responses": {
+          "200": {
+            "description": "Session + csrf"
+          },
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "400": {
+            "description": "INVALID_REQUEST"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/prepare": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Prepare unsigned curve buy/sell",
+        "description": "Requires x-legendary-api-key issued by the site owner. Unauthenticated calls return 401 API_KEY_REQUIRED. A valid key is not an onchain fill.",
+        "operationId": "postPrepare",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\",\n  \"side\": \"buy\",\n  \"amount\": \"1000000000\",\n  \"slippageBps\": 100\n}",
+        "responses": {
+          "200": {
+            "description": "Unsigned transaction + admission"
+          },
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/graduated/prepare": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Prepare unsigned graduated trade",
+        "description": "Requires x-legendary-api-key issued by the site owner. A valid key is not an onchain fill.",
+        "operationId": "postGraduatedPrepare",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\",\n  \"side\": \"buy\",\n  \"amount\": \"1000000000\",\n  \"slippageBps\": 100\n}",
+        "responses": {
+          "200": {
+            "description": "Unsigned graduated trade"
+          },
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/submit": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Submit signed trade bytes",
+        "description": "Requires x-legendary-api-key issued by the site owner. A valid key is not an onchain fill.",
+        "operationId": "postSubmit",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"attemptId\": \"\",\n  \"wireBase64\": \"\"\n}",
+        "responses": {
+          "200": {
+            "description": "Signature"
+          },
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/freshness": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Refresh slot/revision for an attempt",
+        "description": "Requires x-legendary-api-key issued by the site owner.",
+        "operationId": "postFreshness",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"attemptId\": \"\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          }
+        }
+      }
+    },
+    "/api/mainnet/trade/simulate": {
+      "post": {
+        "tags": [
+          "Trade",
+          "Owner key"
+        ],
+        "summary": "Simulate signed trade bytes",
+        "description": "Requires x-legendary-api-key issued by the site owner.",
+        "operationId": "postSimulate",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"attemptId\": \"\",\n  \"wireBase64\": \"\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
           }
         }
       }
@@ -555,6 +794,155 @@
             "description": "Integer quote"
           }
         }
+      }
+    },
+    "/api/v1/create": {
+      "post": {
+        "tags": [
+          "Owner key"
+        ],
+        "summary": "Token launcher",
+        "description": "Requires x-legendary-api-key issued by the site owner. Unauthenticated calls return 401 API_KEY_REQUIRED. A valid key does not mint a token by itself.",
+        "operationId": "postCreate",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"name\": \"\",\n  \"ticker\": \"\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          },
+          "501": {
+            "description": "NOT_DEPLOYED after a valid key. Not an onchain result."
+          }
+        }
+      }
+    },
+    "/api/v1/rewards": {
+      "get": {
+        "tags": [
+          "Owner key"
+        ],
+        "summary": "Rewards snapshot",
+        "description": "Requires x-legendary-api-key issued by the site owner.",
+        "operationId": "getRewards",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          },
+          "501": {
+            "description": "NOT_DEPLOYED after a valid key."
+          }
+        }
+      }
+    },
+    "/api/v1/rewards/claim": {
+      "post": {
+        "tags": [
+          "Owner key"
+        ],
+        "summary": "Claim rewards",
+        "description": "Requires x-legendary-api-key issued by the site owner. Unauthenticated calls return 401 API_KEY_REQUIRED. This is not an onchain fill.",
+        "operationId": "postRewardsClaim",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          },
+          "501": {
+            "description": "NOT_DEPLOYED after a valid key. Not an onchain result."
+          }
+        }
+      }
+    },
+    "/api/v1/graduation-claims": {
+      "post": {
+        "tags": [
+          "Owner key"
+        ],
+        "summary": "Graduation claims",
+        "description": "Requires x-legendary-api-key issued by the site owner. Unauthenticated calls return 401 API_KEY_REQUIRED.",
+        "operationId": "postGraduationClaims",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"mint\": \"422DqsfnCANTP7vNToY7hdBaEXPE1qoc6CD9QyDGLGND\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          },
+          "501": {
+            "description": "NOT_DEPLOYED after a valid key. Not an onchain result."
+          }
+        }
+      }
+    },
+    "/api/compat/pump/v3/coins/create": {
+      "post": {
+        "tags": [
+          "Owner key"
+        ],
+        "summary": "Pump-shaped token launcher",
+        "description": "Same owner API key as POST /api/v1/create. Does not emit Pump program bytes.",
+        "operationId": "postPumpCreate",
+        "x-status": "keyed",
+        "security": [
+          {
+            "OwnerApiKey": []
+          }
+        ],
+        "x-try-body": "{\n  \"wallet\": \"11111111111111111111111111111111\",\n  \"name\": \"\",\n  \"ticker\": \"\"\n}",
+        "responses": {
+          "401": {
+            "description": "API_KEY_REQUIRED"
+          },
+          "403": {
+            "description": "API_KEY"
+          },
+          "501": {
+            "description": "NOT_DEPLOYED after a valid key. Not an onchain result."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "OwnerApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-legendary-api-key",
+        "description": "Issued by the legendary.fun site owner. Required for token launch, claims, and rewards."
       }
     }
   }

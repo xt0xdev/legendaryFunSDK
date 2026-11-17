@@ -10,7 +10,7 @@ Reads live factory discovery (`POST /api/mainnet/trade/discovery`) and mint quot
 
 The handler only answers `/api/v1/*`, `/api/compat/pump/v3/*`, and `/api/compat/meteora/v1/*`. Everything else returns `null` so the existing gateway keeps those paths.
 
-Does not sign or host execute. Integer `POST /api/v1/quote` reads live curve state. Candles map `GET /api/mainnet/trade/candles-swap/{mint}/{interval}`. Create, claims, hosted swap, Pump buy/sell, and empty tape routes are **404 DISABLED**. Site trading stays on legendary.fun same-origin.
+Integer `POST /api/v1/quote` reads live curve state. Candles map `GET /api/mainnet/trade/candles-swap/{mint}/{interval}`. Trade prepare/submit, token launch, claims, and rewards require header `x-legendary-api-key` issued by the site owner (**401 API_KEY_REQUIRED** without a key).
 
 ```sh
 node --test packages/partner-public-api/tests/*.test.mjs

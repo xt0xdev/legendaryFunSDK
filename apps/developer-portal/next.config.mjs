@@ -50,7 +50,7 @@ const nextConfig = {
         headers: [
           { key: 'Access-Control-Allow-Origin', value: '*' },
           { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS' },
-          { key: 'Access-Control-Allow-Headers', value: 'accept, content-type' },
+          { key: 'Access-Control-Allow-Headers', value: 'accept, content-type, x-legendary-csrf, x-legendary-api-key' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
         ],

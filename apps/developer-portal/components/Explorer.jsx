@@ -8,11 +8,13 @@ const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 function statusClass(status) {
   if (status === 'live') return 'pill live';
   if (status === 'additive') return 'pill add';
+  if (status === 'keyed') return 'pill key';
   return 'pill wait';
 }
 
 function statusLabel(status) {
   if (status === 'live') return 'Live DAP';
+  if (status === 'keyed') return 'API key';
   return 'Working';
 }
 
@@ -22,6 +24,7 @@ export default function Explorer() {
   const [selected, setSelected] = useState('');
   const [mint, setMint] = useState(DEFAULT_MINT);
   const [body, setBody] = useState('');
+  const [apiKey, setApiKey] = useState('');
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -46,8 +49,8 @@ export default function Explorer() {
       for (const [method, op] of Object.entries(methods)) {
         if (typeof op !== 'object' || Array.isArray(op)) continue;
         const status = op['x-status'] || 'additive';
-        if (status !== 'live' && status !== 'additive') continue;
-        if (/\/(swap|create|claim|trades|stream|prepare)\b/.test(path)) continue;
+        if (status !== 'live' && status !== 'additive' && status !== 'keyed') continue;
+        if (/\/(trades|stream)\b/.test(path)) continue;
         out.push({
           id: `${method.toUpperCase()} ${path}`,
           method: method.toUpperCase(),
@@ -84,6 +87,9 @@ export default function Explorer() {
         method: current.method,
         headers: { accept: 'application/json' },
       };
+      if (current.status === 'keyed' && apiKey.trim()) {
+        init.headers['x-legendary-api-key'] = apiKey.trim();
+      }
       if (current.method !== 'GET' && current.method !== 'OPTIONS') {
         init.headers['content-type'] = 'application/json';
         if (body.trim()) init.body = body;
@@ -135,6 +141,19 @@ export default function Explorer() {
             <input value={mint} onChange={(e) => setMint(e.target.value)} autoComplete="off" spellCheck="false" />
           </label>
         ) : null}
+        {current.status === 'keyed' ? (
+          <label>
+            x-legendary-api-key
+            <input
+              type="password"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              autoComplete="off"
+              spellCheck="false"
+              placeholder="issued by the site owner"
+            />
+          </label>
+        ) : null}
         {current.tryBody || current.method === 'POST' ? (
           <label>
             JSON body
@@ -150,7 +169,7 @@ export default function Explorer() {
             <pre>{typeof result.body === 'string' ? result.body : JSON.stringify(result.body, null, 2)}</pre>
           </>
         ) : (
-          <p className="note">Hits this portal. Catalog, discovery, quotes, and candles read https://legendary.fun.</p>
+          <p className="note">Hits this portal. Catalog, discovery, quotes, and candles read https://legendary.fun. Trades, token launch, claims, and rewards need an owner-issued API key.</p>
         )}
       </div>
     </div>

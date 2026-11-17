@@ -21,10 +21,18 @@ import {
 } from './project.mjs';
 import { uniqueMints } from './live.mjs';
 import { QuoteError, quoteTrade } from '../partner-sdk-v5/src/quote.mjs';
+import {
+  API_KEY_HEADER,
+  KEYED_NOT_DEPLOYED_MESSAGE,
+  inspectOwnerApiKey,
+  parseOwnerApiKeys,
+  presentedApiKey,
+} from './api-key.mjs';
 import idl from './idl.mjs';
 
-const DISABLED_MESSAGE = 'This partner prefix does not serve create, claims, hosted swap, or Pump/Meteora execute. Site trading is same-origin on legendary.fun.';
+const DISABLED_MESSAGE = 'Public trade tape and unsigned /swap are off. Token launch, claims, and rewards use an owner-issued API key on /api/v1/create, /api/v1/rewards, and /api/v1/graduation-claims.';
 const CANDLE_INTERVALS = new Set(['1m', '5m', '15m', '1h', '4h', '24h', '7d']);
+const ALLOW_HEADERS = `accept, content-type, x-legendary-csrf, ${API_KEY_HEADER}`;
 
 const HEADERS = {
   'content-type': 'application/json; charset=utf-8',
@@ -32,12 +40,12 @@ const HEADERS = {
   'cdn-cache-control': 'no-store',
   'access-control-allow-origin': '*',
   'access-control-allow-methods': 'GET, POST, OPTIONS',
-  'access-control-allow-headers': 'accept, content-type',
+  'access-control-allow-headers': ALLOW_HEADERS,
   'x-content-type-options': 'nosniff',
   'x-robots-tag': 'noindex, nofollow',
 };
 
-const SITE_LANE = new Set([
+const KEYED_LANE = new Set([
   'create',
   'rewards',
   'rewards/claim',
@@ -69,8 +77,8 @@ function findToken(catalog, mint) {
   return catalogTokens(catalog).find((row) => row.mint === mint) || null;
 }
 
-function isSiteLane(rest) {
-  if (SITE_LANE.has(rest)) return true;
+function isKeyedLane(rest) {
+  if (KEYED_LANE.has(rest)) return true;
   return rest.startsWith('create/')
     || rest.startsWith('graduation-claims/')
     || rest.startsWith('rewards/')
@@ -164,9 +172,14 @@ export function createPartnerPublicApi({
   readDiscovery,
   readQuotes,
   readCandles,
+  createLaunch,
+  claimRewards,
+  readRewards,
+  ownerApiKeys = parseOwnerApiKeys(process.env.LEGENDARY_OWNER_API_KEYS),
   identity = DEFAULT_IDENTITY,
 } = {}) {
   if (typeof readCatalog !== 'function' || typeof readFx !== 'function') throw new Error('CONFIG');
+  const acceptedKeys = parseOwnerApiKeys(ownerApiKeys);
   return Object.freeze({
     matchPartnerPath,
     async fetch(request) {
@@ -179,12 +192,12 @@ export function createPartnerPublicApi({
           headers: {
             'access-control-allow-origin': '*',
             'access-control-allow-methods': 'GET, POST, OPTIONS',
-            'access-control-allow-headers': 'accept, content-type',
+            'access-control-allow-headers': ALLOW_HEADERS,
           },
         });
       }
       if (request.method !== 'GET' && request.method !== 'POST') {
-        return fail(405, 'METHOD', 'Use GET for lists. POST is admitted for /discovery, /markets, and /quote.');
+        return fail(405, 'METHOD', 'Use GET for lists. POST is admitted for /discovery, /markets, /quote, /create, /rewards/claim, and /graduation-claims.');
       }
       try {
         const ports = {
@@ -193,6 +206,10 @@ export function createPartnerPublicApi({
           readDiscovery: typeof readDiscovery === 'function' ? readDiscovery : null,
           readQuotes: typeof readQuotes === 'function' ? readQuotes : null,
           readCandles: typeof readCandles === 'function' ? readCandles : null,
+          createLaunch: typeof createLaunch === 'function' ? createLaunch : null,
+          claimRewards: typeof claimRewards === 'function' ? claimRewards : null,
+          readRewards: typeof readRewards === 'function' ? readRewards : null,
+          ownerApiKeys: acceptedKeys,
           identity,
           signal: request.signal,
           url,
@@ -277,9 +294,73 @@ async function resolveRow(mint, ports) {
   return findToken(surface.catalog, mint);
 }
 
+function keyedGate(request, ports) {
+  const gate = inspectOwnerApiKey(presentedApiKey(request), ports.ownerApiKeys);
+  if (!gate.ok) return fail(gate.status, gate.code, gate.message);
+  return null;
+}
+
+function notDeployed() {
+  return fail(501, 'NOT_DEPLOYED', KEYED_NOT_DEPLOYED_MESSAGE);
+}
+
+async function keyedCreate(ports, request) {
+  const blocked = keyedGate(request, ports);
+  if (blocked) return blocked;
+  if (request.method !== 'POST') {
+    return fail(405, 'METHOD', 'POST /api/v1/create with wallet, name, and ticker.');
+  }
+  const body = await jsonBody(request);
+  if (typeof body.wallet !== 'string' || !body.wallet.trim()) {
+    return fail(400, 'AMOUNT', 'wallet is required. This is not an onchain result.');
+  }
+  if (typeof ports.createLaunch === 'function') {
+    const result = await ports.createLaunch(body, ports.signal);
+    if (!result || typeof result !== 'object' || Array.isArray(result)) return notDeployed();
+    return json({ ...result, admitted: false });
+  }
+  return notDeployed();
+}
+
+async function keyedRewards(rest, ports, request) {
+  const blocked = keyedGate(request, ports);
+  if (blocked) return blocked;
+  const claim = rest === 'rewards/claim' || rest === 'claims' || (rest === 'graduation-claims' && request.method === 'POST');
+  const read = rest === 'rewards' || rest === 'graduation-claims' || rest.startsWith('rewards/') || rest.startsWith('claims/');
+  if (claim) {
+    if (request.method !== 'POST') {
+      return fail(405, 'METHOD', 'POST /api/v1/rewards/claim or /api/v1/graduation-claims with wallet.');
+    }
+    const body = await jsonBody(request);
+    if (typeof body.wallet !== 'string' || !body.wallet.trim()) {
+      return fail(400, 'AMOUNT', 'wallet is required. This is not an onchain result.');
+    }
+    if (typeof ports.claimRewards === 'function') {
+      const result = await ports.claimRewards(body, ports.signal);
+      if (!result || typeof result !== 'object' || Array.isArray(result)) return notDeployed();
+      return json({ ...result, admitted: false });
+    }
+    return notDeployed();
+  }
+  if (read) {
+    if (request.method !== 'GET') {
+      return fail(405, 'METHOD', 'GET /api/v1/rewards or /api/v1/graduation-claims.');
+    }
+    if (typeof ports.readRewards === 'function') {
+      const result = await ports.readRewards(ports.url, ports.signal);
+      if (!result || typeof result !== 'object' || Array.isArray(result)) return notDeployed();
+      return json({ ...result, admitted: false });
+    }
+    return notDeployed();
+  }
+  return notDeployed();
+}
+
 async function v1(rest, ports, request) {
   const method = request.method;
-  if (isSiteLane(rest) || rest === 'swap') return disabled();
+  if (rest === 'create' || rest.startsWith('create/')) return keyedCreate(ports, request);
+  if (isKeyedLane(rest)) return keyedRewards(rest, ports, request);
+  if (rest === 'swap') return disabled();
   if (rest === 'idl') return json(idl);
   if (rest === 'quote' && (method === 'GET' || method === 'POST')) {
     try {
@@ -363,7 +444,8 @@ async function v1(rest, ports, request) {
 
 async function pump(rest, ports, request) {
   const method = request.method;
-  if (rest === 'coins/create' || rest === 'buy' || rest === 'sell' || rest.startsWith('trades')) {
+  if (rest === 'coins/create') return keyedCreate(ports, request);
+  if (rest === 'buy' || rest === 'sell' || rest.startsWith('trades')) {
     return disabled();
   }
   const sticks = rest.match(/^candlesticks\/([1-9A-HJ-NP-Za-km-z]{32,44})(?:\/([A-Za-z0-9]+))?$/);

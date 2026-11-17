@@ -3,37 +3,53 @@ import Explorer from '../components/Explorer.jsx';
 const SDK = `// https://github.com/xt0xdev/legendaryFunSDK  — public source, not on npm
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
-const lg = createLegendarySdk({ origin: 'https://legendary.fun' });
+const lg = createLegendarySdk({
+  origin: 'https://legendary.fun',
+  apiKey: process.env.LEGENDARY_OWNER_API_KEY, // issued by the site owner
+});
 
 const launches = await lg.native.discover({ query: '', limit: 50 });
 const markets  = await lg.native.markets(launches.tokens.map((t) => t.mint));
 const coins    = await lg.pump.getLatestCoins();
 const pools    = await lg.meteora.getPools();
 const quote    = await lg.native.quote({ mint: launches.tokens[0].mint, side: 'buy', amount: '1000000000' });
-const candles  = await lg.native.candles(launches.tokens[0].mint, '1m');`;
+const candles  = await lg.native.candles(launches.tokens[0].mint, '1m');
+await lg.native.challenge({ wallet: trader });
+const prepared = await lg.native.prepare({
+  wallet: trader, mint: launches.tokens[0].mint, side: 'buy', amount: '1000000000', slippageBps: 100,
+});
+await lg.native.create({ wallet: creator, name, ticker });
+await lg.native.claimRewards({ wallet: holder, mint: launches.tokens[0].mint });`;
 
-const PUMP = `GET /api/compat/pump/v3/coins/latest
-GET /api/compat/pump/v3/coins/search?query=
-GET /api/compat/pump/v3/coins/{mint}
-GET /api/compat/pump/v3/candlesticks/{mint}/1m
-GET /api/compat/pump/v3/sol-price`;
+const PUMP = `GET  /api/compat/pump/v3/coins/latest
+GET  /api/compat/pump/v3/coins/search?query=
+GET  /api/compat/pump/v3/coins/{mint}
+GET  /api/compat/pump/v3/candlesticks/{mint}/1m
+GET  /api/compat/pump/v3/sol-price
+POST /api/mainnet/trade/prepare   x-legendary-api-key
+POST /api/compat/pump/v3/coins/create   x-legendary-api-key`;
 
 const METEORA = `GET  /api/compat/meteora/v1/pools
 GET  /api/compat/meteora/v1/pools/{mint}
-POST /api/compat/meteora/v1/quote`;
+POST /api/compat/meteora/v1/quote
+POST /api/mainnet/trade/prepare   x-legendary-api-key`;
 
 const NATIVE = `GET  /api/v1/tokens
-GET  /api/v1/tokens/{mint}
-POST /api/v1/discovery
-POST /api/v1/markets
-POST /api/v1/quote     { mint, side, amount }
-GET  /api/v1/tokens/{mint}/candles?interval=1m
-GET  /api/v1/idl`;
+POST /api/v1/quote
+POST /api/mainnet/trade/auth/challenge  x-legendary-api-key
+POST /api/mainnet/trade/auth/verify     x-legendary-api-key
+POST /api/mainnet/trade/prepare         x-legendary-api-key
+POST /api/mainnet/trade/submit          x-legendary-api-key
+POST /api/mainnet/trade/graduated/prepare  x-legendary-api-key
+POST /api/v1/create                x-legendary-api-key
+GET  /api/v1/rewards               x-legendary-api-key
+POST /api/v1/rewards/claim         x-legendary-api-key
+POST /api/v1/graduation-claims     x-legendary-api-key`;
 
 function Brand({ href = '/', compact = false }) {
   return (
     <a className="brand" href={href}>
-      <img className="brand-mark" src="/lmeow-logo-v4.jpg" alt="" width={42} height={42} />
+      <img className="brand-mark" src="/legendary-mark.jpg" alt="" width={42} height={42} />
       <span className="brand-copy">
         <strong>LEGENDARY</strong>
         {compact ? null : <small>Developers</small>}
@@ -67,8 +83,8 @@ export default function Page() {
             <h1>Integrate Legendary. <i>Three paths, one program.</i></h1>
             <p className="lede">
               Native, Pump-shaped, and Meteora-shaped discovery over the live factory list
-              (Discover + mint quotes). Integer quote and candles are on this page.
-              Trading is the legendary.fun token page.
+              on legendary.fun. Integer quote and candles are on.
+              Trades, token launch, claims, and rewards take an API key issued by the site owner.
             </p>
             <div className="actions">
               <a className="btn" href="#explorer">Open API explorer</a>
@@ -104,7 +120,7 @@ export default function Page() {
         <p className="note">
           Public source: <a href="https://github.com/xt0xdev/legendaryFunSDK">github.com/xt0xdev/legendaryFunSDK</a>.
           Folder <code>packages/partner-sdk-v5</code>. Intended npm name <code>@legendary-fun/sdk</code> is <strong>not on npm</strong>.
-          No cookies, keys, or v4 bytes. <code>discover()</code>, <code>quote()</code>, and <code>candles()</code> are the working client calls.
+          No v4 bytes. <code>discover()</code> and <code>quote()</code> are public. <code>prepare()</code>, <code>submit()</code>, <code>create()</code>, and <code>claimRewards()</code> send <code>x-legendary-api-key</code>.
         </p>
         <pre>{SDK}</pre>
 
@@ -118,7 +134,7 @@ export default function Page() {
         </div>
 
         <h2 className="sec" id="reference">API reference</h2>
-        <p className="note">Only routes that return data. Live rows are on legendary.fun. Additive rows work on this portal and overlay that same factory list.</p>
+        <p className="note">Live rows are on legendary.fun. Additive rows overlay that same factory list. Trades, token launch, claims, and rewards require header <code>x-legendary-api-key</code> issued by the site owner.</p>
         <div className="table-wrap">
           <table className="ref">
             <thead>
@@ -130,8 +146,15 @@ export default function Page() {
               <tr><td><span className="pill live">Live</span></td><td>POST</td><td className="mono">/api/mainnet/trade/catalog</td><td>Mint quotes / market cap. {'{ mints, version:3 }'} schema 2.</td></tr>
               <tr><td><span className="pill live">Live</span></td><td>GET</td><td className="mono">/api/mainnet/trade/bootstrap</td><td>Factory, genesis, CTO.</td></tr>
               <tr><td><span className="pill live">Live</span></td><td>GET</td><td className="mono">/api/mainnet/trade/candles-swap/{'{mint}'}/1m</td><td>Live OHLCV used by the token page.</td></tr>
+              <tr><td><span className="pill live">Live</span></td><td>GET</td><td className="mono">/api/mainnet/trade/market-ticket</td><td>Websocket ticket for market stream.</td></tr>
+              <tr><td><span className="pill live">Live</span></td><td>GET</td><td className="mono">/api/mainnet/trade/market-metrics/{'{mint}'}</td><td>Holders/volume snapshot for a mint.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/mainnet/trade/auth/challenge</td><td>SIWS challenge. Same owner API key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/mainnet/trade/auth/verify</td><td>Complete sign-in. Same owner API key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/mainnet/trade/prepare</td><td>Unsigned curve buy/sell. Header x-legendary-api-key. 401 without a key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/mainnet/trade/graduated/prepare</td><td>Unsigned Raydium-graduated trade. Same owner API key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/mainnet/trade/submit</td><td>Submit signed trade bytes. Same owner API key. Not an onchain fill by itself.</td></tr>
               <tr><td><span className="pill live">Live</span></td><td>GET</td><td className="mono">/api/market/sol-usd</td><td>Display FX only.</td></tr>
-              <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/v1/tokens</td><td>Factory list + quotes. Includes LMEOW-style curve mints.</td></tr>
+              <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/v1/tokens</td><td>Factory list + quotes from the live Discover list on legendary.fun.</td></tr>
               <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/v1/tokens/{'{mint}'}</td><td>One token, name/ticker from Discover.</td></tr>
               <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/v1/tokens/{'{mint}'}/curve</td><td>graduated vs onFactoryCurve.</td></tr>
               <tr><td><span className="pill add">Additive</span></td><td>POST</td><td className="mono">/api/v1/discovery</td><td>Partner-shaped Discover page.</td></tr>
@@ -149,18 +172,18 @@ export default function Page() {
               <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/compat/meteora/v1/pools</td><td>DBC-shaped overlay of factory launches.</td></tr>
               <tr><td><span className="pill add">Additive</span></td><td>GET</td><td className="mono">/api/compat/meteora/v1/pools/{'{mint}'}</td><td>One pool.</td></tr>
               <tr><td><span className="pill add">Additive</span></td><td>POST</td><td className="mono">/api/compat/meteora/v1/quote</td><td>Legendary integer quote overlay.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/v1/create</td><td>Token launcher. Header x-legendary-api-key. 401 without a key. Not an onchain fill.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>GET</td><td className="mono">/api/v1/rewards</td><td>Rewards snapshot. Same owner API key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/v1/rewards/claim</td><td>Claim rewards. Same owner API key. 401 without a key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/v1/graduation-claims</td><td>Graduation claims. Same owner API key.</td></tr>
+              <tr><td><span className="pill key">API key</span></td><td>POST</td><td className="mono">/api/compat/pump/v3/coins/create</td><td>Pump-shaped token launcher. Same owner API key.</td></tr>
             </tbody>
           </table>
         </div>
 
         <h2 className="sec" id="explorer">API explorer</h2>
-        <p className="note">Try-it hits this host. Every path in the list below is a working read or quote.</p>
+        <p className="note">Try-it hits this host. Trades, token launch, claims, and rewards return 401 until you send an owner-issued API key.</p>
         <Explorer />
-
-        <h2 className="sec" id="auto">Auto-detect</h2>
-        <p className="callout">
-          Extra DAP paths make Legendary <strong>listable</strong>, not magically detected. Contact Jupiter, GMGN, Axiom, and Fomo to add <code>launchpad=legendary</code> / <code>DexType.Legendary</code> and point crawlers at <code>/api/v1/tokens</code>, Pump coins, or Meteora pools. Graduated tokens already appear in Jupiter as Raydium CPMM.
-        </p>
       </div>
 
       <footer className="site-footer">

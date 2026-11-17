@@ -2,7 +2,7 @@
 
 Public source for the **SDK**, **developer portal**, and **additive partner API**.
 
-This is **not** the Legendary.fun DAP. The portal documents working discovery, quote, and candle routes. Existing catalog/bootstrap/fx on `https://legendary.fun` are unchanged. Site trading stays same-origin on the token page.
+This is **not** the Legendary.fun DAP. Existing catalog/bootstrap/fx on `https://legendary.fun` are unchanged. Partner trades, token launch, claims, and rewards require header `x-legendary-api-key` issued by the site owner.
 
 **Not on npm.** `@legendary-fun/sdk` is the intended name of `packages/partner-sdk-v5` and is `"private": true` until a publish is authorized.
 
@@ -32,21 +32,27 @@ npm start
 # http://127.0.0.1:8833
 ```
 
-Catalog, discovery, quotes, bootstrap, and candles are read from `https://legendary.fun`. Additive partner paths are served here until they ship on the main site.
+Catalog, discovery, quotes, bootstrap, and candles are read from `https://legendary.fun`. Trade prepare/submit, create, claims, and rewards require `x-legendary-api-key`.
 
 ## Use the SDK from this repo
 
 ```js
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
-const lg = createLegendarySdk({ origin: 'https://legendary.fun' });
+const lg = createLegendarySdk({
+  origin: 'https://legendary.fun',
+  apiKey: process.env.LEGENDARY_OWNER_API_KEY,
+});
 const launches = await lg.native.discover({ query: '', limit: 50 });
 const coins = await lg.pump.getLatestCoins();
 const pools = await lg.meteora.getPools();
 const quote = await lg.native.quote({ mint: launches.tokens[0].mint, side: 'buy', amount: '1000000000' });
+const prepared = await lg.native.prepare({
+  wallet: trader, mint: launches.tokens[0].mint, side: 'buy', amount: '1000000000', slippageBps: 100,
+});
 ```
 
-`create()`, `claimRewards()`, Pump `buy()`/`sell()`, and Meteora `swap2()` throw `DISABLED`. Execute on the legendary.fun token page.
+Missing keys return `API_KEY_REQUIRED`. A valid key is not an onchain fill. Site trading on legendary.fun still uses the token-page wallet session.
 
 ```sh
 node --test packages/partner-sdk-v5/tests/*.test.mjs
