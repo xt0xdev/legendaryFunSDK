@@ -34,4 +34,8 @@ test('openapi lists live, partner, and owner-keyed launch/claim routes', () => {
   assert.equal(spec.components.securitySchemes.OwnerApiKey.name, 'x-legendary-api-key');
   assert.equal((spec.tags || []).some((tag) => tag.name === 'Site lane'), false);
   assert.equal((spec.tags || []).some((tag) => tag.name === 'Owner key'), true);
+  const serverUrls = (spec.servers || []).map((server) => server.url);
+  assert.ok(serverUrls.includes('https://api.legendary.fun'));
+  assert.ok(serverUrls.includes('https://developer.legendary.fun'));
+  assert.ok(serverUrls.includes('https://legendary.fun'));
 });

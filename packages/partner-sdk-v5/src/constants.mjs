@@ -16,7 +16,7 @@ export const TAGS = Object.freeze({
 });
 export const LIVE_ORIGIN = 'https://legendary.fun';
 export const PORTAL_ORIGIN = 'https://developer.legendary.fun';
-export const PORTAL_ORIGIN_ALIAS = 'https://legendary.devbyclaw.com';
+export const PORTAL_ORIGIN_ALIAS = 'https://api.legendary.fun';
 export const MARKET_STREAM = 'wss://api.legendary.fun/api/mainnet/market/stream';
 export const PATHS = Object.freeze({
   catalog: '/api/mainnet/trade/catalog',

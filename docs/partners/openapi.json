@@ -11,12 +11,12 @@
       "description": "Main site (intended partner origin)"
     },
     {
-      "url": "https://developer.legendary.fun",
-      "description": "Public developer portal (CNAME)"
+      "url": "https://api.legendary.fun",
+      "description": "Partner API origin"
     },
     {
-      "url": "https://legendary.devbyclaw.com",
-      "description": "Portal origin; developer.legendary.fun CNAMEs here"
+      "url": "https://developer.legendary.fun",
+      "description": "Public developer portal"
     },
     {
       "url": "http://127.0.0.1:8833",

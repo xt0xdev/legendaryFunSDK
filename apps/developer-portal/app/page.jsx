@@ -4,7 +4,7 @@ const SDK = `// https://github.com/xt0xdev/legendaryFunSDK  — public source, n
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
 const lg = createLegendarySdk({
-  origin: 'https://legendary.fun',
+  origin: 'https://api.legendary.fun',
   apiKey: process.env.LEGENDARY_OWNER_API_KEY, // issued by the site owner
 });
 
@@ -196,7 +196,7 @@ export default function Page() {
             <a href="https://legendary.fun">Launchpad</a>
           </nav>
         </div>
-        <p style={{ margin: '14px 0 0' }}>developer.legendary.fun → legendary.devbyclaw.com · existing DAP unchanged · preview surfaces labeled · not a production audit.</p>
+        <p style={{ margin: '14px 0 0' }}>api.legendary.fun · developer.legendary.fun · existing DAP unchanged · preview surfaces labeled · not a production audit.</p>
       </footer>
     </>
   );

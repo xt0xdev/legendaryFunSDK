@@ -6,12 +6,13 @@ This is **not** the Legendary.fun DAP. Existing catalog/bootstrap/fx on `https:/
 
 **Not on npm.** `@legendary-fun/sdk` is the intended name of `packages/partner-sdk-v5` and is `"private": true` until a publish is authorized.
 
-## Live portal
+## Live hosts
 
-- https://developer.legendary.fun
-- https://legendary.devbyclaw.com (origin)
+- https://api.legendary.fun — partner API origin
+- https://developer.legendary.fun — docs portal
+- https://legendary.fun — launchpad
 
-Partner prefixes are intended to run on `https://legendary.fun` (`/api/v1`, `/api/compat/pump/v3`, `/api/compat/meteora/v1`). Until that Next app is deployed, the portal overlay still serves the same additive reads.
+Partner prefixes are `/api/v1`, `/api/compat/pump/v3`, and `/api/compat/meteora/v1`. Until those routes are deployed on the intended origin, the portal overlay still serves the same additive reads.
 
 ## Layout
 
@@ -40,7 +41,7 @@ Catalog, discovery, quotes, bootstrap, and candles are read from `https://legend
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
 const lg = createLegendarySdk({
-  origin: 'https://legendary.fun',
+  origin: 'https://api.legendary.fun',
   apiKey: process.env.LEGENDARY_OWNER_API_KEY,
 });
 const launches = await lg.native.discover({ query: '', limit: 50 });

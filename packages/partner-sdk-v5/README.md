@@ -15,7 +15,7 @@ Not on npm. Intended name `@legendary-fun/sdk` stays `"private": true` until a p
 import { createLegendarySdk } from './packages/partner-sdk-v5/src/index.mjs';
 
 const lg = createLegendarySdk({
-  origin: 'https://legendary.fun',
+  origin: 'https://api.legendary.fun',
   apiKey: process.env.LEGENDARY_OWNER_API_KEY,
 });
 const launches = await lg.native.discover({ query: '', limit: 50 });

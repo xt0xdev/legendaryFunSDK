@@ -35,7 +35,7 @@ const nextConfig = {
   outputFileTracingRoot: repoRoot,
   allowedDevOrigins: [
     'developer.legendary.fun',
-    'legendary.devbyclaw.com',
+    'api.legendary.fun',
     '127.0.0.1',
     'localhost',
   ],

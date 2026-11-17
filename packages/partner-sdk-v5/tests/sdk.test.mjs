@@ -104,9 +104,9 @@ test('integer buy quote returns output from genesis curve state', () => {
   assert.ok(BigInt(quoted.output) > 0n);
 });
 
-test('portal CNAME origin is an allowed discovery origin', () => {
+test('portal and partner API origins are allowed discovery origins', () => {
   const portal = createLegendarySdk({ origin: PORTAL_ORIGIN });
   const alias = createLegendarySdk({ origin: PORTAL_ORIGIN_ALIAS });
   assert.equal(portal.discovery.origin, 'https://developer.legendary.fun');
-  assert.equal(alias.discovery.origin, 'https://legendary.devbyclaw.com');
+  assert.equal(alias.discovery.origin, 'https://api.legendary.fun');
 });

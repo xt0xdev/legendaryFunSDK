@@ -1,14 +1,14 @@
-/** Public names for this portal. developer.legendary.fun CNAMEs to legendary.devbyclaw.com. */
+/** Public names for this portal. Partner API origin is api.legendary.fun. */
 export const PORTAL_HOSTS = Object.freeze([
   'developer.legendary.fun',
-  'legendary.devbyclaw.com',
+  'api.legendary.fun',
   '127.0.0.1',
   'localhost',
 ]);
 
 export const PORTAL_ORIGINS = Object.freeze([
   'https://developer.legendary.fun',
-  'https://legendary.devbyclaw.com',
+  'https://api.legendary.fun',
 ]);
 
 export function parseHost(hostHeader) {

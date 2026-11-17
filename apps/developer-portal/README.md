@@ -4,10 +4,10 @@ One-page Next.js integrator portal. Serves the partner PDF, OpenAPI/Swagger expl
 
 This page documents working discovery, quote, and candle routes on legendary.fun. Trades, token launch, claims, and rewards require header `x-legendary-api-key` issued by the site owner.
 
-Public hosts (both accepted):
+Public hosts:
 
-- `https://developer.legendary.fun` (CNAME to the origin below)
-- `https://legendary.devbyclaw.com` (origin)
+- `https://developer.legendary.fun` (docs portal)
+- `https://api.legendary.fun` (partner API origin)
 
 ```
 npm run dev
